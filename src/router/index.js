@@ -36,7 +36,6 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
   {
     path: '/404',
     component: () => import('@/views/404'),
@@ -46,6 +45,39 @@ export const constantRoutes = [
     path: '/',
     component: () => import('@/views/home'),
     hidden: true
+  },
+
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/',
+    children: [
+      {
+        path: 'notice',
+        name: '通知公告',
+        component: () => import('@/views/notice'),
+      },
+      {
+        path: 'family',
+        name: '职工之家',
+        component: () => import('@/views/family'),
+      },
+      {
+        path: 'knowledge',
+        name: '知识社区',
+        component: () => import('@/views/knowledge'),
+      },
+      {
+        path: 'kungfu',
+        name: '练兵比武',
+        component: () => import('@/views/kungfu'),
+      },
+      {
+        path: 'sports',
+        name: '运动专场',
+        component: () => import('@/views/sports'),
+      }
+    ]
   },
 
   // 404 page must be placed at the end !!!

@@ -34,7 +34,7 @@
     }
     .footerTop{
       line-height: 200px;
-      background-color: #efefef;
+      background-color: #fafafa;
       color: #000;
       justify-content: space-between;
       padding: 0 190px;
