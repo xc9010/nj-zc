@@ -106,7 +106,7 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          name: 'infoDetail',
+          name: '详情',
           params: {
             article: item
           }

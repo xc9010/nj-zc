@@ -1,6 +1,8 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
+      <el-page-header @back="goBack" content="详情页面">
+      </el-page-header>
       <div class="details">
         <h3>{{detailObj.title}}</h3>
         <div class="flex detailsTip">
@@ -39,9 +41,12 @@
       ])
     },
     created() {
-      console.log(this.$route.params.article)
+      // console.log(this.$route.params.article)
     },
     methods: {
+      goBack() {
+        this.$router.back()
+      }
     }
   }
 </script>

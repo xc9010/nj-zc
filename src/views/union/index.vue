@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      <el-tabs tab-position="left">
+      <el-tabs v-model="tabType" @tab-click="changeTab"  tab-position="left">
         <el-tab-pane label="职工风采">
           <el-card class="box-card">
             <div slot="header" class="box-title">
@@ -53,6 +53,7 @@
     data() {
       return {
         active: ['1', '2', '3', '4'],
+        tabType: '0',
         workers: [
           {
             title: '战高温、保生产、送清凉——第一炼铁厂在行动',
@@ -191,14 +192,24 @@
         'name'
       ])
     },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
+    },
     methods: {
       handleClick(item) {
         this.$router.push({
-          path: 'details',
+          name: '详情',
           params: {
             article: item
           }
         })
+      },
+      changeTab(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/union/${index}`} || './')
       },
       goto(url) {
         console.log(url)

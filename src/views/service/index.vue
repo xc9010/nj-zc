@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      <el-tabs tab-position="left">
+      <el-tabs v-model="tabType" @tab-click="changeTab"  tab-position="left">
         <el-tab-pane label="职工生日会">
           <Birthday></Birthday>
         </el-tab-pane>
@@ -64,6 +64,7 @@
     data() {
       return {
         position: 'left',
+        tabType: '0',
         active: ['1','2','3','4'],
         around: [
           {
@@ -172,14 +173,24 @@
         ]
       }
     },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
+    },
     methods: {
       handleClick(item) {
         this.$router.push({
-          path: 'details',
+          name: '详情',
           params: {
             article: item
           }
         })
+      },
+      changeTab(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/service/${index}`} || './')
       },
       goto(url) {
         console.log(url)

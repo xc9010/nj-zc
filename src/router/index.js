@@ -51,18 +51,21 @@ export const constantRoutes = [
     children: [
       {
         path: 'news',
+        title: 'news',
         name: '工会要闻',
         ind: '1-1',
         component: () => import('@/views/news'),
       },
       {
         path: 'policy',
+        title: 'policy',
         name: '政策解读',
         ind: '1-2',
         component: () => import('@/views/policy'),
       },
       {
         path: 'email',
+        title: 'email',
         name: '主席信箱',
         ind: '1-3',
         component: () => import('@/views/email'),
@@ -73,29 +76,34 @@ export const constantRoutes = [
       {
         path: 'member',
         name: '我要入会',
+        title: 'member',
         ind: '2-1',
         component: () => import('@/views/member'),
       },
       {
-        path: 'create',
+        path: 'create/:index?',
+        title: 'create',
         name: '职工创新',
         ind: '2-2',
         component: () => import('@/views/create'),
       },
       {
         path: 'love',
+        title: 'love',
         name: '红娘牵线',
         ind: '2-3',
         component: () => import('@/views/love'),
       },
       {
-        path: 'service',
+        path: 'service/:index?',
+        title: 'service',
         name: '普惠服务',
         ind: '2-4',
         component: () => import('@/views/service'),
       },
       {
-        path: 'union',
+        path: 'union/:index?',
+        title: 'union',
         name: '工会风采',
         ind: '2-5',
         component: () => import('@/views/union'),
@@ -103,30 +111,35 @@ export const constantRoutes = [
       // 知识社区
       {
         path: 'patentShow',
+        title: 'patentShow',
         name: '专利展示',
         ind: '3-1',
         component: () => import('@/views/patentShow'),
       },
       {
         path: 'class',
+        title: 'class',
         name: '工匠讲堂',
         ind: '3-2',
         component: () => import('@/views/class'),
       },
       {
         path: 'live',
+        title: 'live',
         name: '创新直播',
         ind: '3-3',
         component: () => import('@/views/live'),
       },
       {
         path: 'worksMeeting',
+        title: 'worksMeeting',
         name: '职代会',
         ind: '3-4',
         component: () => import('@/views/worksMeeting'),
       },
       {
         path: 'bigEvents',
+        title: 'bigEvents',
         name: '大事记',
         ind: '3-5',
         component: () => import('@/views/bigEvents'),
@@ -134,30 +147,35 @@ export const constantRoutes = [
       // 练兵比武
       {
         path: 'kungfu',
+        title: 'kungfu',
         name: '闯关练习',
         ind: '4-1',
         component: () => import('@/views/kungfu'),
       },
       {
         path: 'idea',
+        title: 'idea',
         name: '理想信念',
         ind: '4-2',
         component: () => import('@/views/idea'),
       },
       {
         path: 'liveExam',
+        title: 'liveExam',
         name: '在线考试',
         ind: '4-3',
         component: () => import('@/views/liveExam'),
       },
       {
         path: 'exams',
+        title: 'exams',
         name: '试题征集',
         ind: '4-4',
         component: () => import('@/views/exams'),
       },
       {
         path: 'experts',
+        title: 'experts',
         name: '专家问诊',
         ind: '4-5',
         component: () => import('@/views/experts'),
@@ -166,6 +184,7 @@ export const constantRoutes = [
 
       {
         path: 'sports',
+        title: 'sports',
         name: '运动专场',
         ind: '5',
         component: () => import('@/views/sports'),

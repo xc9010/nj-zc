@@ -1,8 +1,8 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      <el-tabs tab-position="left">
-        <el-tab-pane label="合理化建议">
+      <el-tabs v-model="tabType" @tab-click="handleClick" tab-position="left">
+        <el-tab-pane name="0" label="合理化建议">
           <el-card class="box-card">
             <div slot="header" class="box-title">
               <span>合理化建议</span>
@@ -17,7 +17,7 @@
             </el-collapse>
           </el-card>
         </el-tab-pane>
-        <el-tab-pane label="先进操作法">
+        <el-tab-pane name="1" label="先进操作法">
           <el-card class="box-card">
             <div slot="header" class="box-title">
               <span>先进操作法</span>
@@ -32,7 +32,7 @@
             </el-collapse>
           </el-card>
         </el-tab-pane>
-        <el-tab-pane label="创新增效">
+        <el-tab-pane name="2" label="创新增效">
           <CardPic :info="innovate"></CardPic>
         </el-tab-pane>
       </el-tabs>
@@ -51,6 +51,7 @@
     data() {
       return {
         active: ['1', '2', '3', '4'],
+        tabType: '0',
         list: [
           {
             title: '工作的系统化、流程化、无纸化',
@@ -161,8 +162,11 @@
             '<p> &emsp;&emsp;并且结合了浮环式密封与迷宫密封两方面优点，通过多个凹槽产生的密封气压力腔，与多个碳环密封面所产生的极薄的气膜，共同构成了无形的迷宫密封，通过这样的原理，使得密封更加合理与完善，并保持了碳环稳定性，减少摩擦导致的碳环过早损坏，避免了漏气与动静摩擦，使得碳环在较长时间内保证其完整的功能性，为机组稳定运行提供了有力的支撑。</p>'
           }
         ]
-
       }
+    },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
     },
     computed: {
       ...mapGetters([
@@ -172,11 +176,17 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          path: 'details',
+          name: '详情',
           params: {
             article: item
           }
         })
+      },
+      handleClick(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/create/${index}`} || './')
       },
       goto(url) {
         console.log(url)

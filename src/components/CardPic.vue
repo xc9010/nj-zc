@@ -1,7 +1,7 @@
 <template>
 <div class="cardPic">
     <div class="flex cardPicWrap">
-      <div v-for="item in info" class="f1 cardPicItem" style="flex: 0.4">
+      <div v-for="item in info" class="f1 cardPicItem" style="flex: 0.3">
         <el-card :body-style="{ width: '100%', padding: '10px', display: 'flex' }">
           <img :src="item.imgs" class="image">
           <div style="padding: 0 10px;">
@@ -32,7 +32,7 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          path: 'details',
+          name: '详情',
           params: {
             article: item
           }
@@ -48,10 +48,11 @@
       flex-wrap: wrap;
     }
     .cardPicItem{
-      margin: 0 5px 5px 0;
+      margin: 0 10px 10px 0;
       border-radius: 10px;
       .el-card{
         width: 345px;
+        height: 100%;
       }
       .image{
         width: 120px;

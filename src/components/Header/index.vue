@@ -73,8 +73,8 @@
         // console.log('this.$route', this.$route)
         const rout = Routes.options.routes && Routes.options.routes[2].children && Routes.options.routes[2].children;
         // console.log(rout)
-        // console.log(rout.find(v => this.$route.path.indexOf(v.path) > -1))
-        this.currentRoute = rout.find(v => this.$route.path.indexOf(v.path) > -1) && rout.find(v => this.$route.path.indexOf(v.path) > -1).ind
+        // console.log(rout.find(v => this.$route.path.indexOf(v.title) > -1))
+        this.currentRoute = rout.find(v => this.$route.path.indexOf(v.title) > -1) && rout.find(v => this.$route.path.indexOf(v.title) > -1).ind
       },
       enter(index, indexPath) {
       }
