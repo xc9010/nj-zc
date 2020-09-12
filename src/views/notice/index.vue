@@ -7,7 +7,7 @@
             <el-collapse v-model="active">
               <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
                 <template slot="title">
-                  <el-link @click="goto('/details/12')" target="_blank">{{item.title}}</el-link>
+                  <el-link @click="goto('/details')" target="_blank">{{item.title}}</el-link>
                 </template>
                 <Card :info="item.info" :date="item.date" :author="item.author"></Card>
               </el-collapse-item>

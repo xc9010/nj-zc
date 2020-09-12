@@ -46,11 +46,6 @@ export const constantRoutes = [
     component: () => import('@/views/home'),
     hidden: true
   },
-  {
-    path: '/details',
-    component: () => import('@/views/Details'),
-    hidden: true
-  },
 
   {
     path: '/',
@@ -81,7 +76,12 @@ export const constantRoutes = [
         path: 'sports',
         name: '运动专场',
         component: () => import('@/views/sports'),
-      }
+      },
+      {
+        path: '/details',
+        component: () => import('@/views/Details'),
+        hidden: true
+      },
     ]
   },
 
