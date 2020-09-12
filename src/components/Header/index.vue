@@ -11,7 +11,7 @@
         mode="horizontal"
         router
       >
-        <el-menu-item index="0">首页</el-menu-item>
+        <el-menu-item route="/" index="0">首页</el-menu-item>
         <el-submenu index="1">
           <template slot="title">通知公告</template>
           <el-menu-item route="/notice" index="1-1">工会要闻</el-menu-item>
