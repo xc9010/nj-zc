@@ -39,11 +39,9 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Card from '../../components/Card'
 
   export default {
     name: 'Notice',
-    components: { Card },
     data() {
       return {
         position: 'left',
