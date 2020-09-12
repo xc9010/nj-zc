@@ -78,6 +78,7 @@ export const constantRoutes = [
         component: () => import('@/views/sports'),
       },
       {
+        name: 'infoDetail',
         path: '/details',
         component: () => import('@/views/Details'),
         hidden: true
