@@ -84,6 +84,11 @@ div:focus {
   .mainList{
     padding: 20px;
   }
+  .el-collapse-item__header,
+  .el-collapse-item__wrap,
+  .el-collapse{
+    border: 0;
+  }
 }
 
 .zcForm{
