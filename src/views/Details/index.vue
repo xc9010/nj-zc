@@ -4,12 +4,11 @@
       <div class="details">
         <h3>{{detailObj.title}}</h3>
         <div class="flex detailsTip">
-          <span>{{detailObj.time}}</span>
-          <span>{{detailObj.audthor}}</span>
+          <span>{{detailObj.date}}</span>
+          <span>{{detailObj.author}}</span>
         </div>
         <div class="detailsContent">
-          <div class="detailsBox">
-            {{detailObj.content}}
+          <div class="detailsBox"  v-html="detailObj.content">
           </div>
         </div>
       </div>
@@ -26,10 +25,10 @@
       return {
         position: 'left',
         detailObj: {
-          title: '南钢上市啦！！！',
-          audthor: 'admin',
-          time: '2020-08-19',
-          content: '南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦'
+          title: this.$route.params.article.title,
+          author: this.$route.params.article.author,
+          date: this.$route.params.article.date,
+          content: this.$route.params.article.content
         },
 
       }
@@ -38,6 +37,9 @@
       ...mapGetters([
         'name'
       ])
+    },
+    created() {
+      console.log(this.$route.params.article)
     },
     methods: {
     }
