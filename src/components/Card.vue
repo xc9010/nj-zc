@@ -31,6 +31,9 @@
       },
       info:  {
         type: String
+      },
+      imgs:  {
+        type: String
       }
     },
     data() {
