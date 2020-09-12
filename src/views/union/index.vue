@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox">
     <div >
-      工匠讲堂
+      职代会
     </div>
   </div>
 </template>
@@ -10,7 +10,7 @@
   import { mapGetters } from 'vuex'
 
   export default {
-    name: 'PatentShow',
+    name: 'Live',
     computed: {
       ...mapGetters([
         'name'

@@ -1,6 +1,8 @@
 <template>
   <div class="mainBox">
-    sports
+    <div >
+      sports
+    </div>
   </div>
 </template>
 

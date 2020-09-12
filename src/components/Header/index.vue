@@ -20,11 +20,11 @@
         </el-submenu>
         <el-submenu index="2">
           <template slot="title">职工之家</template>
-          <el-menu-item route="/family" index="2-1">我要入会</el-menu-item>
-          <el-menu-item route="/family" index="2-2">职工创新</el-menu-item>
-          <el-menu-item route="/family" index="2-3">红娘牵线</el-menu-item>
-          <el-menu-item route="/family" index="2-4">普惠服务</el-menu-item>
-          <el-menu-item route="/family" index="2-5">工会风采</el-menu-item>
+          <el-menu-item route="/member" index="2-1">我要入会</el-menu-item>
+          <el-menu-item route="/create" index="2-2">职工创新</el-menu-item>
+          <el-menu-item route="/love" index="2-3">红娘牵线</el-menu-item>
+          <el-menu-item route="/service" index="2-4">普惠服务</el-menu-item>
+          <el-menu-item route="/union" index="2-5">工会风采</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">知识社区</template>

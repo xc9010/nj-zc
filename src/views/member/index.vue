@@ -1,16 +1,16 @@
 <template>
   <div class="mainBox">
-    <div >
-      工匠讲堂
-    </div>
+    <Members></Members>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+  import Members from '../../components/Members'
 
   export default {
-    name: 'PatentShow',
+    name: 'Live',
+    components: { Members },
     computed: {
       ...mapGetters([
         'name'
