@@ -84,3 +84,12 @@ div:focus {
   }
 }
 
+.zcForm{
+  .el-date-editor.el-input,.el-form-item__content{
+    width: 195px;
+  }
+  .formLong .el-form-item__content{
+    width: 620px;
+  }
+}
+

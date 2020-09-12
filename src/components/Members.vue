@@ -5,11 +5,11 @@
       <div slot="header" class="member-title">
         <span>会员入会登记</span>
       </div>
-      <div class="text item">
+      <div class="text item zcForm">
         <el-form
           ref="form"
           :model="form"
-          label-width="180px"
+          label-width="220px"
           size="medium"
           inline
         >
@@ -17,13 +17,30 @@
             <el-input v-model="form.name"></el-input>
           </el-form-item>
           <el-form-item label="性别">
-            <el-input v-model="form.name"></el-input>
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in males"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-form-item>
-          <el-form-item label="名族">
-            <el-input v-model="form.name"></el-input>
+          <el-form-item label="民族">
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in males"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-form-item>
           <el-form-item label="出生年月">
-            <el-input v-model="form.name"></el-input>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期">
+            </el-date-picker>
           </el-form-item>
           <el-form-item label="年龄">
             <el-input v-model="form.name"></el-input>
@@ -50,16 +67,36 @@
             <el-input v-model="form.name"></el-input>
           </el-form-item>
           <el-form-item label="待入工会">
-            <el-input v-model="form.name"></el-input>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期">
+            </el-date-picker>
           </el-form-item>
           <el-form-item label="申请入会时间">
-            <el-input v-model="form.name"></el-input>
+            <el-date-picker
+              type="date"
+              placeholder="选择日期">
+            </el-date-picker>
           </el-form-item>
           <el-form-item label="是否农民工">
-            <el-input v-model="form.name"></el-input>
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in males"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-form-item>
           <el-form-item label="是否一线职工">
-            <el-input v-model="form.name"></el-input>
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in males"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-form-item>
           <el-form-item label="工作单位">
             <el-input v-model="form.name"></el-input>
@@ -67,19 +104,35 @@
           <el-form-item label="职务">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
-          <el-form-item label="户口所在地">
+          <el-form-item class="formLong" label="户口所在地">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
-          <el-form-item label="现居住地">
+          <el-form-item class="formLong" label="现居住地">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
-          <el-form-item label="个人工作简历">
+          <el-form-item class="formLong" label="个人工作简历">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
-          <el-form-item label="简历附件">
+          <el-form-item class="formLong" label="简历附件">
+            <el-upload
+              class="upload-demo"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :on-success="this.uploadSuccess"
+            >
+              {{fileName}}
+              <el-button type="primary">浏览</el-button>
+            </el-upload>
+          </el-form-item>
+          <el-form-item class="formLong" label="家庭主要成员及其联系方式">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
-          <el-form-item label="内容">
+          <el-form-item class="formLong" label="有何特长">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item class="formLong" label="工会基层委员会意见">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item class="formLong" label="备注">
             <el-input type="textarea" v-model="form.desc" maxlength="1000" rows="10"></el-input>
           </el-form-item>
         </el-form>
@@ -100,6 +153,15 @@
     data() {
       return {
         levelList: null,
+        fileName: '',
+        value: '',
+        males: [{
+          value: '0',
+          label: '男'
+        }, {
+          value: '1',
+          label: '女'
+        }],
         form: {
           name: '',
           region: '',
@@ -112,6 +174,11 @@
         }
       }
     },
+    methods: {
+      uploadSuccess(response, file, fileList) {
+        this.fileName = response.fileName
+      }
+    }
   }
 </script>
 
