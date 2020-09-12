@@ -1,38 +1,18 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      <el-tabs :tab-position="position">
-        <el-tab-pane label="工会要闻">
-          <div class="mainList">
-            <el-collapse v-model="active">
-              <el-collapse-item name="1">
-                <template slot="title">
-                  <el-link @click="goto('/details/12')" target="_blank">一致性 Consistency</el-link>
-                </template>
-                <Card></Card>
-              </el-collapse-item>
-              <el-collapse-item title="反馈 Feedback" name="2">
-                <Card></Card>
-              </el-collapse-item>
-              <el-collapse-item title="效率 Efficiency" name="3">
-                <Card></Card>
-              </el-collapse-item>
-              <el-collapse-item title="可控 Controllability" name="4">
-                <Card></Card>
-              </el-collapse-item>
-            </el-collapse>
+      <div class="details">
+        <h3>{{detailObj.title}}</h3>
+        <div class="flex detailsTip">
+          <span>{{detailObj.time}}</span>
+          <span>{{detailObj.audthor}}</span>
+        </div>
+        <div class="detailsContent">
+          <div class="detailsBox">
+            {{detailObj.content}}
           </div>
-          <div style="text-align: center;  padding: 10px">
-            <el-pagination
-              background
-              layout="prev, pager, next"
-              :total="1000">
-            </el-pagination>
-          </div>
-        </el-tab-pane>
-        <el-tab-pane label="政策解读">政策解读</el-tab-pane>
-        <el-tab-pane label="主席信箱">主席信箱</el-tab-pane>
-      </el-tabs>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +25,13 @@
     data() {
       return {
         position: 'left',
-        active: ['1','2','3','4']
+        detailObj: {
+          title: '南钢上市啦！！！',
+          audthor: 'admin',
+          time: '2020-08-19',
+          content: '南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦南钢上市啦'
+        },
+
       }
     },
     computed: {
@@ -54,13 +40,29 @@
       ])
     },
     methods: {
-      goto(url) {
-        console.log(url)
-        this.$router.push(url || './')
-      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .details{
+    h3{
+      text-align: center;
+    }
+    .detailsTip{
+      color: #777777;
+      padding-top: 10px;
+      justify-content: center;
+      span:first-child{
+        flex: 0.3;
+      }
+    }
+    .detailsContent{
+      margin: 50px;
+    }
+    .detailsBox{
+      border: 1px solid #eee;
+      padding: 20px;
+    }
+  }
 </style>

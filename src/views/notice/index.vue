@@ -7,7 +7,7 @@
             <el-collapse v-model="active">
               <el-collapse-item name="1">
                 <template slot="title">
-                  <el-link @click="goto('/details/12')" target="_blank">一致性 Consistency</el-link>
+                  <el-link @click="goto('/details')" target="_blank">一致性 Consistency</el-link>
                 </template>
                 <Card></Card>
               </el-collapse-item>
