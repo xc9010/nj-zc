@@ -1,20 +1,271 @@
 <template>
   <div class="mainBox">
-    <div >
-      职代会
+    <div class="mainContent">
+      <el-tabs tab-position="left">
+        <el-tab-pane label="职工风采">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>职工风采</span>
+            </div>
+            <el-collapse v-model="active">
+              <el-collapse-item name="1" v-for="(item, index) in workers" :key="index">
+                <template slot="title">
+                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                </template>
+                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane label="劳模先进">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>劳模先进</span>
+            </div>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane label="工匠评优">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>工匠评优</span>
+            </div>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane label="创新工作室">
+          <CardPic :info="studio"></CardPic>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+  import Card from '../../components/Card'
+  import CardPic from '../../components/CardPic'
 
   export default {
     name: 'Live',
+    components: { Card, CardPic },
+    data() {
+      return {
+        active: ['1', '2', '3', '4'],
+        workers: [
+          {
+            title: '战高温、保生产、送清凉——第一炼铁厂在行动',
+            imgs: 'http://nggh.nisco.cn/UploadFiles/xwdt/2020/8/202008201441005097.png',
+            author: '房华',
+            date: '2020-08-20',
+            info: '近两天，南京热浪来袭，这对于钢铁厂来说，更是进入了烧烤模式，第一炼铁厂高炉出铁厂区域已经达到60℃，铁口附近更是到了近100℃的辐射温度，但炉前工以及各个条线的员工都有条不紊地进行着日常工作，汗水湿透了他们的工作服，丝毫未影响他们的工作热情。8月3日中....',
+            content:'<p align="center" style="background: rgb(255, 255, 255); margin: 0pt 0pt 10.5pt; text-align: center; mso-pagination: widow-orphan; mso-outline-level: 2;"><span style="color: rgb(51, 51, 51); letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 0.0000pt;"><font face="宋体">战高温、保生产、送清凉</font>——第一炼铁厂在行动</span></p>\n' +
+              '<p style="margin: 0pt; line-height: 150%; text-indent: 25.6pt; mso-char-indent-count: 2.0000;"><span style="background: rgb(255, 255, 255); color: rgb(51, 51, 51); line-height: 150%; letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 1.0000pt; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-shading: rgb(255, 255, 255);"><font face="宋体">近两天，南京热浪来袭，这对于钢铁厂来说，更是进入了烧烤模式，第一炼铁厂高炉出铁厂区域已经达到</font>60℃，铁口附近更是到了近100℃的辐射温度，但炉前工以及各个条线的员工都有条不紊地进行着日常工作，汗水湿透了他们的工作服，丝毫未影响他们的工作热情。8月3日中午3号高炉工艺休风更换小套、吹管，时间紧、任务重，高炉三车间人员午饭都顾不上吃，抓紧时间完成检修任务。</span></p>\n' +
+              '<p style="margin: 0pt; line-height: 150%; text-indent: 25.6pt; mso-char-indent-count: 2.0000;"><span style="background: rgb(255, 255, 255); color: rgb(51, 51, 51); line-height: 150%; letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 1.0000pt; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-shading: rgb(255, 255, 255);"><font face="宋体">针对高温天气第一炼铁厂全面部署防暑降温工作：安全管理室负责降温药品的准备工作，综合室负责清凉饮料的准备工作；设备系统对现场液压等区域空调运行情况开展检查；施工项目提早开工、同时超过</font>35℃，按公司规定进行错峰施工。</span></p>\n' +
+              '<p style="margin: 0pt; line-height: 150%; text-indent: 25.6pt; mso-char-indent-count: 2.0000;"><span style="background: rgb(255, 255, 255); color: rgb(51, 51, 51); line-height: 150%; letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 1.0000pt; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-shading: rgb(255, 255, 255);"><font face="宋体">天气骤热，为切实做好防暑降温工作，第一炼铁厂从今天起开启</font>“夏日送清凉、点滴暖人心”活动，为始终坚持在岗，经受着现场生产高温“烤”验的员工和相关方人员送上冷饮，盐汽水等，并叮嘱大家要劳逸结合，安全作业，平安度夏。</span></p>\n' +
+              '<p style="margin: 0pt; line-height: 150%; text-indent: 25.6pt; mso-char-indent-count: 2.0000;"><span style="background: rgb(255, 255, 255); color: rgb(51, 51, 51); line-height: 150%; letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 1.0000pt; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-shading: rgb(255, 255, 255);"><font face="宋体">在第一炼铁厂的现场到处可见认真工作的人们，在为这涓涓而流的铁水奋斗着</font>……&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; （房华/文&nbsp;&nbsp; 孟昭杰/图）</span></p>\n' +
+              '<p style="margin: 0pt; line-height: 150%; text-indent: 25.6pt; mso-char-indent-count: 2.0000;"><span style="background: rgb(255, 255, 255); color: rgb(51, 51, 51); line-height: 150%; letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 1.0000pt; mso-bidi-font-family: &quot;Times New Roman&quot;; mso-shading: rgb(255, 255, 255);">&nbsp;<span style="color: rgb(51, 51, 51); letter-spacing: 0.4pt; font-family: 宋体; font-size: 12pt; mso-spacerun: &quot;yes&quot;; mso-font-kerning: 0.0000pt;"><font face="宋体"><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2020/8/202008201441005097.png" style="width: 482px; height: 701px;" /></font></span></span></p>\n'
+          },
+          {
+            title: '小车队开展“第二十一次夏季百日安全竞赛活动”-南京钢铁联合有限公司工会',
+            imgs: 'http://nggh.nisco.cn/UploadFiles/xwdt/2020/7/202007021645322105.jpg',
+            author: '公司办公室',
+            date: '2020-07-02',
+            info: '公司办小车队为了贯彻全国第19个“安全生产月”落实国家、省、市、新区的统一布置，进一步加强安全生产宣传教育工作，牢固树立安全发展理念，提升员工安全素质，营造深厚的安全生产氛围。结合车队实际情况经研究决定在全队范围内开展“第二十一次夏季百日安全....',
+            content:'<p><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2020/7/202007021645322105.jpg" style="width: 1080px; height: 1438px;" /></p>\n' +
+              '<p>&nbsp;</p>\n' +
+              '<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;text-justify:\n' +
+              'inter-ideograph;text-indent:28.0pt;mso-char-indent-count:2.0;line-height:150%;\n' +
+              'layout-grid-mode:char;background:white"><span style="font-size:14.0pt;\n' +
+              'line-height:150%;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\n' +
+              '宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:\n' +
+              'minor-fareast;color:black;mso-color-alt:windowtext">公司办小车队为了贯彻全国第<span lang="EN-US">19</span>个“安全生产月”落实国家、省、市、新区的统一布置，进一步加强安全生产宣传教育工作，牢固树立安全发展理念，提升员工安全素质，营造深厚的安全生产氛围。结合车队实际情况经研究决定在全队范围内开展“第二十一次夏季百日安全竞赛”活动，</span><span lang="EN-US" style="font-size:14.0pt;line-height:150%;mso-ascii-font-family:宋体;\n' +
+              'mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:\n' +
+              'minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:minor-fareast;\n' +
+              'color:black;mso-color-alt:windowtext"> 6</span><span style="font-size:14.0pt;\n' +
+              'line-height:150%;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">月<span lang="EN-US">22</span>日上午，小车队组织召开“第二十一次夏季百日安全竞赛活动”动员大会，</span><span style="font-size:14.0pt;line-height:150%;mso-ascii-font-family:宋体;mso-ascii-theme-font:\n' +
+              'minor-fareast;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">活动时间：<span lang="EN-US">2020</span>年<span lang="EN-US">6</span>月<span lang="EN-US">22</span>日至<span lang="EN-US">9</span>月<span lang="EN-US">29</span>日，部分活动贯穿全年。</span></p>\n' +
+              '<p>&nbsp;</p>\n' +
+              '<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;text-justify:\n' +
+              'inter-ideograph;text-indent:28.0pt;mso-char-indent-count:2.0;line-height:23.25pt;\n' +
+              'background:white"><span style="font-size:14.0pt;mso-ascii-font-family:宋体;\n' +
+              'mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:\n' +
+              'minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:minor-fareast;\n' +
+              'color:black;mso-color-alt:windowtext">夏季百日安全竞赛活动是小车队一年一度都要进行的一项重要安全竞赛活动，自公司<span lang="EN-US">1999</span>年公务车集中管理以来已经开展了第二十一次；</span><span style="font-size:14.0pt;\n' +
+              'mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;mso-fareast-font-family:\n' +
+              '宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:\n' +
+              'minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:minor-fareast;\n' +
+              'color:black;mso-color-alt:windowtext">“<b style="mso-bidi-font-weight:normal">消除事故隐患，筑牢安全防线</b>”是今年安全竞赛活动的主题，</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">为确保活动顺利有序地开展，车队成立活动</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\n' +
+              '宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:\n' +
+              'minor-fareast;color:black;mso-color-alt:windowtext">领导小组</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">，</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\n' +
+              '宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:\n' +
+              'minor-fareast;color:black;mso-color-alt:windowtext">强化组织领导、全面部署；加大宣传力度做起</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">，</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\n' +
+              '宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:\n' +
+              'minor-fareast;color:black;mso-color-alt:windowtext">开展安全警示教育和科普宣传活动</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">等内容来营造竞赛活动氛围；同时要求车队全体驾驶员、修理工</span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\n' +
+              '宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:\n' +
+              'minor-fareast;color:black;mso-color-alt:windowtext">奋战<span lang="EN-US">100</span>天，实现全队零事故、零违章的目标。</span></p>\n' +
+              '<p>&nbsp;</p>\n' +
+              '<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;text-justify:\n' +
+              'inter-ideograph;text-indent:7.0pt;mso-char-indent-count:.5;line-height:23.25pt;\n' +
+              'background:white"><span lang="EN-US" style="font-size:14.0pt;mso-ascii-font-family:\n' +
+              '宋体;mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:\n' +
+              'minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:minor-fareast;\n' +
+              'color:black;mso-color-alt:windowtext"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>\n' +
+              '<p>&nbsp;</p>\n' +
+              '<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;text-justify:\n' +
+              'inter-ideograph;text-indent:98.0pt;mso-char-indent-count:7.0;line-height:23.25pt;\n' +
+              'background:white"><span lang="EN-US" style="font-size:14.0pt;mso-ascii-font-family:\n' +
+              '宋体;mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:\n' +
+              'minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:minor-fareast;\n' +
+              'color:black;mso-color-alt:windowtext"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">公司办公室<span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span></span></p>\n' +
+              '<p>&nbsp;</p>\n' +
+              '<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;text-justify:\n' +
+              'inter-ideograph;text-indent:7.0pt;mso-char-indent-count:.5;line-height:23.25pt;\n' +
+              'background:white"><span lang="EN-US" style="font-size:14.0pt;mso-ascii-font-family:\n' +
+              '宋体;mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:宋体;mso-hansi-theme-font:\n' +
+              'minor-fareast;mso-bidi-font-family:宋体;mso-bidi-theme-font:minor-fareast;\n' +
+              'color:black;mso-color-alt:windowtext"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="font-size:14.0pt;mso-ascii-font-family:宋体;mso-ascii-theme-font:minor-fareast;\n' +
+              'mso-hansi-font-family:宋体;mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:\n' +
+              '宋体;mso-bidi-theme-font:minor-fareast;color:black;mso-color-alt:windowtext">二〇二〇年六月二十二日</span></p>\n'
+          },
+          {
+            title: '公司办小车队《细节关乎生命、安全文明出行》',
+            imgs: 'http://nggh.nisco.cn/UploadFiles/xwdt/2019/10/201910280904150342.jpg',
+            author: '佚名',
+            date: '2019-10-28',
+            info: '公司办公室小车队以 《细节关乎生命、安全文明出行》为主题的2019年“第二十次夏季百日安全竞赛”活动已圆满结束。在这一百天中，小车队按照公司的要求，结合....',
+            content:'<p align="center" class="MsoNormal" style="text-align: center; margin: 0cm 0cm 0pt"><font color="#000000"><span style="font-size: 16pt; font-family: 黑体; mso-ascii-font-family: &quot;times new roman&quot;; mso-hansi-font-family: &quot;times new roman&quot;"><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2019/10/201910280904150342.jpg" style="height: 334px; width: 336px" /></span></font></p>\n' +
+              '<p align="center" class="MsoNormal" style="text-align: center; margin: 0cm 0cm 0pt"><font color="#000000"><span style="font-size: 16pt; font-family: 黑体; mso-ascii-font-family: &quot;times new roman&quot;; mso-hansi-font-family: &quot;times new roman&quot;"><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2019/10/201910280904394633.jpg" style="height: 252px; width: 332px" /></span></font></p>\n' +
+              '<p align="center" class="MsoNormal" style="text-align: center; margin: 0cm 0cm 0pt"><font color="#000000"><span style="font-size: 16pt; font-family: 黑体; mso-ascii-font-family: &quot;times new roman&quot;; mso-hansi-font-family: &quot;times new roman&quot;"><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2019/10/201910280905156203.jpg" style="height: 225px; width: 336px" /></span></font></p>\n' +
+              '<p align="center" class="MsoNormal" style="text-align: center; margin: 0cm 0cm 0pt">&nbsp;</p>\n' +
+              '<p align="center" class="MsoNormal" style="text-align: center; margin: 0cm 0cm 0pt"><font color="#000000"><span style="font-size: 16pt; font-family: 黑体; mso-ascii-font-family: &quot;times new roman&quot;; mso-hansi-font-family: &quot;times new roman&quot;">公司办小车队《细节关乎生命、安全文明出行》</span><span lang="EN-US" style="font-size: 16pt; mso-fareast-font-family: 黑体">　　</span></font></p>\n' +
+              '<p align="center" class="MsoNormal" style="text-align: center; margin: 0cm 0cm 0pt"><font color="#000000"><span style="font-size: 16pt; font-family: 黑体; mso-ascii-font-family: &quot;times new roman&quot;; mso-hansi-font-family: &quot;times new roman&quot;">百日安全竞赛活动圆满结束</span><span lang="EN-US" style="font-size: 16pt; mso-fareast-font-family: 黑体">　　</span></font></p>\n' +
+              '<p align="left" class="MsoNormal" style="text-align: left; margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><span style="font-size: 14pt; font-family: 宋体"><font color="#000000">公司办公室小车队以 《细节关乎生命、安全文明出行》为主题的<span lang="EN-US"> 2019</span></font><font color="#000000">年“第二十次夏季百日安全竞赛”活动已圆满结束。在这一百天中，小车队按照公司的要求，结合</font><span lang="EN-US"><font color="#000000">6</font></span><font color="#000000">月份公司安全生产月活动，大力倡导“小细节”关系到“大安全”的理念，增加主动防御意识及减少被动型事故，减少车辆违章曝光次数，杜绝机械设备事故等为安全竞赛内容，时间从</font><span lang="EN-US"><font color="#000000">6</font></span><font color="#000000">月</font><span lang="EN-US"><font color="#000000">17</font></span><font color="#000000">日至</font><span lang="EN-US"><font color="#000000">9</font></span><font color="#000000">月</font><span lang="EN-US"><font color="#000000">24</font></span><font color="#000000">日止，目的是为了增强全队员工遵章守法意识，从思想上高度重视安全，安全这根弦丝毫不能放松，经过全队员工的共同努力，竞赛活动已圆满结束，较好地完成了竞赛既定目标，同时完成了各项工作任务。<span lang="EN-US">　　</span></font></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><span style="font-size: 14pt; font-family: 宋体"><font color="#000000">竞赛期间全队安全行车<span lang="EN-US">45</span></font><font color="#000000">万公里，实现重大责任事故和机械事故为零的目标。</font><span style="mso-bidi-font-weight: bold"><font color="#000000">共完成出车任务<span lang="EN-US">4096</span></font><font color="#000000">趟次，接送内外客人</font><span lang="EN-US"><font color="#000000">82</font></span><font color="#000000">批次、</font><span lang="EN-US"><font color="#000000">425</font></span><font color="#000000">趟次，车辆检查</font><span lang="EN-US"><font color="#000000">168</font></span><font color="#000000">台次</font><span lang="EN-US"><font color="#000000">,</font></span></span><span lang="EN-US"><font color="#000000"> </font></span><font color="#000000">大修车辆</font><span lang="EN-US"><font color="#000000">2</font></span><font color="#000000">台，小修车辆</font><span lang="EN-US"><font color="#000000">706</font></span><font color="#000000">台次，车辆年检</font><span lang="EN-US"><font color="#000000">62</font></span><font color="#000000">台次，长途车辆检查</font><span lang="EN-US"><font color="#000000">68</font></span><font color="#000000">台次，外修救援</font><span lang="EN-US"><font color="#000000">17</font></span><font color="#000000">次，修旧利废创效益 </font><span lang="EN-US"><font color="#000000">14950</font></span><font color="#000000">元，比质比价降本</font><span lang="EN-US"><font color="#000000">34950 </font></span><font color="#000000">元。<span lang="EN-US">　　</span></font></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><span style="font-size: 14pt; font-family: 宋体"><font color="#000000">本次竞赛活动评比出：<span lang="EN-US">　　</span></font></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28.1pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><b style="mso-bidi-font-weight: normal"><span style="font-size: 14pt; font-family: 宋体"><font color="#000000">一等奖二名</font></span></b><span style="font-size: 14pt; font-family: 宋体"><font color="#000000">：<span style="mso-bidi-font-weight: bold">李跃权、徐军</span></font><font color="#000000"> <span lang="EN-US">　　</span></font></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28.1pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><font color="#000000"><b style="mso-bidi-font-weight: normal"><span style="font-size: 14pt; font-family: 宋体">二等奖三名</span></b><span style="font-size: 14pt; font-family: 宋体">：<span style="mso-bidi-font-weight: bold">殷其发、竺玲明、王剑松，<span lang="EN-US">　　</span></span></span></font></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28.1pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><font color="#000000"><b style="mso-bidi-font-weight: normal"><span style="font-size: 14pt; font-family: 宋体">三等奖四名：</span></b><span style="font-size: 14pt; font-family: 宋体; mso-bidi-font-weight: bold">叶守森、李有亮、成伟、韩诚</span><span style="font-size: 14pt; font-family: 宋体"> <span lang="EN-US">　　</span></span></font></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: 24pt; text-indent: 28.1pt; mso-char-indent-count: 2.0; mso-line-height-rule: exactly"><font color="#000000"><b><span style="font-size: 14pt; font-family: 宋体">表杨：</span></b><span style="font-size: 14pt; font-family: 宋体; mso-bidi-font-weight: bold">王胜利、史克杰、袁文杰、耿金辉、梁宵、董萍萍<span lang="EN-US">　　</span></span></font></p>\n'
+          },
+          {
+            title: '公司办开展“安全生产月”活动',
+            imgs: 'http://nggh.nisco.cn/UploadFiles/xwdt/2019/6/201906281102223619.jpg',
+            author: '佚名',
+            date: '2019-06-27',
+            info: '为认真落实公司“安全生产月”活动的相关精神，6月17日上午，公司办小车队组织召开“第二十次夏季百日安全竞赛活动”动员大会。公司办公室党总支书记、副主任张文超，安全能环部部长张宏，公司工会....',
+            content:' <p><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2019/6/201906281102223619.jpg" style="height: 343px; width: 490px" /></p>\n' +
+              '<p><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2019/6/201906281102426199.jpg" style="height: 386px; width: 494px" /></p>\n' +
+              '<p><img alt="" src="http://nggh.nisco.cn/UploadFiles/xwdt/2019/6/201906281103043366.jpg" style="height: 410px; width: 495px" /></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 31.8pt; mso-char-indent-count: 2.0"><span style="font-size: 13.5pt; font-family: 宋体; color: #171819; letter-spacing: 1.2pt; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast">公司办开展“安全生产月”活动<span lang="EN-US">　　</span></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 31.8pt; mso-char-indent-count: 2.0"><span style="font-size: 13.5pt; font-family: 宋体; color: #171819; letter-spacing: 1.2pt; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast">为认真落实公司“安全生产月”活动的相关精神，<span lang="EN-US">6</span>月<span lang="EN-US">17</span>日上午，公司办小车队组织召开“第二十次夏季百日安全竞赛活动”动员大会。公司办公室党总支书记、副主任张文超，安全能环部部长张宏，公司工会副主席杨桥东及公司办小车队全体员工参加动员会。<span lang="EN-US">　　</span></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 31.8pt; mso-char-indent-count: 2.0"><span style="font-size: 13.5pt; font-family: 宋体; color: #171819; letter-spacing: 1.2pt; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast">“夏季百日安全竞赛活动”是小车队一年一度都要进行的一项重要安全竞赛活动，自公司<span lang="EN-US">1999</span>年公务车集中管理以来已经开展到第二十次。“细节关乎生命、安全文明出行”是今年安全竞赛活动的主题，动员大会上小车队卢晓峰队长宣读“第二十次夏季百日安全竞赛”活动的通知。为确保活动顺利有序地开展，车队成立活动领导小组，从加大宣传力度着手，通过开展安全警示<a name="_GoBack"></a>教育和科普宣传活动等内容来营造竞赛活动氛围，同时活动领导小组要求车队全体驾驶员、修理工奋战<span lang="EN-US">100</span>天，实现零事故、零违章的目标。<span lang="EN-US">　　</span></span></p>\n' +
+              '<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 31.8pt; mso-char-indent-count: 2.0"><span style="font-size: 13.5pt; font-family: 宋体; color: #171819; letter-spacing: 1.2pt; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast">会上，张文超书记、张宏部长、杨桥东副主席就本次活动分别提出具体要求和建议，对车队多年来坚持开展“夏季百日安全竞赛活动”给予肯定，同时要求车队做好对人员、车辆动向的管理，安全行车贯穿全年；要以人为本，关心驾驶员身体及心理健康，建议开展家属助安全等活动内容；并要求落实好活动各项内容，努力争创公司级、市级工人先锋号等，最后预祝活动取得圆满成果。</span><span lang="EN-US" style="font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast">　　</span></p>\n'
+          }
+        ],
+        studio:[
+          {
+            title: '吴建群劳模创新工作室',
+            imgs: require('@/assets/images/cardPic/5.jpg'),
+            author: '吴建群',
+            date:'2020.01.06',
+            classify: '类型：创新工作室',
+            content:'<span><!--Content_Start--><P style="TEXT-ALIGN: center"><IMG src="http://acftu.workercn.cn/html/files/2020-01/06/20200106145652000388449.png"></P>\n' +
+              '<P>　　今年50岁的吴建群，是徐矿集团张双楼煤矿综采一区高级技师，先后获“全国煤炭工业劳动模范”、江苏省企业首席技师、“煤炭行业技能大师”等荣誉。2013年，煤矿成立吴建群劳模创新工作室，现有成员13名，其中党员10名。2018年6月，工作室成立党支部，充分发挥战斗堡垒作用和党员先锋模范作用，助推矿井科技创新发展，取得了多项科研创新成果。由吴建群牵头发明的《综采工作面液压系统失压自动保护系统》获得国家实用新型专利证书。煤矿以吴建群劳模创新工作室为引领，拓展了李兵防冲工作室和吴广永通防工作室。</P>\n' +
+              '<P><STRONG>　　一名党员就是一面旗帜</STRONG></P>\n' +
+              '<P>　　作为劳模工作室带头人，吴建群深知“打铁还需自身硬”，立足岗位开展技术攻关、技术革新、发明创造和技术培训、业务交流、师徒帮教等活动，提高技术创新能力和团队建设水平，团队凝聚力日渐增强。他不断学习业务知识，靠精湛的技术，折服了团队的每个人。</P>\n' +
+              '<P>　　吴建群坚持做检修笔记，每次都把检修设备时的名称、型号，故障部位、原因、元件服务时间、操作程序、相关原理分析等，清晰地记录下来，10年时间累计撰写检修笔记10余万字。他的经验和技术，也在不知不觉的积累中得到了升华，成为矿井设备检修的“多面手”，无论煤机、溜子，还是乳化液泵站、成套液压支架，无论哪种设备出现故障他都能独当一面。</P>\n' +
+              '<P>　　吴建群处处以身作则，始终以一名共产党员的标准要求自己。2017年7月3日凌晨1点左右，睡梦中的吴建群被一阵手机铃声吵醒，原来综采二区93602工作面930煤机发生了故障。夜班是储煤的黄金时间，每耽误一小时，企业的经济效益就会受到较大影响。吴建群立刻起身往矿上赶。</P>\n' +
+              '<P>　　来到井下现场，吴建群一边查看煤机情况，一边听旁边维护人员的故障介绍，在仔细检查后发现煤机变频器显示屏不亮，打开发现变频器内的三个大保险均已经烧坏。凭着多年的检修经验，他断定是由变频器某些元器件烧坏引起的电流短路。他把变频器拆开检查，检测确认里面的RGBT模块损坏，于是和当班人员一道更换了部件、调整了相关参数……经过近3个小时的处理，直到煤机试运转正常，吴建群才拖着疲惫的身躯上井。</P>\n' +
+              '<P>　　还有一次，吴建群在井下综采工作面发现，当煤机割煤至机头、机尾时，上、下出口附近工作人员和通过端头人员随时可能遇到被煤机滚筒带起的煤矸石砸伤的危险。如何提示、阻止上下出口处的工作人员在煤机临近上下出口时，及时撤离危险区域，避免两道出口与煤机割煤平行作业，杜绝事故隐患呢？</P>\n' +
+              '<P>　　吴建群依托劳模创新平台，组织团队成员多次研究讨论，结合煤机电控系统原理，开发出了煤机上下出口预警语音提示装置：当煤机在临近机头、机尾30m（20个支架）距离时，煤机的拖缆架触动声光报警装置开关，启动报警，提示上下出口处经过或在危险区段以内工作人员退出危险区段，防止人员误入，有效避免了人身伤害事故的发生，保障了矿井的安全生产。此项创新获得张双楼煤矿科技创新一等奖。</P>\n' +
+              '<P><STRONG>　　“送绝活”让技艺薪火相传</STRONG></P>\n' +
+              '<P>　　职工队伍素质的高低决定着企业的核心竞争力。吴建群劳模工作室立足实际，将打造一支爱岗敬业、乐于学习、业务精湛、开拓创新、甘于奉献的“工匠型”人才队伍作为努力的方向。</P>\n' +
+              '<P>　　他们通过师徒“结对子、传帮带”等形式，确保技艺薪火相传。2018年，按照创新支部制定的规划要求，专门安排3名党员工作室成员吴建群、刘军、姜建，分别与自己选定的5名徒弟签订了以师带徒合同，以党员“一对一，手拉手”的模式对徒弟进行岗位基本技能、工作流程、施工工艺、设备维修和操作等技能知识的传授。</P>\n' +
+              '<P>　　工作室创新职工教育形式和载体，充分利用互联网信息技术整合学习资源，创建涵盖党建知识、廉洁文化、安全宣教、职工培训、科技创新为一体的“共享”学习教育平台，采用动漫、视频等多媒体教育方式，对安全措施、操作规范、事故案例等进行完整的表现，加深职工对学习内容的理解和贯彻执行。同时，还建立了以采掘维护员工作交流为主的微信群，为采掘维护员提供了一个交流学习平台。</P>\n' +
+              '<P>　　张双楼矿充分发挥吴建群劳模创新工作室和吴广永技能工作室作用，设立“劳模创新大讲堂”，每月举办一次专业技术讲座，每季度组织一次创新创效成果评比活动，为一线机电维护人员传授业务技能。</P>\n' +
+              '<P>　　工作室专门排定了详细地课程计划，创新团队的13名技能拔尖人才将结合自身技术专长、工作特长，精心选取教学模块，定期为生产一线专业工种职工讲授实用型技能。2017年以来，先后开展了多次劳模大讲堂活动，吴建群讲解了《MG300／700-QWD煤机电气部分故障分析与处理》，党员史向民主讲《井下移变常见故障分析及处理方法》《综采工作面“三机配套”工作模式》等实用型技能，对矿井技术工种人员进行培训，为企业培养更多的技能人才。</P>\n' +
+              '<P><STRONG>　　围绕生产重点创新提效</STRONG></P>\n' +
+              '<P>　　近几年来，工作室引领着矿井技术创新创效。他们每年召开一次创新目标计划会，分解责任，落实到人，并按照时间节点，扎实开展各项创新、革新，取得了多项技术创新成果。</P>\n' +
+              '<P>　　2016年，工作室完成创新项目30项，其中综采工作面液压系统失压自动保护系统研究与应用、大倾角工作面电缆槽抬高架等项目，为降低矿井安全风险、减轻职工劳动强度、增强企业经济效益等方面发挥了积极的作用。</P>\n' +
+              '<P>　　2017年，工作室团队围绕矿井安全生产重点、难点扎实开展技术创新攻关，全年先后开展综采工作面液压系统失压自动保护系统研究与应用、煤机截齿防脱落改进、卧式简易压力机、综掘机二运皮带自移装置改造等技术创新创效项目33个，有效解决了一批影响和制约安全生产的疑难问题。由工作室成员陈茂同牵头完成的《张双楼煤矿东翼原煤运输系统优化改造》被评为“赢在徐州”—2017年徐州市职工技术创新竞赛“十佳合理化建议”</P>\n' +
+              '<P>　　2018年，凝聚劳模创新工作室团队集体智慧编写的煤矿工匠丛书《机电设备故障诊断与维修》由中国矿业大学出版社正式出版发行，由吴建群牵头发明的《综采工作面液压系统失压自动保护系统》获得国家实用新型专利证书，助力矿井科技创新工作再上新台阶，弘扬了劳模精神和工匠精神。（通讯员 肖长华）</P></span>\n'
+          },
+          {
+            title: '门头沟区劳模创新工作室',
+            imgs: require('@/assets/images/cardPic/6.jpg'),
+            author: '闫长禄',
+            date:'2020.04.11',
+            classify: '类型：创新工作室',
+            content:'<span><!--Content_Start--><P style="TEXT-ALIGN: center"><IMG src="http://acftu.workercn.cn/html/files/2019-12/27/20191227101502196657878.jpg"></P>\n' +
+              '<P>　　门头沟区第三家劳模创新工作室揭牌仪式在北京隆科兴科技集团股份有限公司举行。门头沟区人大常委会副主任，区总工会党组书记、主席陈波出席会议并为劳模创新工作室揭牌。</P>\n' +
+              '<P>　　仪式上，劳动模范张晓忠代表工作室全体人员表示，一定会不忘初心、牢记使命，继续发扬劳模精神，引领职工投入到工作中。北京隆科兴科技集团股份有限公司董事长黄满虎谈到公司经过多年的努力时说：“公司在排水管道检测和非开挖修复领域取得了国内领先的地位，希望劳模创新工作室的建立可以有力带动科研人员继续进行科技创新，为门头沟地区发展做出贡献。”</P>\n' +
+              '<P>　　近年来，门头沟区不断探索新形势下劳模服务管理工作新机制，全面提升劳模工作水平，营造了“学习劳模，争做劳模”的良好氛围。截至目前，门头沟区已经成立三家区级劳模创新工作室，对于提高自主创新能力、不断丰富发展劳模先进性、推动社会自主创新、建设高素质职工队伍有着重要的现实意义。</P>\n' +
+              '<P>　　闫长禄 摄</P></span>\n'
+          },
+          {
+            title: '蔡佳兴腐蚀技术职工创新工作室',
+            imgs: require('@/assets/images/cardPic/7.jpg'),
+            author: '蔡佳兴',
+            date:'2019.11.07',
+            classify: '类型：创新工作室',
+            content:'蔡佳兴腐蚀技术创新工作室，主要从事与低合金耐蚀钢、不锈钢、特种合金、耐腐蚀复合板的高效冶金和轧制有关的腐蚀控制技术、钢材涂层及喷涂防护技术研究、热轧钢表面氧化皮耐锈蚀技术、耐蚀钢用户使用技术、钢材腐蚀性评价方法与标准化、腐蚀数据积累、腐蚀行为与机理等研究工作，为新型耐蚀钢的研发、推广、应用提供数据支撑和技术支持，延长钢材服役寿命，提高钢构件在服役过程中安全性。工作室具有大气腐蚀户外暴晒场、电化学工作站、盐雾箱、周浸箱等先进的腐蚀设备，可开展钢材在模拟腐蚀环境下的加速腐蚀试验、在服役环境中的腐蚀试验、钢材在受力状态的腐蚀试验、不锈钢及特种材料复合板的腐蚀性出厂检验等多类腐蚀性能测试与科研试验。目前，工作室成员已承担了基于耐候桥梁钢的典型地区腐蚀地图研究及应用、不锈钢复合板腐蚀性能研究等十多项研究课题，大力推进技术创新和产品性能改进。工作室成员获得已授权的发明专利及实用新型专利共计14项，在SCI、中文核心期刊等公开期刊上累计发表论文16篇。'
+          },
+          {
+            title: '方玉珍劳模创新工作室',
+            imgs: require('@/assets/images/cardPic/8.png'),
+            author: '方玉珍',
+            date:'2018.10.19',
+            classify: '类型：创新工作室',
+            content:'方玉珍劳模创新工作室”是以南钢首席操作师、南钢首届工匠、高级技师方玉珍名字命名，是为技术骨干建立一个锐意创新、攻坚克难的阵地和学习交流、展示才能的平台。职工创新是效益的倍增器，是企业发展不熄的“引擎”。公辅事业部电厂供电车间以“方玉珍劳模创新工作室”为主导，全体人员以“安全保供、创新创效”为主题，弘扬“工匠精神”，发扬“劳模精神”，打造人才聚集、人才培养、科技创新的战略高地。充分发挥专业特长，努力将创造力转化为推进企业发展的智慧和动力，重点是在电气设备检修技术上创新，加强关键技术攻关，适当实施技术改革和设备更新，在管理上创新，一是建立鼓励创新的制度，要保证想干事的员工都能有机会干，既要促进创新氛围的形成，又要能够包容创新的失败，鼓励班组成员创新，发挥好“劳模创新工作室”的作用，既可以不断改进、创新工作的方法，也可为员工获得赞赏创造机会。让员工在富余时间来研究工作问题，解决好设备管理和工作协调问题，真正把创新工作深入到一线员工中去，让他们实实在在的举措促进生产、工艺、技术、管理的提升。'
+          },
+          {
+            title: '葛树东劳模创新工作室',
+            imgs: require('@/assets/images/cardPic/9.png'),
+            author: '葛树东',
+            date:'2018.10.19',
+            classify: '类型：创新工作室',
+            content:'葛树东是铁运中心检修段的机车验收员，他在机车司机和验收员岗位上已摸爬滚打30年，他刻苦钻研、精益求精，技术精湛。2016年在第八届“鞍钢杯”全国钢铁行业职业技能竞赛中获 “内燃机车司机”第六名，被授予全国技术能手称号；2017年，他被评为首届“南钢工匠”，5月又被市总授予“南京市五一劳动奖章”。\n'
+          }
+        ]
+
+      }
+    },
     computed: {
       ...mapGetters([
         'name'
       ])
+    },
+    methods: {
+      handleClick(item) {
+        this.$router.push({
+          name: 'infoDetail',
+          params: {
+            article: item
+          }
+        })
+      },
+      goto(url) {
+        console.log(url)
+        this.$router.push(url || './')
+      }
     }
   }
 </script>

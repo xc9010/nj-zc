@@ -1,16 +1,16 @@
 <template>
   <div class="mainBox">
-    <div >
-      职代会
-    </div>
+    <Love></Love>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+  import Love from '../../components/Love'
 
   export default {
     name: 'Live',
+    components: {Love},
     computed: {
       ...mapGetters([
         'name'

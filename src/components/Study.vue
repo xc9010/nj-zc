@@ -3,7 +3,7 @@
   <div>
     <el-card class="box-card">
       <div slot="header" class="box-title">
-        <span>会员入会登记</span>
+        <span>助学贷款</span>
       </div>
       <div class="text item zcForm">
         <el-form
