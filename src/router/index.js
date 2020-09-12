@@ -53,9 +53,19 @@ export const constantRoutes = [
     redirect: '/',
     children: [
       {
-        path: 'notice',
-        name: '通知公告',
-        component: () => import('@/views/notice'),
+        path: 'news',
+        name: '工会要闻',
+        component: () => import('@/views/news'),
+      },
+      {
+        path: 'policy',
+        name: '政策解读',
+        component: () => import('@/views/policy'),
+      },
+      {
+        path: 'email',
+        name: '主席信箱',
+        component: () => import('@/views/email'),
       },
       {
         path: 'family',
