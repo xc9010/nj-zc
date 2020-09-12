@@ -31,7 +31,9 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="政策解读">政策解读</el-tab-pane>
-        <el-tab-pane label="主席信箱">主席信箱</el-tab-pane>
+        <el-tab-pane label="主席信箱">
+          <Email></Email>
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -40,10 +42,11 @@
 <script>
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
+  import Email from '../../components/Email'
 
   export default {
     name: 'Notice',
-    components: { Card },
+    components: { Card, Email },
     data() {
       return {
         position: 'left',
