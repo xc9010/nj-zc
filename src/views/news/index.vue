@@ -36,6 +36,7 @@
 
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
+
   export default {
     components: { Card },
     data() {
