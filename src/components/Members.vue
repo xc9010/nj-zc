@@ -9,7 +9,7 @@
         <el-form
           ref="form"
           :model="form"
-          label-width="220px"
+          label-width="120px"
           size="medium"
           inline
         >
