@@ -1,7 +1,7 @@
 <template>
   <section class="app-main">
-    <div>
-      首页  > 通知公告
+    <div style="padding: 0 200px">
+      <breadcrumb class="breadcrumb-container" />
     </div>
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
@@ -10,10 +10,14 @@
 </template>
 
 <script>
+  import Breadcrumb from '@/components/Breadcrumb'
 export default {
   name: 'AppMain',
+  components: {
+    Breadcrumb,
+  },
   created () {
-    console.log(this.$route)
+    // console.log(this.$route)
   },
   computed: {
     key() {

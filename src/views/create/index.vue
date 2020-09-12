@@ -172,7 +172,7 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          name: 'infoDetail',
+          path: 'details',
           params: {
             article: item
           }

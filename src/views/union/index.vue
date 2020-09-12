@@ -22,6 +22,7 @@
             <div slot="header" class="box-title">
               <span>劳模先进</span>
             </div>
+            <CardPicVertical></CardPicVertical>
           </el-card>
         </el-tab-pane>
         <el-tab-pane label="工匠评优">
@@ -29,6 +30,7 @@
             <div slot="header" class="box-title">
               <span>工匠评优</span>
             </div>
+            <CardPicVertical></CardPicVertical>
           </el-card>
         </el-tab-pane>
         <el-tab-pane label="创新工作室">
@@ -43,10 +45,11 @@
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
   import CardPic from '../../components/CardPic'
+  import CardPicVertical from '../../components/CardPicVertical'
 
   export default {
-    name: 'Live',
-    components: { Card, CardPic },
+    name: 'Union',
+    components: { Card, CardPic, CardPicVertical },
     data() {
       return {
         active: ['1', '2', '3', '4'],
@@ -191,7 +194,7 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          name: 'infoDetail',
+          path: 'details',
           params: {
             article: item
           }

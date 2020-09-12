@@ -7,23 +7,23 @@
               <span>工会要闻</span>
             </div>
             <div >
-              <div class="mainList">
-                <el-collapse v-model="active">
-                  <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
-                    <template slot="title">
-                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                    </template>
-                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-              <div style="text-align: center;  padding: 10px">
-                <el-pagination
-                  background
-                  layout="prev, pager, next"
-                  :total="1000">
-                </el-pagination>
-              </div>
+            <div class="mainList">
+              <el-collapse v-model="active">
+                <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
+                  <template slot="title">
+                    <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                  </template>
+                  <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+                </el-collapse-item>
+              </el-collapse>
+            </div>
+            <div style="text-align: center;  padding: 10px">
+              <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="1000">
+              </el-pagination>
+            </div>
 
             </div>
           </el-card>
@@ -104,7 +104,7 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          name: 'infoDetail',
+          name: '详情',
           params: {
             article: item
           }
