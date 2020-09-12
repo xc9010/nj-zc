@@ -72,11 +72,33 @@ export const constantRoutes = [
         name: '职工之家',
         component: () => import('@/views/family'),
       },
+      // 知识社区
       {
-        path: 'knowledge',
-        name: '知识社区',
-        component: () => import('@/views/knowledge'),
+        path: 'patentShow',
+        name: '专利展示',
+        component: () => import('@/views/patentShow'),
       },
+      {
+        path: 'class',
+        name: '工匠讲堂',
+        component: () => import('@/views/class'),
+      },
+      {
+        path: 'live',
+        name: '创新直播',
+        component: () => import('@/views/live'),
+      },
+      {
+        path: 'worksMeeting',
+        name: '职代会',
+        component: () => import('@/views/worksMeeting'),
+      },
+      {
+        path: 'bigEvents',
+        name: '大事记',
+        component: () => import('@/views/bigEvents'),
+      },
+
       {
         path: 'kungfu',
         name: '练兵比武',

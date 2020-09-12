@@ -28,11 +28,11 @@
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">知识社区</template>
-          <el-menu-item route="/knowledge" index="3-1">专利展示</el-menu-item>
-          <el-menu-item route="/knowledge" index="3-2">工匠讲堂</el-menu-item>
-          <el-menu-item route="/knowledge" index="3-3">创新直播</el-menu-item>
-          <el-menu-item route="/knowledge" index="3-4">职代会</el-menu-item>
-          <el-menu-item route="/knowledge" index="3-5">大事记</el-menu-item>
+          <el-menu-item route="/patentShow" index="3-1">专利展示</el-menu-item>
+          <el-menu-item route="/class" index="3-2">工匠讲堂</el-menu-item>
+          <el-menu-item route="/live" index="3-3">创新直播</el-menu-item>
+          <el-menu-item route="/worksMeeting" index="3-4">职代会</el-menu-item>
+          <el-menu-item route="/bigEvents" index="3-5">大事记</el-menu-item>
         </el-submenu>
         <el-submenu index="4">
           <template slot="title">练兵比武</template>
