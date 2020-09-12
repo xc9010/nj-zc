@@ -40,6 +40,7 @@
         <el-tab-pane label="普惠服务">
           <el-tabs type="border-card">
             <el-tab-pane label="职工生日会">
+              <Birthday></Birthday>
             </el-tab-pane>
             <el-tab-pane label="工会在身边">
               <div class="mainList">
@@ -54,6 +55,7 @@
               </div>
             </el-tab-pane>
             <el-tab-pane label="困难帮扶">
+              <Help></Help>
             </el-tab-pane>
             <el-tab-pane label="女工关乎">
               <div class="mainList">
@@ -68,6 +70,7 @@
               </div>
             </el-tab-pane>
             <el-tab-pane label="助学贷款">
+              <Study></Study>
             </el-tab-pane>
           </el-tabs>
         </el-tab-pane>
@@ -102,12 +105,15 @@
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
   import Members from '../../components/Members'
+  import Birthday from '../../components/Birthday'
+  import Help from '../../components/Help'
   import Love from '../../components/Love'
+  import Study from '../../components/Study'
   import AllService from '../../components/AllService'
 
   export default {
     name: 'Family',
-    components: { Card, Members, Love, AllService },
+    components: { Card, Members, Love, AllService,Birthday,Help,Study },
     data() {
       return {
         position: 'left',
