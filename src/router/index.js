@@ -98,12 +98,34 @@ export const constantRoutes = [
         name: '大事记',
         component: () => import('@/views/bigEvents'),
       },
-
+      // 练兵比武
       {
         path: 'kungfu',
-        name: '练兵比武',
+        name: '闯关练习',
         component: () => import('@/views/kungfu'),
       },
+      {
+        path: 'idea',
+        name: '理想信念',
+        component: () => import('@/views/idea'),
+      },
+      {
+        path: 'liveExam',
+        name: '在线考试',
+        component: () => import('@/views/liveExam'),
+      },
+      {
+        path: 'exams',
+        name: '试题征集',
+        component: () => import('@/views/exams'),
+      },
+      {
+        path: 'experts',
+        name: '专家问诊',
+        component: () => import('@/views/experts'),
+      },
+
+
       {
         path: 'sports',
         name: '运动专场',
