@@ -1,179 +1,186 @@
 <template>
 <div class="love">
+  <el-card class="box-card">
+    <div slot="header" class="box-title">
+      <span>红娘牵线</span>
+    </div>
+    <div>
 
-  <div class="flex flexwrap">
-    <div class="flex1">
-      <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
-        <el-carousel  height="250px">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
-          </el-carousel-item>
-        </el-carousel>
-        <div class="flex loveContent">
-          <div class="f1">
-            <div>张三</div>
-            <div>炼钢一厂</div>
-          </div>
-          <div class="contentItem">
-            <div class="loveicon"></div>
-          </div>
+      <div class="flex flexwrap">
+        <div class="flex1">
+          <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
+            <el-carousel  height="250px">
+              <el-carousel-item v-for="item in 3" :key="item">
+                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+              </el-carousel-item>
+            </el-carousel>
+            <div class="flex loveContent">
+              <div class="f1">
+                <div>张三</div>
+                <div>炼钢一厂</div>
+              </div>
+              <div class="contentItem">
+                <div class="loveicon"></div>
+              </div>
+            </div>
+            <div class="loveTag">
+              <el-tag
+                v-for="item in items"
+                :key="item.label"
+                :type="item.type"
+                style="margin: 0 5px 10px 10px"
+                effect="dark">
+                {{ item.label }}
+              </el-tag>
+            </div>
+          </el-card>
         </div>
-        <div class="loveTag">
-          <el-tag
-            v-for="item in items"
-            :key="item.label"
-            :type="item.type"
-            style="margin: 0 5px 10px 10px"
-            effect="dark">
-            {{ item.label }}
-          </el-tag>
+        <div class="flex1">
+          <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
+            <el-carousel  height="250px">
+              <el-carousel-item v-for="item in 3" :key="item">
+                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+              </el-carousel-item>
+            </el-carousel>
+            <div class="flex loveContent">
+              <div class="f1">
+                <div>张三</div>
+                <div>炼钢一厂</div>
+              </div>
+              <div class="contentItem">
+                <div class="loveicon"></div>
+              </div>
+            </div>
+            <div class="loveTag">
+              <el-tag
+                v-for="item in items"
+                :key="item.label"
+                :type="item.type"
+                style="margin: 0 5px 10px 10px"
+                effect="dark">
+                {{ item.label }}
+              </el-tag>
+            </div>
+          </el-card>
         </div>
-      </el-card>
-    </div>
-    <div class="flex1">
-      <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
-        <el-carousel  height="250px">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
-          </el-carousel-item>
-        </el-carousel>
-        <div class="flex loveContent">
-          <div class="f1">
-            <div>张三</div>
-            <div>炼钢一厂</div>
-          </div>
-          <div class="contentItem">
-            <div class="loveicon"></div>
-          </div>
+        <div class="flex1">
+          <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
+            <el-carousel  height="250px">
+              <el-carousel-item v-for="item in 3" :key="item">
+                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+              </el-carousel-item>
+            </el-carousel>
+            <div class="flex loveContent">
+              <div class="f1">
+                <div>张三</div>
+                <div>炼钢一厂</div>
+              </div>
+              <div class="contentItem">
+                <div class="loveicon"></div>
+              </div>
+            </div>
+            <div class="loveTag">
+              <el-tag
+                v-for="item in items"
+                :key="item.label"
+                :type="item.type"
+                style="margin: 0 5px 10px 10px"
+                effect="dark">
+                {{ item.label }}
+              </el-tag>
+            </div>
+          </el-card>
         </div>
-        <div class="loveTag">
-          <el-tag
-            v-for="item in items"
-            :key="item.label"
-            :type="item.type"
-            style="margin: 0 5px 10px 10px"
-            effect="dark">
-            {{ item.label }}
-          </el-tag>
-        </div>
-      </el-card>
-    </div>
-    <div class="flex1">
-      <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
-        <el-carousel  height="250px">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
-          </el-carousel-item>
-        </el-carousel>
-        <div class="flex loveContent">
-          <div class="f1">
-            <div>张三</div>
-            <div>炼钢一厂</div>
-          </div>
-          <div class="contentItem">
-            <div class="loveicon"></div>
-          </div>
-        </div>
-        <div class="loveTag">
-          <el-tag
-            v-for="item in items"
-            :key="item.label"
-            :type="item.type"
-            style="margin: 0 5px 10px 10px"
-            effect="dark">
-            {{ item.label }}
-          </el-tag>
-        </div>
-      </el-card>
-    </div>
-  </div>
+      </div>
 
-  <div class="flex flexwrap">
-    <div class="flex1">
-      <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
-        <el-carousel  height="250px">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
-          </el-carousel-item>
-        </el-carousel>
-        <div class="flex loveContent">
-          <div class="f1">
-            <div>张三</div>
-            <div>炼钢一厂</div>
-          </div>
-          <div class="contentItem">
-            <div class="loveicon"></div>
-          </div>
+      <div class="flex flexwrap">
+        <div class="flex1">
+          <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
+            <el-carousel  height="250px">
+              <el-carousel-item v-for="item in 3" :key="item">
+                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+              </el-carousel-item>
+            </el-carousel>
+            <div class="flex loveContent">
+              <div class="f1">
+                <div>张三</div>
+                <div>炼钢一厂</div>
+              </div>
+              <div class="contentItem">
+                <div class="loveicon"></div>
+              </div>
+            </div>
+            <div class="loveTag">
+              <el-tag
+                v-for="item in items"
+                :key="item.label"
+                :type="item.type"
+                style="margin: 0 5px 10px 10px"
+                effect="dark">
+                {{ item.label }}
+              </el-tag>
+            </div>
+          </el-card>
         </div>
-        <div class="loveTag">
-          <el-tag
-            v-for="item in items"
-            :key="item.label"
-            :type="item.type"
-            style="margin: 0 5px 10px 10px"
-            effect="dark">
-            {{ item.label }}
-          </el-tag>
+        <div class="flex1">
+          <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
+            <el-carousel  height="250px">
+              <el-carousel-item v-for="item in 3" :key="item">
+                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+              </el-carousel-item>
+            </el-carousel>
+            <div class="flex loveContent">
+              <div class="f1">
+                <div>张三</div>
+                <div>炼钢一厂</div>
+              </div>
+              <div class="contentItem">
+                <div class="loveicon"></div>
+              </div>
+            </div>
+            <div class="loveTag">
+              <el-tag
+                v-for="item in items"
+                :key="item.label"
+                :type="item.type"
+                style="margin: 0 5px 10px 10px"
+                effect="dark">
+                {{ item.label }}
+              </el-tag>
+            </div>
+          </el-card>
         </div>
-      </el-card>
+        <div class="flex1">
+          <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
+            <el-carousel  height="250px">
+              <el-carousel-item v-for="item in 3" :key="item">
+                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+              </el-carousel-item>
+            </el-carousel>
+            <div class="flex loveContent">
+              <div class="f1">
+                <div>张三</div>
+                <div>炼钢一厂</div>
+              </div>
+              <div class="contentItem">
+                <div class="loveicon"></div>
+              </div>
+            </div>
+            <div class="loveTag">
+              <el-tag
+                v-for="item in items"
+                :key="item.label"
+                :type="item.type"
+                style="margin: 0 5px 10px 10px"
+                effect="dark">
+                {{ item.label }}
+              </el-tag>
+            </div>
+          </el-card>
+        </div>
+      </div>
     </div>
-    <div class="flex1">
-      <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
-        <el-carousel  height="250px">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
-          </el-carousel-item>
-        </el-carousel>
-        <div class="flex loveContent">
-          <div class="f1">
-            <div>张三</div>
-            <div>炼钢一厂</div>
-          </div>
-          <div class="contentItem">
-            <div class="loveicon"></div>
-          </div>
-        </div>
-        <div class="loveTag">
-          <el-tag
-            v-for="item in items"
-            :key="item.label"
-            :type="item.type"
-            style="margin: 0 5px 10px 10px"
-            effect="dark">
-            {{ item.label }}
-          </el-tag>
-        </div>
-      </el-card>
-    </div>
-    <div class="flex1">
-      <el-card style="width: 250px" shadow="always" :body-style="{ padding: '0px' }">
-        <el-carousel  height="250px">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
-          </el-carousel-item>
-        </el-carousel>
-        <div class="flex loveContent">
-          <div class="f1">
-            <div>张三</div>
-            <div>炼钢一厂</div>
-          </div>
-          <div class="contentItem">
-            <div class="loveicon"></div>
-          </div>
-        </div>
-        <div class="loveTag">
-          <el-tag
-            v-for="item in items"
-            :key="item.label"
-            :type="item.type"
-            style="margin: 0 5px 10px 10px"
-            effect="dark">
-            {{ item.label }}
-          </el-tag>
-        </div>
-      </el-card>
-    </div>
-  </div>
+  </el-card>
 
 </div>
 </template>
@@ -198,7 +205,6 @@
 
 <style lang="scss" scoped>
   .love{
-    padding: 50px;
     .loveContent{
       padding: 14px;
       display: flex;

@@ -2,7 +2,7 @@
 <div class="member">
   <div>
     <el-card class="box-card">
-      <div slot="header" class="member-title">
+      <div slot="header" class="box-title">
         <span>会员入会登记</span>
       </div>
       <div class="text item zcForm">
@@ -184,7 +184,6 @@
 
 <style lang="scss" scoped>
   .member{
-    padding: 10px;
     .member-title{
       text-align: center;
       font-size: 22px;
