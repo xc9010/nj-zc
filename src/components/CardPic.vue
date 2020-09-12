@@ -1,14 +1,14 @@
 <template>
 <div class="cardPic">
     <div class="flex cardPicWrap">
-      <div v-for="item in 6" class="f1 cardPicItem" style="flex: 0.4">
+      <div v-for="item in info" class="f1 cardPicItem" style="flex: 0.4">
         <el-card :body-style="{ width: '100%', padding: '10px', display: 'flex' }">
-          <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
+          <img :src="item.imgs" class="image">
           <div style="padding: 0 10px;">
-            <div class="cardPicTitle">好吃的汉堡好吃的汉堡好吃的汉堡</div>
-            <div class="cardPicTips" style="color: red">好吃的汉堡</div>
-            <div class="cardPicTips">好吃的汉堡</div>
-            <el-button style="margin: 10px 0">查看详情</el-button>
+            <div class="cardPicTitle">{{item.title}}</div>
+            <div class="cardPicTips" style="color: red">{{item.classify}}</div>
+            <div class="cardPicTips">{{item.author}}</div>
+            <el-button style="margin: 10px 0"><el-link @click="handleClick(item)" target="_blank">查看详情</el-link></el-button>
           </div>
         </el-card>
       </div>
@@ -19,11 +19,26 @@
 <script>
 
   export default {
+    props: {
+      info: {
+        type: String
+      }
+    },
     data() {
       return {
         levelList: null
       }
     },
+    methods: {
+      handleClick(item) {
+        this.$router.push({
+          name: 'infoDetail',
+          params: {
+            article: item
+          }
+        })
+      }
+    }
   }
 </script>
 
