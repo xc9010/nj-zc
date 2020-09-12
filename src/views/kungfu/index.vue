@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
+    <div >
       闯关练习
     </div>
   </div>

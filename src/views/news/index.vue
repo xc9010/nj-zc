@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
+    <div>
       <div class="news">
         <el-card class="box-card">
             <div slot="header" class="box-title">

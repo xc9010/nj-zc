@@ -67,10 +67,38 @@ export const constantRoutes = [
         name: '主席信箱',
         component: () => import('@/views/email'),
       },
+
+      //职工之家
+
       {
         path: 'family',
-        name: '职工之家',
+        name: '我要入会',
         component: () => import('@/views/family'),
+      },
+      {
+        path: 'member',
+        name: '我要入会',
+        component: () => import('@/views/member'),
+      },
+      {
+        path: 'create',
+        name: '职工创新',
+        component: () => import('@/views/create'),
+      },
+      {
+        path: 'love',
+        name: '红娘牵线',
+        component: () => import('@/views/love'),
+      },
+      {
+        path: 'service',
+        name: '普惠服务',
+        component: () => import('@/views/service'),
+      },
+      {
+        path: 'union',
+        name: '工会风采',
+        component: () => import('@/views/union'),
       },
       // 知识社区
       {

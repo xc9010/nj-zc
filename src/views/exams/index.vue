@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
+    <div >
       试题征集
     </div>
   </div>

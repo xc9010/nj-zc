@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
+    <div >
       专利展示
     </div>
   </div>

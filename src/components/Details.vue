@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
+    <div >
       <el-tabs :tab-position="position">
         <el-tab-pane label="工会要闻">
           <div class="mainList">

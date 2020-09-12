@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
+    <div >
       <el-tabs :tab-position="position">
         <el-tab-pane label="我要入会">
           <Members></Members>
