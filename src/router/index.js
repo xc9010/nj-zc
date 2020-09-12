@@ -53,25 +53,79 @@ export const constantRoutes = [
     redirect: '/',
     children: [
       {
-        path: 'notice',
-        name: '通知公告',
-        component: () => import('@/views/notice'),
+        path: 'news',
+        name: '工会要闻',
+        component: () => import('@/views/news'),
+      },
+      {
+        path: 'policy',
+        name: '政策解读',
+        component: () => import('@/views/policy'),
+      },
+      {
+        path: 'email',
+        name: '主席信箱',
+        component: () => import('@/views/email'),
       },
       {
         path: 'family',
         name: '职工之家',
         component: () => import('@/views/family'),
       },
+      // 知识社区
       {
-        path: 'knowledge',
-        name: '知识社区',
-        component: () => import('@/views/knowledge'),
+        path: 'patentShow',
+        name: '专利展示',
+        component: () => import('@/views/patentShow'),
       },
+      {
+        path: 'class',
+        name: '工匠讲堂',
+        component: () => import('@/views/class'),
+      },
+      {
+        path: 'live',
+        name: '创新直播',
+        component: () => import('@/views/live'),
+      },
+      {
+        path: 'worksMeeting',
+        name: '职代会',
+        component: () => import('@/views/worksMeeting'),
+      },
+      {
+        path: 'bigEvents',
+        name: '大事记',
+        component: () => import('@/views/bigEvents'),
+      },
+      // 练兵比武
       {
         path: 'kungfu',
-        name: '练兵比武',
+        name: '闯关练习',
         component: () => import('@/views/kungfu'),
       },
+      {
+        path: 'idea',
+        name: '理想信念',
+        component: () => import('@/views/idea'),
+      },
+      {
+        path: 'liveExam',
+        name: '在线考试',
+        component: () => import('@/views/liveExam'),
+      },
+      {
+        path: 'exams',
+        name: '试题征集',
+        component: () => import('@/views/exams'),
+      },
+      {
+        path: 'experts',
+        name: '专家问诊',
+        component: () => import('@/views/experts'),
+      },
+
+
       {
         path: 'sports',
         name: '运动专场',

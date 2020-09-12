@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      闯关练习
+      创新直播
     </div>
   </div>
 </template>
