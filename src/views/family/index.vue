@@ -12,7 +12,9 @@
             <el-tab-pane label="创新增效">创新增效</el-tab-pane>
           </el-tabs>
         </el-tab-pane>
-        <el-tab-pane label="红娘牵线"></el-tab-pane>
+        <el-tab-pane label="红娘牵线">
+          <Love></Love>
+        </el-tab-pane>
         <el-tab-pane label="普惠服务"></el-tab-pane>
         <el-tab-pane label="工会风采"></el-tab-pane>
       </el-tabs>
@@ -24,10 +26,11 @@
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
   import Members from '../../components/Members'
+  import Love from '../../components/Love'
 
   export default {
     name: 'Family',
-    components: { Card, Members },
+    components: { Card, Members, Love },
     data() {
       return {
         position: 'left',
