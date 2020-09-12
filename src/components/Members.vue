@@ -9,8 +9,9 @@
         <el-form
           ref="form"
           :model="form"
-          label-width="180px"
+          label-width="auto"
           size="medium"
+          inline
         >
           <el-form-item label="姓名">
             <el-input v-model="form.name"></el-input>

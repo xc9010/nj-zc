@@ -11,6 +11,7 @@
           :model="form"
           label-width="180px"
           size="medium"
+          inline
         >
           <el-form-item label="姓名">
             <el-input v-model="form.name"></el-input>
