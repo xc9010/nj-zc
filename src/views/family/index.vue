@@ -31,7 +31,9 @@
                 </el-collapse>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="创新增效">创新增效</el-tab-pane>
+            <el-tab-pane label="创新增效">
+              <CardPic></CardPic>
+            </el-tab-pane>
           </el-tabs>
         </el-tab-pane>
         <el-tab-pane label="红娘牵线">
@@ -110,10 +112,11 @@
   import Love from '../../components/Love'
   import Study from '../../components/Study'
   import AllService from '../../components/AllService'
+  import CardPic from '../../components/CardPic'
 
   export default {
     name: 'Family',
-    components: { Card, Members, Love, AllService,Birthday,Help,Study },
+    components: { Card, Members, Love, AllService,Birthday,Help,Study, CardPic },
     data() {
       return {
         position: 'left',
