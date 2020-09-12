@@ -26,6 +26,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="民族">
+            <el-input v-model="form.name"></el-input>
           </el-form-item>
           <el-form-item label="出生年月">
             <el-date-picker

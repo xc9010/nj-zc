@@ -11,7 +11,7 @@
           <el-card style="width: 220px" shadow="always" :body-style="{ padding: '0px' }">
             <el-carousel  height="250px">
               <el-carousel-item v-for="item in 3" :key="item">
-                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" style="width: 100%">
+                <img src="@/assets/images/loveMan.jpg" style="width: 100%">
               </el-carousel-item>
             </el-carousel>
             <div class="flex loveContent">
@@ -20,7 +20,9 @@
                 <div>炼钢一厂</div>
               </div>
               <div class="contentItem">
-                <div class="loveicon"></div>
+                <div class="loveicon">
+                  <img src="@/assets/images/loveicon.png" style="width: 100%">
+                </div>
               </div>
             </div>
             <div class="loveTag">
@@ -89,8 +91,6 @@
     .loveicon{
       width: 20px;
       height: 20px;
-      border-radius: 50%;
-      background-color: red;
     }
   }
 
