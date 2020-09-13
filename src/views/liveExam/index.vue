@@ -1,9 +1,5 @@
 <template>
-  <div class="mainBox">
-    <div >
-      在线考试s
-    </div>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
@@ -21,3 +17,4 @@
 
 <style lang="scss" scoped>
 </style>
+

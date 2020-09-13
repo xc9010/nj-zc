@@ -193,7 +193,7 @@
     methods: {
       handleClick(item) {
         this.$router.push({
-          name: '详情',
+          name: '职代会详情',
           params: {
             article: item
           }

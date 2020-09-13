@@ -150,7 +150,26 @@ export const constantRoutes = [
         title: 'kungfu',
         name: '闯关练习',
         ind: '4-1',
+        redirect: '/kungfu/list',
         component: () => import('@/views/kungfu'),
+        children: [
+
+          {
+            path: 'list',
+            component: () => import('@/views/kungfu/list'),
+            name: '题库',
+          },
+          {
+            path: 'startExam/:id',
+            component: () => import('@/views/kungfu/startExam'),
+            name: '开始闯关',
+          },
+          {
+            path: 'result/:id',
+            component: () => import('@/views/kungfu/result'),
+            name: '闯关结果',
+          },
+        ]
       },
       {
         path: 'idea',
@@ -160,18 +179,43 @@ export const constantRoutes = [
         component: () => import('@/views/idea'),
       },
       {
-        path: 'liveExam',
-        title: 'liveExam',
+        path: 'exam',
+        title: 'exam',
         name: '在线考试',
         ind: '4-3',
+        redirect: '/exam/list',
         component: () => import('@/views/liveExam'),
+        children: [
+
+          {
+            path: 'list',
+            component: () => import('@/views/liveExam/list'),
+            name: '列表',
+          },
+          {
+            path: 'preExam/:examId',
+            component: () => import('@/views/liveExam/preExam'),
+            name: '准备考试',
+          },
+          {
+            path: 'startExam/:id',
+            component: () => import('@/views/liveExam/startExam'),
+            name: '开始考试',
+          },
+          {
+            path: 'result/:id',
+            component: () => import('@/views/liveExam/result'),
+            name: '考试结果',
+          },
+        ]
+
       },
       {
-        path: 'exams',
-        title: 'exams',
+        path: 'getQues',
+        title: 'getQues',
         name: '试题征集',
         ind: '4-4',
-        component: () => import('@/views/exams'),
+        component: () => import('@/views/getQues'),
       },
       {
         path: 'experts',
@@ -193,6 +237,11 @@ export const constantRoutes = [
         name: '详情',
         path: 'details',
         component: () => import('@/views/Details'),
+      },
+      {
+        name: '职代会详情',
+        path: 'workDetails',
+        component: () => import('@/views/workDetails'),
       },
     ]
   },
