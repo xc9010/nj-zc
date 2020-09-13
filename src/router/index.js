@@ -114,6 +114,12 @@ export const constantRoutes = [
             name: '劳模风采',
             ind: '2-5-1',
             component: () => import('@/views/union/model')
+          }, {
+            path: 'studio',
+            title: 'studio',
+            name: '创新工作室',
+            ind: '2-5-2',
+            component: () => import('@/views/union/studio')
           }
         ]
       },
