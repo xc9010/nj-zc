@@ -1,42 +1,8 @@
 <template>
-  <div class="mainBox">
-    <div class="mainContent">
-      <el-tabs v-model="tabType" @tab-click="changeTab"  tab-position="left">
-        <el-tab-pane label="职工风采">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>职工风采</span>
-            </div>
-            <el-collapse v-model="active">
-              <el-collapse-item name="1" v-for="(item, index) in workers" :key="index">
-                <template slot="title">
-                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                </template>
-                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-              </el-collapse-item>
-            </el-collapse>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane label="劳模先进">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>劳模先进</span>
-            </div>
-            <CardPicVertical :info="model"></CardPicVertical>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane label="工匠评优">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>工匠评优</span>
-            </div>
-            <CardPicVertical :info="craftsman"></CardPicVertical>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane label="创新工作室">
-          <CardPic :info="studio"></CardPic>
-        </el-tab-pane>
-      </el-tabs>
+  <div class="news-nav">
+    <nav-left :items="navItems" @callback="callback"/>
+    <div class="nav-content">
+      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
     </div>
   </div>
 </template>
@@ -46,10 +12,12 @@
   import Card from '../../components/Card'
   import CardPic from '../../components/CardPic'
   import CardPicVertical from '../../components/CardPicVertical'
+  import navLeft from '../../components/news/navLeft'
+  import cardConcertNav from '../../components/news/cardConcertNav'
 
   export default {
     name: 'Union',
-    components: { Card, CardPic, CardPicVertical },
+    components: { Card, CardPic, CardPicVertical, navLeft, cardConcertNav },
     data() {
       return {
         active: ['1', '2', '3', '4'],
@@ -282,8 +250,34 @@
             name:'张红军',
             introduce:'全国机冶行业工匠”'
           }
-        ]
+        ],
+        navItems: [
+          {
+            name: '职工风采',
+            code:'workers',
+            active: true
+          },
+          {
+            name: '劳模先进',
+            code:'model',
+            active: false
+          },
+          {
+            name: '工匠评优',
+            code:'craftsman',
+            active: false
+          },
+          {
+            name: '创新工作室',
+            code:'studio',
+            active: false
+          }
+        ],
+        listOption: []
       }
+    },
+    created(){
+      this.listOption = this.workers
     },
     computed: {
       ...mapGetters([
@@ -304,18 +298,25 @@
         })
       },
       changeTab(targetName) {
-        // console.log(targetName.index)
         const index = targetName.index;
-        // console.log(this.$router)
         if(index) this.$router.replace({path: `/union/${index}`} || './')
       },
-      goto(url) {
-        console.log(url)
-        this.$router.push(url || './')
+      callback(item) {
+        this.listOption = this[`${item.code}`]
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .news-nav {
+    padding-top: 55px;
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    background: #ffffff;
+    .nav-content {
+      margin-top: -25px;
+    }
+  }
 </style>

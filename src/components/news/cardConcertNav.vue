@@ -2,18 +2,18 @@
   <div class="news-card">
     <div class="date">
       <p class="day">
-        20
+        {{data.date.substring(8)}}
       </p>
       <p class="month">
-        2020-08
+        {{data.date.substring(0,7)}}
       </p>
     </div>
     <div class="news-content">
       <p class="news-title">
-        艺术家园“艺之乒”周年庆在南钢举办
+        {{data.title}}
       </p>
       <p class="news-info">
-        9月1日，南京艺术家园“艺之乒”成立一周年庆活动在南钢举办，南钢工会主席张六喜等接待了艺术家们的到来。此次参加活动的有《江苏工人报》著名漫画家禹天成、南京知名主持人方方等来自各界的艺术家们...
+        {{data.info}}
       </p>
     </div>
   </div>
@@ -21,25 +21,16 @@
 <script>
 
 export default {
-  // props: {
-  //   author: {
-  //     type: String
-  //   },
-  //   date: {
-  //     type: String
-  //   },
-  //   info:  {
-  //     type: String
-  //   },
-  //   imgs:  {
-  //     type: String
-  //   }
-  // },
-  // data() {
-  //   return {
-  //     levelList: null
-  //   }
-  // },
+   props: {
+     data: {
+       type: Object
+     }
+   },
+   data() {
+     return {
+       levelList: null
+     }
+   },
 }
 </script>
 
@@ -101,6 +92,11 @@ export default {
       font-size: 14px;
       color: #b5b5b5;
       margin-top: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
   }
 }

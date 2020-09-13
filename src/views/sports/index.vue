@@ -1,59 +1,8 @@
 <template>
-  <div class="mainBox">
-    <div class="mainContent">
-      <el-tabs v-model="tabType" @tab-click="handleTabClick" tab-position="left">
-        <el-tab-pane name="0" label="第三届生技会">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>第三届生技会</span>
-            </div>
-              <div class="mainList">
-                <el-collapse v-model="active">
-                  <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
-                    <template slot="title">
-                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                    </template>
-                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane name="1" label="第四届生技会">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>第四届生技会</span>
-            </div>
-              <div class="mainList">
-                <el-collapse v-model="active">
-                  <el-collapse-item name="1" v-for="(item, index) in four" :key="index">
-                    <template slot="title">
-                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                    </template>
-                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane name="2" label="第五届生技会">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>第五届生技会</span>
-            </div>
-              <div class="mainList">
-                <el-collapse v-model="active">
-                  <el-collapse-item name="1" v-for="(item, index) in five" :key="index">
-                    <template slot="title">
-                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                    </template>
-                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-          </el-card>
-        </el-tab-pane>
-      </el-tabs>
+  <div class="news-nav">
+    <nav-left :items="navItems" @callback="callback"/>
+    <div class="nav-content">
+      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
     </div>
   </div>
 </template>
@@ -61,9 +10,11 @@
 <script>
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
+  import navLeft from '../../components/news/navLeft'
+  import cardConcertNav from '../../components/news/cardConcertNav'
 
   export default {
-    components: { Card },
+    components: { Card, navLeft, cardConcertNav },
     name: 'Sports',
     computed: {
       ...mapGetters([
@@ -75,7 +26,7 @@
         tabType:'0',
         levelList: null,
         active: ['1','2','3','4'],
-        list: [
+        three: [
           {
             title: '第三炼钢厂进行精炼炉炉长技术比武实操比赛',
             imgs:'http://nggh.nisco.cn/UploadFiles/TPXW/2017/6/2017062216162494970.jpg',
@@ -205,8 +156,29 @@
             '<p>&emsp;&emsp;高线厂 郭丽伟</p>' +
             '<img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2019/5/201905290952454156.jpg" style="width: 195px; height: 161px;" />&nbsp;&nbsp; <img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2019/5/201905290953519551.jpg" style="width: 138px; height: 160px;" />'
           }
-        ]
+        ],
+        navItems: [
+          {
+            name: '第三届生技会',
+            code:'three',
+            active: true
+          },
+          {
+            name: '第四届生技会',
+            code:'four',
+            active: false
+          },
+          {
+            name: '第五届生技会',
+            code:'five',
+            active: false
+          }
+        ],
+        listOption: []
       }
+    },
+    created(){
+      this.listOption = this.three
     },
     mounted() {
       let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
@@ -222,14 +194,25 @@
         })
       },
       handleTabClick(targetName) {
-        // console.log(targetName.index)
         const index = targetName.index;
-        // console.log(this.$router)
         if(index) this.$router.replace({path: `/sports/${index}`} || './')
       },
+      callback(item) {
+        this.listOption = this[`${item.code}`]
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .news-nav {
+    padding-top: 55px;
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    background: #ffffff;
+    .nav-content {
+      margin-top: -25px;
+    }
+  }
 </style>

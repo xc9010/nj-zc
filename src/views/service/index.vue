@@ -1,47 +1,8 @@
 <template>
-  <div class="mainBox">
-    <div class="mainContent">
-      <el-tabs v-model="tabType" @tab-click="changeTab"  tab-position="left">
-        <el-tab-pane label="职工生日会">
-          <Birthday></Birthday>
-        </el-tab-pane>
-        <el-tab-pane label="工会在身边">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>工会在身边</span>
-            </div>
-            <el-collapse v-model="active">
-              <el-collapse-item name="1" v-for="(item, index) in around" :key="index">
-                <template slot="title">
-                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                </template>
-                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-              </el-collapse-item>
-            </el-collapse>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane label="困难帮扶">
-          <Help></Help>
-        </el-tab-pane>
-        <el-tab-pane label="女工关怀">
-          <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>女工关怀</span>
-            </div>
-            <el-collapse v-model="active">
-              <el-collapse-item name="1" v-for="(item, index) in woman" :key="index">
-                <template slot="title">
-                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                </template>
-                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-              </el-collapse-item>
-            </el-collapse>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane label="助学贷款">
-          <Study></Study>
-        </el-tab-pane>
-      </el-tabs>
+  <div class="news-nav">
+    <nav-left :items="navItems" @callback="callback"/>
+    <div class="nav-content">
+      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
     </div>
   </div>
 </template>
@@ -52,10 +13,12 @@
   import Card from '../../components/Card'
   import Help from '../../components/Help'
   import Study from '../../components/Study'
+  import navLeft from '../../components/news/navLeft'
+  import cardConcertNav from '../../components/news/cardConcertNav'
 
   export default {
     name: 'Live',
-    components: {Birthday, Card, Help, Study},
+    components: {Birthday, Card, Help, Study, navLeft, cardConcertNav },
     computed: {
       ...mapGetters([
         'name'
@@ -65,6 +28,33 @@
       return {
         position: 'left',
         tabType: '0',
+        navItems: [
+          {
+            name: '工会在身边',
+            code:'around',
+            active: false
+          },
+          {
+            name: '女工关怀',
+            code:'woman',
+            active: false
+          },
+          {
+            name: '职工生日会',
+            code:'birthday',
+            active: true
+          },
+          {
+            name: '困难帮扶',
+            code:'help',
+            active: false
+          },
+          {
+            name: '助学贷款',
+            code:'study',
+            active: false
+          }
+        ],
         active: ['1','2','3','4'],
         around: [
           {
@@ -170,8 +160,12 @@
               '<p>&emsp;&emsp;通过一天的学习培训，工会女职工干部的理论水平、专业技能和服务能力有了进一步提高。</p>' +
               '<p>&emsp;&emsp;文：张中芳 高捷 图：陈虹</p>'
           }
-        ]
+        ],
+        listOption: []
       }
+    },
+    created(){
+      this.listOption = this.around
     },
     mounted() {
       let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
@@ -187,14 +181,11 @@
         })
       },
       changeTab(targetName) {
-        // console.log(targetName.index)
         const index = targetName.index;
-        // console.log(this.$router)
         if(index) this.$router.replace({path: `/service/${index}`} || './')
       },
-      goto(url) {
-        console.log(url)
-        this.$router.push(url || './')
+      callback(item) {
+        this.listOption = this[`${item.code}`]
       }
     }
 
@@ -202,4 +193,14 @@
 </script>
 
 <style lang="scss" scoped>
+  .news-nav {
+    padding-top: 55px;
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    background: #ffffff;
+    .nav-content {
+      margin-top: -25px;
+    }
+  }
 </style>
