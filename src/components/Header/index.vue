@@ -46,7 +46,7 @@
     <el-menu-item route="/sports" index="5">运动专场</el-menu-item>
   </el-menu>
     <!-- <el-col :span="8">
-      
+
     </el-col>
     <el-col :span="16">
     </el-col> -->
@@ -94,7 +94,7 @@
     margin: auto;
     .headerLogo {
       width: 390px;
-      margin-right: 120px;
+      margin: 0 auto;
       // float: left;
       flex-shrink: 0;
       img {

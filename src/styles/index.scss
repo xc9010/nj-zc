@@ -23,7 +23,7 @@ html {
 
 #app {
   height: 100%;
-  background: url('../assets/images/bg.jpg') no-repeat fixed top;
+  //background: url('../assets/images/bg.jpg') no-repeat fixed top;
 }
 
 *,
@@ -72,12 +72,15 @@ div:focus {
   flex: 1;
 }
 .mainBox {
-  padding: 0 190px;
-  min-height: 400px;
-  background: url('../assets/images/bg.jpg') no-repeat fixed top;
+  //padding: 0 190px;
+  //min-height: 400px;
+  //background: url('../assets/images/bg.jpg') no-repeat fixed top;
   //height: 400px;
+  min-height: 400px;
+  width: 1200px;
+  margin: 0 auto;
   .mainContent{
-    margin: 20px;
+    margin: 20px 0;
     padding: 10px;
     height: 100%;
     background-color: #fff;
@@ -106,7 +109,7 @@ div:focus {
 }
 
 .box-card{
-  margin: 10px;
+  margin: 10px 0;
   .box-title{
     text-align: center;
     font-size: 22px;
@@ -123,19 +126,20 @@ div:focus {
   color: #000!important;
 }
 .el-menu.el-menu--horizontal{
-  background: url('../assets/images/bg.jpg') no-repeat fixed top;
+  //background: url('../assets/images/bg.jpg') no-repeat fixed top;
 
 }
-.el-menu--horizontal>.el-menu-item, .el-menu--horizontal>.el-submenu .el-submenu__title{
-  font-size: 20px;
-  font-weight: bold;
-}
+//.el-menu--horizontal>.el-menu-item, .el-menu--horizontal>.el-submenu .el-submenu__title{
+//  font-size: 20px;
+//  font-weight: bold;
+//}
 .el-menu--horizontal>.el-submenu .el-submenu__title:hover, .el-menu--horizontal>.el-menu-item:hover{
-  background-color: #f99904;
+  background-color: #1989fa;
   color: #fff!important;
   border-radius: 5px;
 }
 
 .el-menu--horizontal .el-menu .el-menu-item:hover, .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover{
-  background-color: #f99904;
+  background-color: #1989fa;
+  color: #fff!important;
 }

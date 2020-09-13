@@ -37,7 +37,7 @@ export default {
   position: relative;
   overflow: hidden;
   /*background-color: #efeff0;*/
-  background: url('../../assets/images/bg.jpg') no-repeat fixed top;
+  /*background: url('../../assets/images/bg.jpg') no-repeat fixed top;*/
 }
 .bread{
   width: 1200px;
