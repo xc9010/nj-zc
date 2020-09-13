@@ -1,6 +1,6 @@
 <template>
   <div class="news-nav">
-    <nav-left />
+    <nav-left :items="navItems" />
     <div class="nav-content">
       <card-concert-nav />
       <card-concert-nav />
@@ -61,6 +61,20 @@
     components: { Card, CardPic, navLeft, cardConcertNav },
     data() {
       return {
+        navItems: [
+          {
+            name: '合理化建议',
+            active: true
+          },
+          {
+            name: '先进操作法',
+            active: false
+          },
+          {
+            name: '创新增效',
+            active: false
+          }
+        ],
         active: ['1', '2', '3', '4'],
         tabType: '0',
         list: [

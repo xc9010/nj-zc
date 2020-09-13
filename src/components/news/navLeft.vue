@@ -1,12 +1,12 @@
 <template>
   <div class="nav-container">
-    <div class="nav-item active">
+    <div v-for="(item, index) in items" :key="index" :class="['nav-item', item.active ? 'active': '' ]" @click="handleClick(item)">
       <div class="active"></div>
       <p>
-        合理化建议
+        {{item.name}}
       </p>
     </div>
-    <div class="nav-item">
+    <!-- <div class="nav-item">
       <div class="active"></div>
       <p>
         先进操作法
@@ -17,27 +17,30 @@
       <p>
         创新增效
       </p>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 
 export default {
-  // props: {
-  //   author: {
-  //     type: String
-  //   },
-  //   date: {
-  //     type: String
-  //   },
-  //   info:  {
-  //     type: String
-  //   },
-  //   imgs:  {
-  //     type: String
-  //   }
-  // },
+  props: {
+    items: {
+      type: Array,
+      default: function() {
+        return []
+      }
+    }
+  },
+  methods: {
+    handleClick(item) {
+      this.items.forEach(m => {
+        m.active = false
+      })
+      item.active = true
+      this.$emit('handleClick', item)
+    }
+  }
   // data() {
   //   return {
   //     levelList: null
