@@ -1,5 +1,6 @@
 <template>
   <section class="app-main">
+    <img :src="require('@/assets/images/header-bg/1.png')">
     <div class="bread">
       <breadcrumbinfo class="breadcrumb-container" />
       <breadcrumb class="breadcrumb-container" />
@@ -44,7 +45,9 @@ export default {
   height: 55px;
   line-height: 55px;
   margin: auto;
-  background: #e0e9ef;
+  margin-top: -60px;
+  /* background: rgba(255, 255, 255, 1); */
+  background: #ffffff;
   /* margin: 10px 200px; */
   padding: 0;
   border-radius: 5px;
