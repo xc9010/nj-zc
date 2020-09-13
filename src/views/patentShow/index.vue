@@ -1,33 +1,15 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent">
-      <div class="news">
-        <el-card class="box-card">
-          <div slot="header" class="box-title">
-            <span>专利展示</span>
-          </div>
-          <div >
-            <div class="mainList">
-              <el-collapse v-model="active">
-                <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
-                  <template slot="title">
-                    <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                  </template>
-                  <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-            <div style="text-align: center;  padding: 10px">
-              <el-pagination
-                background
-                layout="prev, pager, next"
-                :total="1000">
-              </el-pagination>
-            </div>
-
-          </div>
-        </el-card>
-      </div>
+    <div class="news-list">
+      <news-card v-for="(item, index) in list" :key="index" :data="item">
+      </news-card>
+    </div>
+    <div style="text-align: center;  padding: 10px">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -35,9 +17,10 @@
 <script>
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
+  import newsCard from '../../components/news/card'
 
   export default {
-    components: { Card },
+    components: { Card,newsCard },
     name: 'PatentShow',
     computed: {
       ...mapGetters([
@@ -107,4 +90,8 @@
 </script>
 
 <style lang="scss" scoped>
+  .news-list {
+    margin: auto;
+    width: 1200px;
+  }
 </style>

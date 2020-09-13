@@ -1,33 +1,15 @@
 <template>
   <div class="mainBox">
-    <div>
-      <div class="news">
-        <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>政策解读</span>
-            </div>
-            <div >
-              <div class="mainList">
-                <el-collapse v-model="active">
-                  <el-collapse-item name="1" v-for="(item, index) in policy" :key="index">
-                    <template slot="title">
-                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                    </template>
-                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-              <div style="text-align: center;  padding: 10px">
-                <el-pagination
-                  background
-                  layout="prev, pager, next"
-                  :total="1000">
-                </el-pagination>
-              </div>
-
-            </div>
-          </el-card>
-      </div>
+    <div class="news-list">
+      <news-card v-for="(item, index) in policy" :key="index" :data="item">
+      </news-card>
+    </div>
+    <div style="text-align: center;  padding: 10px">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -36,8 +18,10 @@
 
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
+  import newsCard from '../../components/news/card'
+
   export default {
-    components: { Card },
+    components: { Card,newsCard },
     data() {
       return {
         levelList: null,
@@ -47,6 +31,7 @@
             title: '上海豫园商城党委来南钢对标党建工作',
             author: '匿名',
             date: '2018-11-03',
+            imgs:'http://www.njsteel.com.cn/Upload/Images/7b7b3a32-e9a6-48c4-9793-4c019f6a7296.png',
             info: '10月25日，上海豫园旅游商城股份有限公司党委书记、总裁梅红建，党委副书记范志韵率20多人来南钢对标党建工作。南钢党委书记陶魄，副书记、工会主席张六喜接待了来访....',
             content:' <p>&emsp;&emsp;10月25日，上海豫园旅游商城股份有限公司党委书记、总裁梅红建，党委副书记范志韵率20多人来南钢对标党建工作。南钢党委书记陶魄，副书记、工会主席张六喜接待了来访客人，党委工作部、公司办、人力资源部、保卫部、战略运营部、廉政督察部等部门负责人参加接待。</p>' +
               '<p>&emsp;&emsp;来访客人首先参观了九龙湖、宽厚板厂生产线和南京钢铁博物馆，绿色生态化的厂区、壮观的生产现场给客人留下了深刻的印象。尤其是南京钢铁博物馆的参观，使客人们增长了钢铁制造的知识，了解了南钢乃至江苏省钢铁业的发展史，大家赞不绝口。</p>' +
@@ -57,6 +42,7 @@
             title: '全国卓越党建现场会在南钢召开',
             author: '匿名',
             date: '2018-10-30',
+            imgs:'http://www.njsteel.com.cn/Upload/Images/143a57fb-8bc7-40f1-b089-ff79347436ea.png',
             info: '10月16日，中国质量协会和南钢共同主办的2018全国第二期卓越绩效专题活动暨卓越党建现场会在南钢召开。国务院国资委行业协会商会党建工作局局长张涛、国资委行业协会商会党建工作局副局长方长安、国资委管理局副局长张丽、中央党校教授刘炳香、江苏省党建协会副会长黄文虎、南京市国资....',
             content:'  <p>&emsp;&emsp;10月16日，中国质量协会和南钢共同主办的2018全国第二期卓越绩效专题活动暨卓越党建现场会在南钢召开。</p>' +
               '<p>&emsp;&emsp;国务院国资委行业协会商会党建工作局局长张涛、国资委行业协会商会党建工作局副局长方长安、国资委管理局副局长张丽、中央党校教授刘炳香、江苏省党建协会副会长黄文虎、南京市国资委副巡视员吴军、南京市国资委党建工作处调研员彭邦超、冶金工业质量经营联盟常务副理事长兼秘书长管炳春、江苏省质量管理协会会长张星际，以及主办方的中国质量协会副会长兼秘书长段永刚、南钢董事长黄一新、南钢党委书记陶魄、南钢党委副书记工会主席张六喜、南钢党委委员党委工作部部长王敏、中国质量协会咨询培训中心主任黄少兵等出席。会议由中国质量协会党委委员、副秘书长王琳主持。</p>' +
@@ -74,6 +60,7 @@
             title: '姜兴宏一行调研南钢卓越党建模式',
             author: '匿名',
             date: '2018-10-30',
+            imgs:'http://www.njsteel.com.cn/Upload/Images/33da6a64-db0c-4e3b-95cc-60284ee0dd95.jpg',
             info: '日前，中国冶金职工思想政治工作研究会会长姜兴宏一行，就南钢卓越党建模式来调研。党委工作部副部长陈佳对南钢卓越党建模式开展情况作了介绍。自2016年年底以来，南钢着力推进卓越党建模式，充分发挥核心引领作用，为企业发展提供思想保障；落实五大发展理念......',
             content:'<p>日前，中国冶金职工思想政治工作研究会会长姜兴宏一行，就南钢卓越党建模式来调研。</p>' +
               '<p>党委工作部副部长陈佳对南钢卓越党建模式开展情况作了介绍。自2016年年底以来，南钢着力推进卓越党建模式，充分发挥核心引领作用，为企业发展提供思想保障；落实五大发展理念，以创新提升企业核心竞争力，建设智慧南钢；落实中央精准扶贫工作要求，积极履行社会责任，建设和谐南钢；落实生态文明建设要求，争做产城融合的典范，建设美丽南钢；创建合伙人机制，共享企业发展成果，建设幸福南钢。</p>' +
@@ -85,6 +72,7 @@
             title: '南钢启动党建贯标外审',
             author: '匿名',
             date: '2018-09-04',
+            imgs:'http://www.njsteel.com.cn/Upload/Images/1abe0f0f-d55f-4f71-88d6-ff9f74e70d6c.png',
             info: '8月18日，南钢党委召开党建贯标外审启动大会暨书记例会，各单位党政负责人、有关职能部室负责人、党支部书记代表及有关党务工作者参加了大会。会上介绍了此次外审工作安排，对卓越党建换版内容进行了培训。自2016年11月党建贯标发布，2017年1月卓越党建模式推进以来，南钢党委充分......',
             content:'<p>8月18日，南钢党委召开党建贯标外审启动大会暨书记例会，各单位党政负责人、有关职能部室负责人、党支部书记代表及有关党务工作者参加了大会。会上介绍了此次外审工作安排，对卓越党建换版内容进行了培训。</p>' +
               '<p>自2016年11月党建贯标发布，2017年1月卓越党建模式推进以来，南钢党委充分发挥党组织的政治核心和领导核心作用，结合混改企业党建工作的实践，融合现代化管理理念，探索形成了南钢卓越党建模式。该模式运用成熟度评价和PDCA闭环管理，以卓越的过程导出卓越的结果，实现党建具体工作和现代化管理方法的有效融合。根据党建贯标外审安排，南钢将在9月中旬前完成外审工作，为此，要做好材料准备、系统培训、管理体系内部审核、管理评审等各项工作。</p>' +
@@ -107,15 +95,14 @@
             article: item
           }
         })
-      },
-      goto(url) {
-        console.log(url)
-        this.$router.push(url || './')
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-
+  .news-list {
+    margin: auto;
+    width: 1200px;
+  }
 </style>
