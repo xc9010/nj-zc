@@ -12,7 +12,9 @@
       </span>
       <span>
         <!--陈虹-->
-        {{author}}
+        作者：{{author}}
+        |
+        阅读数：{{reads}}
       </span>
     </div>
   </div>
@@ -23,6 +25,10 @@
 
   export default {
     props: {
+      reads: {
+        type: String,
+        default: '0'
+      },
       author: {
         type: String
       },

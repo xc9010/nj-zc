@@ -34,6 +34,7 @@ export default {
   position: relative;
   overflow: hidden;
   /*background-color: #efeff0;*/
+  background: url('../../assets/images/bg.jpg') no-repeat fixed top;
 }
 .bread{
   margin: 10px 200px;

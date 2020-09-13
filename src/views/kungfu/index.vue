@@ -1,9 +1,5 @@
 <template>
-  <div class="mainBox">
-    <div >
-      闯关练习
-    </div>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>

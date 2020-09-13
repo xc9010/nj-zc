@@ -1,10 +1,10 @@
 
 const tokens = {
   admin: {
-    token: 'admin-token'
+    token: '7S98tV1jBL9uKVnG0uoA5Sxw575sSGDg'
   },
   editor: {
-    token: 'editor-token'
+    token: '7S98tV1jBL9uKVnG0uoA5Sxw575sSGDg'
   }
 }
 
@@ -30,7 +30,7 @@ module.exports = [
     type: 'post',
     response: config => {
       const { username } = config.body
-      const token = tokens[username]
+      const token = tokens['admin']
 
       // mock error
       if (!token) {
