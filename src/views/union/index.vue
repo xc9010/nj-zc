@@ -2,7 +2,19 @@
   <div class="news-nav">
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
-      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+      <div v-if="code === 'workers'">
+        <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+        <div style="text-align: center;  padding: 10px">
+          <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="1000">
+          </el-pagination>
+        </div>
+      </div>
+      <CardPicVertical v-if="code === 'model'" :info="model"></CardPicVertical>
+      <CardPicVertical v-if="code === 'craftsman'" :info="craftsman"></CardPicVertical>
+      <CardPic v-if="code === 'studio'" :info="studio"></CardPic>
     </div>
   </div>
 </template>
@@ -273,7 +285,8 @@
             active: false
           }
         ],
-        listOption: []
+        listOption: [],
+        code:'workers'
       }
     },
     created(){
@@ -302,7 +315,8 @@
         if(index) this.$router.replace({path: `/union/${index}`} || './')
       },
       callback(item) {
-        this.listOption = this[`${item.code}`]
+        this.listOption = this[`${item.code}`];
+        this.code=item.code;
       }
     }
   }

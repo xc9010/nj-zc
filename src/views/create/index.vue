@@ -2,7 +2,17 @@
   <div class="news-nav">
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
-      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+      <div v-if="code === 'advise' || code === 'operate'">
+        <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+        <div style="text-align: center;  padding: 10px">
+          <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="1000">
+          </el-pagination>
+        </div>
+      </div>
+      <CardPic :info="innovate" v-if="code === 'innovate'"></CardPic>
     </div>
   </div>
 </template>
@@ -149,7 +159,8 @@
             '<p> &emsp;&emsp;并且结合了浮环式密封与迷宫密封两方面优点，通过多个凹槽产生的密封气压力腔，与多个碳环密封面所产生的极薄的气膜，共同构成了无形的迷宫密封，通过这样的原理，使得密封更加合理与完善，并保持了碳环稳定性，减少摩擦导致的碳环过早损坏，避免了漏气与动静摩擦，使得碳环在较长时间内保证其完整的功能性，为机组稳定运行提供了有力的支撑。</p>'
           }
         ],
-        listOption: []
+        listOption: [],
+        code:'advise'
       }
     },
     created(){
@@ -178,7 +189,8 @@
         if(index) this.$router.replace({path: `/create/${index}`} || './')
       },
       callback(item) {
-        this.listOption = this[`${item.code}`]
+        this.listOption = this[`${item.code}`];
+        this.code=item.code;
       }
     }
   }

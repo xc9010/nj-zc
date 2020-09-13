@@ -2,7 +2,19 @@
   <div class="news-nav">
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
-      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+      <div v-if="code === 'around' || code === 'woman'">
+        <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+        <div style="text-align: center;  padding: 10px">
+        <el-pagination
+          background
+          layout="prev, pager, next"
+          :total="1000">
+        </el-pagination>
+      </div>
+      </div>
+      <Birthday v-if="code === 'birthday'"></Birthday>
+      <Help v-if="code === 'help'"></Help>
+      <Study v-if="code === 'study'"></Study>
     </div>
   </div>
 </template>
@@ -32,7 +44,7 @@
           {
             name: '工会在身边',
             code:'around',
-            active: false
+            active: true
           },
           {
             name: '女工关怀',
@@ -42,7 +54,7 @@
           {
             name: '职工生日会',
             code:'birthday',
-            active: true
+            active: false
           },
           {
             name: '困难帮扶',
@@ -161,11 +173,13 @@
               '<p>&emsp;&emsp;文：张中芳 高捷 图：陈虹</p>'
           }
         ],
-        listOption: []
+        listOption: [],
+        code:'around'
       }
     },
     created(){
-      this.listOption = this.around
+      this.listOption = this.around;
+      this.$forceUpdate()
     },
     mounted() {
       let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
@@ -185,7 +199,8 @@
         if(index) this.$router.replace({path: `/service/${index}`} || './')
       },
       callback(item) {
-        this.listOption = this[`${item.code}`]
+        this.listOption = this[`${item.code}`];
+        this.code=item.code;
       }
     }
 

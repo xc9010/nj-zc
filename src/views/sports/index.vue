@@ -3,6 +3,13 @@
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
       <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+      <div style="text-align: center;  padding: 10px">
+        <el-pagination
+          background
+          layout="prev, pager, next"
+          :total="1000">
+        </el-pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -174,7 +181,8 @@
             active: false
           }
         ],
-        listOption: []
+        listOption: [],
+        code:'advise'
       }
     },
     created(){
