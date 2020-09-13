@@ -1,6 +1,7 @@
 <template>
   <section class="app-main">
     <div class="bread">
+      <breadcrumbinfo class="breadcrumb-container" />
       <breadcrumb class="breadcrumb-container" />
     </div>
     <transition name="fade-transform" mode="out-in">
@@ -10,11 +11,13 @@
 </template>
 
 <script>
-  import Breadcrumb from '@/components/Breadcrumb'
+import Breadcrumb from '@/components/Breadcrumb'
+import Breadcrumbinfo from '@/components/Breadcrumbinfo'
 export default {
   name: 'AppMain',
   components: {
     Breadcrumb,
+    Breadcrumbinfo
   },
   created () {
     // console.log(this.$route)
@@ -36,11 +39,21 @@ export default {
   /*background-color: #efeff0;*/
 }
 .bread{
-  margin: 10px 200px;
+  width: 1200px;
+  height: 55px;
+  line-height: 55px;
+  margin: auto;
+  background: #e0e9ef;
+  /* margin: 10px 200px; */
   padding: 0;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
+.breadcrumb-container {
+  margin-right: 30px;
+}
 .fixed-header+.app-main {
   padding-top: 50px;
 }

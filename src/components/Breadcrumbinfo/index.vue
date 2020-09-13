@@ -1,11 +1,15 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator=">">
-    <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
-        <span>{{ item.name }}</span>
-      </el-breadcrumb-item>
-    </transition-group>
-  </el-breadcrumb>
+    <div class="bread-crumb-info">
+      <div class="bread-crumb-info-item active">
+        工会要闻
+      </div>
+      <div class="bread-crumb-info-item">
+        政策解读
+      </div>
+      <div class="bread-crumb-info-item">
+        主席信箱
+      </div>
+    </div>
 </template>
 
 <script>
@@ -67,15 +71,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 50px;
-  margin-left: 8px;
-
-  .no-redirect {
-    color: #97a8be;
-    cursor: text;
-  }
+.bread-crumb-info {
+  display: flex;
 }
+  .bread-crumb-info-item {
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+    color: #666666;
+  }
+  .bread-crumb-info-item.active {
+      background: #b91320;
+      color: #ffffff;
+    }
 </style>
