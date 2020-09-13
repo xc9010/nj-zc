@@ -1,6 +1,6 @@
 <template>
   <section class="app-main">
-    <div style="padding: 0 200px">
+    <div class="bread">
       <breadcrumb class="breadcrumb-container" />
     </div>
     <transition name="fade-transform" mode="out-in">
@@ -33,8 +33,14 @@ export default {
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #efeff0;
+  /*background-color: #efeff0;*/
 }
+.bread{
+  margin: 10px 200px;
+  padding: 0;
+  border-radius: 5px;
+}
+
 .fixed-header+.app-main {
   padding-top: 50px;
 }

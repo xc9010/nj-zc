@@ -23,6 +23,7 @@ html {
 
 #app {
   height: 100%;
+  background: url('../assets/images/bg.jpg') no-repeat fixed top;
 }
 
 *,
@@ -73,6 +74,7 @@ div:focus {
 .mainBox {
   padding: 0 190px;
   min-height: 400px;
+  background: url('../assets/images/bg.jpg') no-repeat fixed top;
   //height: 400px;
   .mainContent{
     margin: 20px;
@@ -84,10 +86,13 @@ div:focus {
   .mainList{
     padding: 20px;
   }
-  .el-collapse-item__header,
-  .el-collapse-item__wrap,
+  //.el-collapse-item__header,
+  //.el-collapse-item__wrap,
+  //.el-collapse{
+  //  border: 0;
+  //}
   .el-collapse{
-    border: 0;
+    border-top: 0;
   }
 }
 
@@ -109,3 +114,28 @@ div:focus {
   }
 }
 
+.elli{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.app-breadcrumb.el-breadcrumb .no-redirect{
+  color: #000!important;
+}
+.el-menu.el-menu--horizontal{
+  background: url('../assets/images/bg.jpg') no-repeat fixed top;
+
+}
+.el-menu--horizontal>.el-menu-item, .el-menu--horizontal>.el-submenu .el-submenu__title{
+  font-size: 20px;
+  font-weight: bold;
+}
+.el-menu--horizontal>.el-submenu .el-submenu__title:hover, .el-menu--horizontal>.el-menu-item:hover{
+  background-color: #f99904;
+  color: #fff!important;
+  border-radius: 5px;
+}
+
+.el-menu--horizontal .el-menu .el-menu-item:hover{
+  background-color: #f99904;
+}

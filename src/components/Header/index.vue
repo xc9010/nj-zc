@@ -86,7 +86,7 @@
   .headerLogo{
     line-height: 60px;
     text-align: center;
-    background: #fff;
+    opacity: 0.3;
   }
   .el-menu--horizontal{
     border-bottom: 0;
