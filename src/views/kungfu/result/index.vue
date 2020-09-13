@@ -3,7 +3,7 @@
   <div class="mainBox">
     <el-card class="box-card">
       <div slot="header" class="box-title">
-        <span>考试结果</span>
+        <span>闯关结果</span>
       </div>
       <div class="mainContent" style="margin: 0">
         <el-row :gutter="20">

@@ -157,17 +157,17 @@ export const constantRoutes = [
           {
             path: 'list',
             component: () => import('@/views/kungfu/list'),
-            name: '列表',
+            name: '题库',
           },
           {
             path: 'startExam/:id',
-            // component: () => import('@/views/kungfu/startExam'),
-            name: '开始考试',
+            component: () => import('@/views/kungfu/startExam'),
+            name: '开始闯关',
           },
           {
             path: 'result/:id',
-            // component: () => import('@/views/kungfu/result'),
-            name: '考试结果',
+            component: () => import('@/views/kungfu/result'),
+            name: '闯关结果',
           },
         ]
       },
@@ -211,11 +211,11 @@ export const constantRoutes = [
 
       },
       {
-        path: 'exams',
-        title: 'exams',
+        path: 'getQues',
+        title: 'getQues',
         name: '试题征集',
         ind: '4-4',
-        component: () => import('@/views/exams'),
+        component: () => import('@/views/getQues'),
       },
       {
         path: 'experts',
