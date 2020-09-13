@@ -8,8 +8,8 @@
         <i class="el-icon-refresh"></i>
         换一换
       </a>
-      <a class="btn">
-        更多
+      <a :class="['btn', border ? '' : 'no']">
+        {{more}}
         <i class="el-icon-arrow-right"></i>
       </a>
     </div>
@@ -28,6 +28,14 @@
       },
       refresh: {
         type: Boolean
+      },
+      border: {
+        type: Boolean,
+        default: true
+      },
+      more: {
+        type: String,
+        default: '更多'
       }
     },
     data() {
@@ -79,11 +87,14 @@
       transition: all .2s;
       line-height: 22px;
       padding: 0 0 0 12px;
-      width: 58px;
+      min-width: 58px;
       margin-left: 12px;
       &:hover{
         background-color: #f4f4f4;
       }
+    }
+    .no{
+      border: 0;
     }
   }
 

@@ -3,15 +3,15 @@
     <div class="">
       <div class="class">
         <el-card class="box-card">
-          <div >
+          <div>
             <el-row :gutter="20">
               <el-col :span="16">
                 <ContentHeader :refresh="true" title="工匠讲堂"></ContentHeader>
                 <div class="flex cardItem">
-                    <CardVideo :info="lecture[0]"></CardVideo>
-                    <CardVideo :info="lecture[1]"></CardVideo>
-                    <CardVideo :info="lecture[2]"></CardVideo>
-                    <CardVideo :info="lecture[3]"></CardVideo>
+                  <CardVideo :info="lecture[0]"></CardVideo>
+                  <CardVideo :info="lecture[1]"></CardVideo>
+                  <CardVideo :info="lecture[2]"></CardVideo>
+                  <CardVideo :info="lecture[3]"></CardVideo>
                 </div>
                 <div class="flex cardItem">
                   <CardVideo :info="lecture[3]"></CardVideo>
@@ -114,8 +114,8 @@
 </script>
 
 <style lang="scss" scoped>
-  .class{
-    .cardItem{
+  .class {
+    .cardItem {
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;

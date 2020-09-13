@@ -1,10 +1,13 @@
 <template>
   <section class="app-main">
-    <img :src="require('@/assets/images/header-bg/1.png')">
-    <div class="bread">
-      <breadcrumbinfo class="breadcrumb-container" />
-      <breadcrumb class="breadcrumb-container" />
+    <div style="position: relative">
+      <img style="display: block" :src="require('@/assets/images/header-bg/1.png')">
+      <div class="bread">
+        <breadcrumbinfo class="breadcrumb-container" />
+        <breadcrumb class="breadcrumb-container" />
+      </div>
     </div>
+
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>
@@ -45,14 +48,15 @@ export default {
   height: 55px;
   line-height: 55px;
   margin: auto;
-  margin-top: -60px;
-  /* background: rgba(255, 255, 255, 1); */
-  background: #ffffff;
-  /* margin: 10px 200px; */
+  /*margin-top: -60px;*/
+  background: rgba(255, 255,255,0.9);
   padding: 0;
-  border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .breadcrumb-container {
