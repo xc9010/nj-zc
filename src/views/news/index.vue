@@ -1,65 +1,15 @@
 <template>
   <div class="mainBox">
     <div class="news-list">
-      <news-card>
+      <news-card v-for="(item, index) in list" :key="index" :data="item">
       </news-card>
-      <news-card>
-      </news-card>
-      <news-card>
-      </news-card>
-      <div class="news-card">
-        <div class="date">
-          <p class="year">
-            2020
-          </p>
-          <p class="day">
-            06-03
-          </p>
-        </div>
-        <div class="news-content">
-          <p class="news-title">
-            艺术家园“艺之乒”周年庆在南钢举办
-          </p>
-          <p class="news-info">
-            9月1日，南京艺术家园“艺之乒”成立一周年庆活动在南钢举办，南钢工会主席张六喜等接待了艺术家们的到来。此次参加活动的有《江苏工人报》著名漫画家禹天成、南京知名主持人方方等来自各界的艺术家们...
-          </p>
-          <p class="news-more">
-            查看更多>
-          </p>
-        </div>
-        <div class="news-cover">
-          <img src="http://nggh.nisco.cn/UploadFiles/ghgz/2020/8/202008271456389849.jpg" alt="">
-        </div>
-      </div>
     </div>
-    <div>
-      <div class="news">
-        <el-card class="box-card">
-            <div slot="header" class="box-title">
-              <span>工会要闻</span>
-            </div>
-            <div >
-            <div class="mainList">
-              <el-collapse v-model="active">
-                <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
-                  <template slot="title">
-                    <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                  </template>
-                  <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-            <div style="text-align: center;  padding: 10px">
-              <el-pagination
-                background
-                layout="prev, pager, next"
-                :total="1000">
-              </el-pagination>
-            </div>
-
-            </div>
-          </el-card>
-      </div>
+    <div style="text-align: center;  padding: 10px">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -81,6 +31,7 @@
             title: '艺术家园“艺之乒”周年庆在南钢举办',
             author: '陈虹',
             date: '2019-09-02',
+            imgs:'http://nggh.nisco.cn/UploadFiles/ghgz/2020/9/202009020825161393.jpg',
             info: '9月1日，南京艺术家园“艺之乒”成立一周年庆活动在南钢举办，南钢工会主席张六喜等接待了艺术家们的到来。此次参加活动的有《江苏工人....',
             content:'<img alt="" src="http://nggh.nisco.cn/UploadFiles/ghgz/2020/9/202009020825161393.jpg" style="width: 439px; height: 332px;" />' +
               '<p>&emsp;&emsp;9月1日，南京艺术家园“艺之乒”成立一周年庆活动在南钢举办，南钢工会主席张六喜等接待了艺术家们的到来。此次参加活动的有《江苏工人报》著名漫画家禹天成、南京知名主持人方方等来自各界的艺术家们。</p>' +
@@ -90,6 +41,7 @@
             title: '六一前夕看望生病职工子女',
             author: '佚名',
             date: '2019-06-03',
+            imgs:'http://nggh.nisco.cn/UploadFiles/ghgz/2019/6/201906031511373522.jpg',
             info: '在第70个“六一”国际儿童节到来之际，公司党委副书记、工会主席张六喜，公司工会女职工委员会主任陈杰一行，带着水果、牛奶等.....',
             content:'<img alt="" src="http://nggh.nisco.cn/UploadFiles/ghgz/2019/6/201906031511373522.jpg" style="height: 418px; width: 485px" />' +
               '<img alt="" src="http://nggh.nisco.cn/UploadFiles/ghgz/2019/6/201906031511529242.jpg" style="height: 362px; width: 487px" />' +
@@ -105,6 +57,7 @@
             title: '田浩被授予“南京市十佳文明职工”称号',
             author: '方雷',
             date: '2019-05-27',
+            imgs:'http://nggh.nisco.cn/UploadFiles/upload/201905051138071860.jpg',
             info: '南钢研究院职工田浩被授予“南京市十佳文明职工”称号，并荣获“五一”劳动奖章。近日，南京市十佳文明职工代表-南钢研究院.........',
             content:'<p>&emsp;&emsp;南钢研究院职工田浩被授予&ldquo;南京市十佳文明职工&rdquo;称号，并荣获&ldquo;五一&rdquo;劳动奖章。</p>' +
               '<p>&emsp;&emsp;近日，南京市十佳文明职工代表-南钢研究院职工田浩，受邀参加由南京广播电台录制的&ldquo;南京好人365&rdquo;访谈节目。&ldquo;南京好人365&rdquo;专栏节目每天讲述一位南京好人的感人故事，大力倡导关注好人、崇尚好人的社会导向，在全社会形成争做好人的良好风尚，积极传播和弘扬社会主义核心价值观。</p>' +
@@ -117,6 +70,7 @@
             title: '公司工会召开庆“五一”劳模、先进座谈会',
             author: '高安俊',
             date: '2019-05-05',
+            imgs:'http://nggh.nisco.cn/UploadFiles/upload/201905051137467074.jpg',
             info: '4月30日上午，公司工会在公司新大楼202会议室召开庆“五一”劳模、先进座谈会。来自公司各事业部、直属单位的市级以上退休、在......',
             content:'<p>&emsp;&emsp;4月30日上午，公司工会在公司新大楼202会议室召开庆&ldquo;五一&rdquo;劳模、先进座谈会。来自公司各事业部、直属单位的市级以上退休、在职劳模、五一奖章代表；公司十佳先进人物代表；职工技术创新工作室领头人代表齐聚一堂致敬劳动者，共话南钢憧憬未来。公司党委副书记工会主席张六喜参加座谈会。</p>' +
               '<p>&emsp;&emsp;会上劳模、先进代表纷纷发言，忆过去谈现在，畅谈感受和理想，对南钢充满希望和感激，感激南钢给了他们施展的平台，锻炼大家的意志，促进大家的共同成长，丰富阅历，无悔逝去的青春。</p>' +
