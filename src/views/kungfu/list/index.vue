@@ -1,6 +1,6 @@
 <template>
   <div class="mainBox">
-    <div class="mainContent" style="margin: 0">
+    <div class="mainContent">
       <el-row :gutter="20">
         <el-col :span="16">
           <div class="cardPicVertical">

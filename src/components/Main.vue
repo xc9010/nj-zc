@@ -1,6 +1,5 @@
 <template>
   <div class="mainBox">
-    <!--<breadcrumb class="breadcrumb-container" />-->
     mainbox
   </div>
 </template>
