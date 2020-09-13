@@ -1,33 +1,59 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      <div class="news">
-        <el-card class="box-card">
-          <div slot="header" class="box-title">
-            <span>运动专场</span>
-          </div>
-          <div >
-            <div class="mainList">
-              <el-collapse v-model="active">
-                <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
-                  <template slot="title">
-                    <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
-                  </template>
-                  <Card :info="item.info" :date="item.date" :author="item.author"></Card>
-                </el-collapse-item>
-              </el-collapse>
+      <el-tabs v-model="tabType" @tab-click="handleTabClick" tab-position="left">
+        <el-tab-pane name="0" label="第三届生技会">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>第三届生技会</span>
             </div>
-            <div style="text-align: center;  padding: 10px">
-              <el-pagination
-                background
-                layout="prev, pager, next"
-                :total="1000">
-              </el-pagination>
+              <div class="mainList">
+                <el-collapse v-model="active">
+                  <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
+                    <template slot="title">
+                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                    </template>
+                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane name="1" label="第四届生技会">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>第四届生技会</span>
             </div>
-
-          </div>
-        </el-card>
-      </div>
+              <div class="mainList">
+                <el-collapse v-model="active">
+                  <el-collapse-item name="1" v-for="(item, index) in four" :key="index">
+                    <template slot="title">
+                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                    </template>
+                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane name="2" label="第五届生技会">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>第五届生技会</span>
+            </div>
+              <div class="mainList">
+                <el-collapse v-model="active">
+                  <el-collapse-item name="1" v-for="(item, index) in five" :key="index">
+                    <template slot="title">
+                      <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                    </template>
+                    <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+          </el-card>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -46,6 +72,7 @@
     },
     data() {
       return {
+        tabType:'0',
         levelList: null,
         active: ['1','2','3','4'],
         list: [
@@ -100,8 +127,90 @@
             '<div>　　此次技术比武活动在公司领导统一安排部署下，以提高岗位技术水平，强化技能练兵为目标。班组长带领员工在强化安全生产的前提下，全力开展技术比武活动。活动期间，实行安全一票否决制，始终将安全放在一切工作的首位。本次活动持续一个月，库区将安排专职人员将各项生产数据及时更新、及时公布，严格按既定的活动方案进行评分，做到客观、公平、公正。评选结果将于活动结束后在全公司进行公布，针对表现优异的员工公司将予以表彰。</div>\n' +
             '<div><img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2019/6/201906131543188003.jpg" style="width: 600px; height: 450px;" /></div>\n'
           }
+        ],
+        four:[
+          {
+            title: '中厚板卷厂产品检验工技术比武纪实',
+            imgs:'http://nggh.nisco.cn/UploadFiles/TPXW/2018/5/201805211148414577.jpg',
+            author: '中厚板卷厂',
+            date: '2018-05-21',
+            info: '在公司深入学习贯彻党的十九大精神，喜迎南钢建厂60周年之际，为更好地提高职工队伍的岗位职业技能和业务技术水平，充分调动职工的积极性，培育精益求精的工匠精神，提升职工的职业技能素质，努力打造一支高素质、高技能的职工队伍，板材事业部中厚板卷厂5月15日举办检验工技术运动会,共有30名检验工参加此次技术比....',
+            content:'<p>&emsp;&emsp;在公司深入学习贯彻党的十九大精神，喜迎南钢建厂60周年之际，为更好地提高职工队伍的岗位职业技能和业务技术水平，充分调动职工的积极性，培育精益求精的工匠精神，提升职工的职业技能素质，努力打造一支高素质、高技能的职工队伍，板材事业部中厚板卷厂5月15日举办检验工技术运动会,共有30名检验工参加此次技术比武。</p>' +
+            '<img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2018/5/201805211148414577.jpg" style="height: 418px; width: 485px"" />' +
+            '<p>&emsp;&emsp;比武前，产品管理室组织所有检验工学习此次技术运动会的会议精神，对检验工进行岗位操作规程培训，技术运动会流程分为检验工理论知识考试和实际操作考试两部分。考评人根据理论知识考试、实际操作考试以及岗位业绩综合考评进行综合打分、排名。</p>' +
+            '<img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2018/5/201805211149596055.jpg" style="height: 418px; width: 485px"" />' +
+            '<p>&emsp;&emsp;运动会比赛结束后主管单位及参赛人员召开赛后分析会，总结经验，查找不足，吸取教训，对检验能力不足的检验工进行岗位培训。本次运动会能够进一步加强对检验工的管理、增进检验岗位的检验技能，促进员工的职业素养，保证安全检验、质量检验工作精细化。</p>' +
+            '<img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2018/5/201805211150339954.jpg" style="height: 418px; width: 485px"" />'
+          },
+          {
+            title: '公司第四届生产技术运动会探伤工技能竞赛落下帷幕',
+            imgs:'http://nggh.nisco.cn/UploadFiles/TPXW/2018/5/201805211149596055.jpg',
+            author: '孙昌松',
+            date: '2018-05-30',
+            info: '南钢第四届生产技术运动会---探伤工技能竞赛于5月29日在南钢大学落下帷幕！由特钢事业部、板材事业部共同参与的公司探伤工技术大比武，首先在各事业部内部进行了初赛，共选出12名（特钢6名、板材6名）种子选手参加公司探伤工技能竞赛，竞赛共分为理论考试、实践比武等两个部分，其中理论考试成绩占30%，实践比武....',
+            content:'<p>&emsp;&emsp;公司第四届生产技术运动会探伤工技能竞赛落下帷幕</p>' +
+            '<p>&emsp;&emsp;南钢第四届生产技术运动会探伤工技能竞赛于5月29日在南钢大学落下帷幕！由特钢事业部、板材事业部共同参与的公司探伤工技术大比武，首先在各事业部内部进行了初赛，共选出12名（特钢6名、板材6名）种子选手参加公司探伤工技能竞赛，竞赛共分为理论考试、实践比武等两个部分，其中理论考试成绩占30%，实践比武成绩占70%。</p>' +
+            '<p>&emsp;&emsp;名参赛选手精心准备、放弃了自己的休息时间，刻苦学习，不断模拟实践，经过不到2周的了努力，12名选手就完成探伤工理论知识的考试。</p>' +
+            '<p>&emsp;&emsp;竞赛的重头戏在实践比武，公司工会和各事业部都很重视，从比武所用样块的设计、采购、现场监造等方面精心筹划，制定计划、跟踪落实，确保了比武所需的设备、器材等在保密的情况下按计划到达南钢大学比赛现场。</p>' +
+            '<p>&emsp;&emsp;月29日上午8:30，公司工会张主席亲临现场，给选手加油、鼓劲，并要求选手们要赛出水平、赛出风格、赛出南钢风采。并勉励所有选手要以技能竞赛为推手，不断提高技能，培养南钢具有国内一流水平的探伤工匠。</p>' +
+            '<p>&emsp;&emsp;上午8:50，探伤工实践比武正式开始，实践考试共分为三个部分，首先是探伤实践技能知识的考试，主要考核探伤工对标准、设备应用、故障判断等方面的知识。接着就分组进行实际操作，为了公平竞争，实践考核兼顾到圆钢、板材的各自特点，分别对圆钢、板材进行手动探伤，12名选手共分为六组，每组2人，每组实践操作计划时间60分钟。每位选手有2各裁判全程跟踪比赛过程，对探伤的过程进行记录、评价。探伤选手根据自己实操探伤的结果撰写检测评价报告。经过近7个小时的紧张工作，选手比赛一丝不苟，评委评价公正认真。</p>' +
+            '<p>&emsp;&emsp;全体选手比出了水平，赛出了风格，为进一步促进南钢所有探伤工热爱学习、提高技能，做好南钢质量卫士提供了动力源。</p>' +
+            '<p>&emsp;&emsp;赛后，评委根据竞赛规则和评分细则对各选手的实践操作水平进行评价。</p>' +
+            '<p>&emsp;&emsp;后续公司工会会根据每位选手的理论成绩、实操成绩进行综合评分，最终得出个位选手的竞赛成绩。</p>'
+          },
+          {
+            title: '第三炼钢厂第四届生产技术运动会拉开帷幕',
+            imgs:'http://nggh.nisco.cn',
+            author: '卢亚然',
+            date: '2018-05-09',
+            info: '5月2日，第三炼钢厂职工技运会精炼炉长、连铸P3工、行车工等代表在会议室听取了公司关于第四届技运会的方案，标志着厂第四届职工技术运动会拉开帷幕。一年一届的职工技运会是南钢坚持实施“人才强企”战略的一项传统举措，历届技运会培养了大批技能型人才。第三炼钢厂本次共有三个工种分别参加公司级、事业部....',
+            content:'<p>&emsp;&emsp;5月2日，第三炼钢厂职工技运会精炼炉长、连铸P3工、行车工等代表在会议室听取了公司关于第四届技运会的方案，标志着厂第四届职工技术运动会拉开帷幕。</p>' +
+            '<p>&emsp;&emsp;一年一届的职工技运会是南钢坚持实施“人才强企”战略的一项传统举措，历届技运会培养了大批技能型人才。第三炼钢厂本次共有三个工种分别参加公司级、事业部级和厂级的比赛。</p>' +
+            '<p>&emsp;&emsp;在4月底，厂工会连同生技科和相关车间制定了详细的比赛方案，理论、实际操作双管齐下。在厂区显著位置悬挂横幅，利用电子大屏滚动播放宣传标语，营造技运会氛围。技运会领导小组要求相关单位加强组织领导，加强高效推进，加强正向激励。对竞赛涌现出的技术状元和技术能手在立功和奖励的同时，加强宣传，营造学技术、亮技艺、比贡献的良好氛围。</p>'
+          }
+        ],
+        five:[
+          {
+            title: '大干红五月原料厂实现产量“三连破”',
+            imgs:'http://nggh.nisco.cn/UploadFiles/TPXW/2019/5/201905311553540519.png',
+            author: '王薇',
+            date: '2019-05-31',
+            info: '5月份，原料厂围绕“大干红五月”、“第五届生产技术运动会”组织开展各项安全生产活动，团结凝聚各方力量，充分调动全员积极性，充分发挥党政工团各级组织作用，制定了劳动竞赛活动意见和技术比武方案，讨论制定比赛规程规则，成立工作领导组，为组织劳动竞赛和技术比武的有效开展提供保障。要求各单位要高度重视竞赛工作，切实做好竞赛目标的落实。通过全员发动，精心组织、协调奋战，高效运行，班产纪....',
+            content:'<p>&emsp;&emsp;5月份，原料厂围绕“大干红五月”、“第五届生产技术运动会”组织开展各项安全生产活动，团结凝聚各方力量，充分调动全员积极性，充分发挥党政工团各级组织作用，制定了劳动竞赛活动意见和技术比武方案，讨论制定比赛规程规则，成立工作领导组，为组织劳动竞赛和技术比武的有效开展提供保障。要求各单位要高度重视竞赛工作，切实做好竞赛目标的落实。通过全员发动，精心组织、协调奋战，高效运行，班产纪录不断刷新。</p>' +
+            '<p>&emsp;&emsp;全月生产优质球团矿182464吨，再次刷新2019年3月份181201吨的历史最高纪录；同时优化用料结构，合理组织生产总降本达2300万元，各项关键指标大幅提升。球团矿产量实现2019年的“三连破”，这既是巅峰更是起点。炼铁人将继续发扬开拓创新，攻坚克难的精神，不断超越，为“高效率、低成本”生产再立新功！</p>' +
+            '<img alt="" src="/UploadFiles/TPXW/2019/5/201905311553540519.png" style="width: 600px; height: 450px;" />'
+          },
+          {
+            title: '中棒厂第五届生产技术运动会取得圆满成功',
+            imgs:'http://nggh.nisco.cn',
+            author: '朱菊华',
+            date: '2019-05-31',
+            info: '火红的五月，迎来了南钢第五届生产技术运动会，根据公司工会和特钢事业部的总体部署，中棒厂工会开展了以“赛技能，夺状元，大干红五月”为主题的技术运动会。全月热轧产量73600吨，入库产量72600吨，双双打破了历史记录，取得了中棒历史上又一里程碑。在横班一条龙冠军赛中，甲作业区最后以领先30分的绝对优势，夺得本次比赛的桂冠。同时，共开展了8个岗位技....',
+            content:'<p>&emsp;&emsp;火红的五月，迎来了南钢第五届生产技术运动会，根据公司工会和特钢事业部的总体部署，中棒厂工会开展了以&ldquo;赛技能，夺状元，大干红五月&rdquo;为主题的技术运动会。全月热轧产量73600吨，入库产量72600吨，双双打破了历史记录，取得了中棒历史上又一里程碑。在横班一条龙冠军赛中，甲作业区最后以领先30分的绝对优势，夺得本次比赛的桂冠。同时，共开展了8个岗位技能竞赛，通过严格的理论考试和生动的实践考试，杨勇等一批人取得了8项比赛的岗位技能能手，圆满完成了本次生产技术运动会的各项竞赛项目，取得了很好的成果。</p>' +
+            '<p>&emsp;&emsp;指标量化为抓手：为了充分体现比赛的公平、公正，中棒厂工会在月初组织召开了专门的研讨会，对本次比武的活动方案征求了广大职工代表的意见，参赛的指标绝大多数是可以量化的技经指标，成绩取一个月的综合成绩。通过每周更新龙虎榜、大屏幕等方式调动员工积极性，从设备、质量、优化工艺和生产计划全方面指标细化，力争公平公正。</p>' +
+            '<p>&emsp;&emsp;班产竞赛促成绩：在开展一条龙竞赛的同时，设置超班产奖励，超日产奖励。为保证本月产量突破原来历史记录，中棒厂在设置条龙冠军赛奖励的同时，对超过班产计划100吨的作业区按超出产量10元/吨进行奖励。极大地提高了员工的积极性。同时，在设置一条龙冠军赛的同时，将影响成本较大的成材率指标设置占比40%，要求各作业区时刻关注切头和回收情况，为成材率降本做出应有的贡献，在各个作业区的的共同努力下，红五月成材率比计划动态成材率提高0.49%，成材率共计降本270万元，达到了5月初制定的指标。</p>' +
+            '<p>&emsp;&emsp;总结推广出成绩：狠抓成本，自三月份开始，中棒厂每周一都会组织开展一次四十分钟左右的成本分析会议，由专门的成本控制人员对上一周的成本进行汇报总结，从坯料成本、成材率、动力成本、轧辊成本、人工成本等各个方面进行全方位分析，对于降本稍微欠缺的作业区，大家一起研究出解决方案，齐心协力为降本增益做出贡献。对于好的经验和创意进行表扬，巩固成果，并由此制定出下个星期的降本重点计划。5月份，中棒厂克服产量等各方面的不利因素，完成降本230余万元。</p>'
+          },
+          {
+            title: '高线厂工会组织完成事业部质检工实践比武项目',
+            imgs:'http://nggh.nisco.cn/UploadFiles/TPXW/2019/5/201905290952454156.jpg',
+            author: '郭丽伟',
+            date: '2019-05-29',
+            info: '5月28日，高线厂工会组织了线材成品检验技术实践比武，作为事业部比武项目，五家长材单位集中进行了理论考试，实践根据各家工艺不同分别组织实践考试。在高线厂实践考试赛场，邀请了精整厂技术人员一同监考，互相学习互相指导。作为每年的常规比赛项目，检验人员表示每年都能学到一些新的经验....',
+            content:'<p>&emsp;&emsp;5月28日，高线厂工会组织了线材成品检验技术实践比武，作为事业部比武项目，五家长材单位集中进行了理论考试，实践根据各家工艺不同分别组织实践考试。在高线厂实践考试赛场，邀请了精整厂技术人员一同监考，互相学习互相指导。</p>' +
+            '<p>&emsp;&emsp;作为每年的常规比赛项目，检验人员表示每年都能学到一些新的经验和技术，几个班的检验工一起交流切磋，机会也很难得。每年主题项目不一样，也使的比武更加有趣。</p>' +
+            '<p>&emsp;&emsp;本次实践比武的项目是螺纹钢的弯曲试验，考验选手的规范性和操作的数量程度。今年的选题主要考虑到跟棒材同步比武，大家的实践类别都选取了类似的项目，增加可比性等。</p>' +
+            '<p>&emsp;&emsp;厂工会希望通过开展成品检验技术比武活动，激发了广大员工钻研业务技术的积极性，推动员工整体技术素质的提高，进一步在全厂范围内形成了尊重技术、尊重劳动、尊重知识、尊重人才、尊重创新的良好氛围。</p>' +
+            '<p>&emsp;&emsp;截止目前，实践成绩已报特钢事业部党工委。</p>' +
+            '<p>&emsp;&emsp;高线厂 郭丽伟</p>' +
+            '<img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2019/5/201905290952454156.jpg" style="width: 195px; height: 161px;" />&nbsp;&nbsp; <img alt="" src="http://nggh.nisco.cn/UploadFiles/TPXW/2019/5/201905290953519551.jpg" style="width: 138px; height: 160px;" />'
+          }
         ]
       }
+    },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
     },
     methods: {
       handleClick(item) {
@@ -111,7 +220,13 @@
             article: item
           }
         })
-      }
+      },
+      handleTabClick(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/sports/${index}`} || './')
+      },
     }
   }
 </script>

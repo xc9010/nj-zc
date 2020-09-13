@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox">
     <div class="mainContent">
-      <el-tabs v-model="tabType" @tab-click="handleClick" tab-position="left">
+      <el-tabs v-model="tabType" @tab-click="handleTabClick" tab-position="left">
         <el-tab-pane name="0" label="合理化建议">
           <el-card class="box-card">
             <div slot="header" class="box-title">
@@ -182,7 +182,7 @@
           }
         })
       },
-      handleClick(targetName) {
+      handleTabClick(targetName) {
         // console.log(targetName.index)
         const index = targetName.index;
         // console.log(this.$router)

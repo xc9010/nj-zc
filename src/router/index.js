@@ -183,7 +183,7 @@ export const constantRoutes = [
 
 
       {
-        path: 'sports',
+        path: 'sports/:index?',
         title: 'sports',
         name: '运动专场',
         ind: '5',

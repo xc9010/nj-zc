@@ -1,12 +1,12 @@
 <template>
 <div class="cardPicVertical">
   <div class="cardPicWrap">
-    <div v-for="item in 5" class="cardPicItem">
+    <div v-for="item in info" class="cardPicItem">
       <el-card :style="{border: '0', boxShadow: '0'}" :body-style="{ textAlign: 'center', width: '150px', height: '220px', padding: '2px' }">
-        <img src="/static/img/5.071b761d.jpg" class="image">
+        <img :src="item.imgs" class="image">
         <div style="padding: 0 10px;">
-          <div class="cardPicTips">2222</div>
-          <div class="cardPicTips">222</div>
+          <div class="cardPicTips">{{item.name}}</div>
+          <div class="cardPicTips">{{item.introduce}}</div>
         </div>
       </el-card>
     </div>
@@ -26,12 +26,12 @@
   export default {
     props: {
       info: {
-        type: String
+        type: Array
       }
     },
     data() {
       return {
-        levelList: null
+        levelList: null,
       }
     },
     methods: {

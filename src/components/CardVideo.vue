@@ -1,10 +1,10 @@
 <template>
 <div class="cardPicVertical">
   <el-card :style="{border: '0', boxShadow: '0'}" :body-style="{ textAlign: 'left', height: '180px ', width: '100%', padding: '2px' }">
-    <img src="/static/img/5.071b761d.jpg" class="image">
+    <img :src="info.imgs" class="image">
     <div style="padding: 0 10px;">
-      <div class="cardPicTips">2222</div>
-      <div class="cardPicTips">222</div>
+      <div class="cardPicTips">{{info.title}}</div>
+      <div class="cardPicTips">{{info.author}}</div>
     </div>
   </el-card>
 </div>
