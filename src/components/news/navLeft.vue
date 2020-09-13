@@ -6,18 +6,6 @@
         {{item.name}}
       </p>
     </div>
-    <!-- <div class="nav-item">
-      <div class="active"></div>
-      <p>
-        先进操作法
-      </p>
-    </div>
-    <div class="nav-item">
-      <div class="active"></div>
-      <p>
-        创新增效
-      </p>
-    </div> -->
   </div>
 </template>
 
@@ -38,7 +26,7 @@ export default {
         m.active = false
       })
       item.active = true
-      this.$emit('handleClick', item)
+      this.$emit('callback', item)
     }
   }
   // data() {

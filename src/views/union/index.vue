@@ -1,5 +1,6 @@
 <template>
-  <div class="mainBox">
+  <router-view></router-view>
+  <!-- <div class="mainBox">
     <div class="mainContent">
       <el-tabs v-model="tabType" @tab-click="changeTab"  tab-position="left">
         <el-tab-pane label="职工风采">
@@ -38,7 +39,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -46,10 +47,12 @@
   import Card from '../../components/Card'
   import CardPic from '../../components/CardPic'
   import CardPicVertical from '../../components/CardPicVertical'
+  import navLeft from '../../components/news/navLeft'
+  import cardConcertNav from '../../components/news/cardConcertNav'
 
   export default {
     name: 'Union',
-    components: { Card, CardPic, CardPicVertical },
+    components: { Card, CardPic, CardPicVertical, navLeft, cardConcertNav },
     data() {
       return {
         active: ['1', '2', '3', '4'],
@@ -282,8 +285,35 @@
             name:'张红军',
             introduce:'全国机冶行业工匠”'
           }
-        ]
+        ],
+        navItems: [
+          {
+            name: '职工风采',
+            code:'workers',
+            active: true
+          },
+          {
+            name: '劳模先进',
+            code:'model',
+            active: false
+          },
+          {
+            name: '工匠评优',
+            code:'craftsman',
+            active: false
+          },
+          {
+            name: '创新工作室',
+            code:'studio',
+            active: false
+          }
+        ],
+        listOption: [],
+        code:'workers'
       }
+    },
+    created(){
+      this.listOption = this.workers
     },
     computed: {
       ...mapGetters([
@@ -304,18 +334,26 @@
         })
       },
       changeTab(targetName) {
-        // console.log(targetName.index)
         const index = targetName.index;
-        // console.log(this.$router)
         if(index) this.$router.replace({path: `/union/${index}`} || './')
       },
-      goto(url) {
-        console.log(url)
-        this.$router.push(url || './')
+      callback(item) {
+        this.listOption = this[`${item.code}`];
+        this.code=item.code;
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .news-nav {
+    padding-top: 55px;
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    background: #ffffff;
+    .nav-content {
+      margin-top: -25px;
+    }
+  }
 </style>

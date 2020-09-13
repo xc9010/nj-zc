@@ -1,20 +1,137 @@
 <template>
   <div class="news-nav">
-    <nav-left :items="navItems" @callback="callback"/>
+    <nav-left :items="navItems" />
     <div class="nav-content">
-      <div v-if="code === 'advise' || code === 'operate'">
-        <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
-        <div style="text-align: center;  padding: 10px">
-          <el-pagination
-            background
-            layout="prev, pager, next"
-            :total="1000">
-          </el-pagination>
+      <div class="model-wrapper">
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
+        </div>
+        <div class="model-person">
+          <div class="head-img">
+            <img :src="require('@/assets/images/cardPicVertical/1.png')">
+          </div>
+          <p class="name">孙平</p>
+          <p class="company">南钢第二炼铁厂</p>
         </div>
       </div>
-      <CardPic :info="innovate" v-if="code === 'innovate'"></CardPic>
+      <!-- <card-concert-nav />
+      <card-concert-nav />
+      <card-concert-nav /> -->
     </div>
   </div>
+  <!-- <div class="mainBox" style="background-color: white;">
+    <div class="mainContent">
+      <el-tabs v-model="tabType" @tab-click="handleTabClick" tab-position="left">
+        <el-tab-pane name="0" label="合理化建议">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>合理化建议</span>
+            </div>
+            <el-collapse v-model="active">
+              <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
+                <template slot="title">
+                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                </template>
+                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane name="1" label="先进操作法">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>先进操作法</span>
+            </div>
+            <el-collapse v-model="active">
+              <el-collapse-item name="1" v-for="(item, index) in operate" :key="index">
+                <template slot="title">
+                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                </template>
+                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane name="2" label="创新增效">
+          <CardPic :info="innovate"></CardPic>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
+  </div> -->
 </template>
 
 <script>
@@ -23,7 +140,7 @@
   import navLeft from '../../components/news/navLeft'
   import CardPic from '../../components/CardPic'
   import cardConcertNav from '../../components/news/cardConcertNav'
-
+  
 
   export default {
     name: 'Live',
@@ -33,23 +150,20 @@
         navItems: [
           {
             name: '合理化建议',
-            code:'advise',
             active: true
           },
           {
             name: '先进操作法',
-            code:'operate',
             active: false
           },
           {
             name: '创新增效',
-            code:'innovate',
             active: false
           }
         ],
         active: ['1', '2', '3', '4'],
         tabType: '0',
-        advise: [
+        list: [
           {
             title: '工作的系统化、流程化、无纸化',
             author: '武美玉',
@@ -158,13 +272,8 @@
             content: '<p> &emsp;&emsp;本实用新型解决的技术问题是提供一种改进的密封碳环，该碳环通过在内径径向开设凹槽，实现对磨损粉末和煤气杂质的收集，使碳环与透平转子之间的间隙始终保持在合理范围之内，从而降低碳环磨损量，保证密封效果。</p>' +
             '<p> &emsp;&emsp;并且结合了浮环式密封与迷宫密封两方面优点，通过多个凹槽产生的密封气压力腔，与多个碳环密封面所产生的极薄的气膜，共同构成了无形的迷宫密封，通过这样的原理，使得密封更加合理与完善，并保持了碳环稳定性，减少摩擦导致的碳环过早损坏，避免了漏气与动静摩擦，使得碳环在较长时间内保证其完整的功能性，为机组稳定运行提供了有力的支撑。</p>'
           }
-        ],
-        listOption: [],
-        code:'advise'
+        ]
       }
-    },
-    created(){
-      this.listOption = this.advise
     },
     mounted() {
       let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
@@ -185,12 +294,14 @@
         })
       },
       handleTabClick(targetName) {
+        // console.log(targetName.index)
         const index = targetName.index;
+        // console.log(this.$router)
         if(index) this.$router.replace({path: `/create/${index}`} || './')
       },
-      callback(item) {
-        this.listOption = this[`${item.code}`];
-        this.code=item.code;
+      goto(url) {
+        console.log(url)
+        this.$router.push(url || './')
       }
     }
   }
@@ -205,6 +316,56 @@
   background: #ffffff;
   .nav-content {
     margin-top: -25px;
+  }
+}
+.model-wrapper {
+  width: 950px;
+  margin-left: 50px;
+  .model-person {
+    float: left;
+    margin-right: 25px;
+    &:nth-child(5n) {
+      margin-right: 0;
+    }
+  }
+  .model-person {
+    width: 160px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+    .head-img {
+      width: 160px;
+      height: 190px;
+      overflow: hidden;
+      img {
+        text-align: center;
+        // max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+        text-align: center;
+      }
+    }
+    .name {
+      margin: 0;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #1f1f1f;
+    }
+    .company {
+      margin: 0;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #909090;
+    }
+    &::after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: #eaeaea;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 }
 </style>

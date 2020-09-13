@@ -102,11 +102,20 @@ export const constantRoutes = [
         component: () => import('@/views/service'),
       },
       {
-        path: 'union/:index?',
+        path: 'union',
         title: 'union',
         name: '工会风采',
         ind: '2-5',
         component: () => import('@/views/union'),
+        children: [
+          {
+            path: 'model',
+            title: 'model',
+            name: '劳模风采',
+            ind: '2-5-1',
+            component: () => import('@/views/union/model')
+          }
+        ]
       },
       // 知识社区
       {
