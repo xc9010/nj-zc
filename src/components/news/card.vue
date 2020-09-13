@@ -78,7 +78,8 @@ export default {
     }
   }
   .news-content {
-    width: 750px;
+    width: 700px;
+    margin-right: 50px;
     height: 195px;
     .news-title {
       font-size: 16px;
