@@ -1,5 +1,13 @@
 <template>
-  <div class="mainBox">
+  <div class="news-nav">
+    <nav-left />
+    <div class="nav-content">
+      <card-concert-nav />
+      <card-concert-nav />
+      <card-concert-nav />
+    </div>
+  </div>
+  <!-- <div class="mainBox" style="background-color: white;">
     <div class="mainContent">
       <el-tabs v-model="tabType" @tab-click="handleTabClick" tab-position="left">
         <el-tab-pane name="0" label="合理化建议">
@@ -37,17 +45,20 @@
         </el-tab-pane>
       </el-tabs>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   import Card from '../../components/Card'
+  import navLeft from '../../components/news/navLeft'
   import CardPic from '../../components/CardPic'
+  import cardConcertNav from '../../components/news/cardConcertNav'
+  
 
   export default {
     name: 'Live',
-    components: { Card, CardPic },
+    components: { Card, CardPic, navLeft, cardConcertNav },
     data() {
       return {
         active: ['1', '2', '3', '4'],
@@ -197,4 +208,14 @@
 </script>
 
 <style lang="scss" scoped>
+.news-nav {
+  padding-top: 55px;
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  background: #ffffff;
+  .nav-content {
+    margin-top: -25px;
+  }
+}
 </style>
