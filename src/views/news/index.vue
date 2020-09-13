@@ -109,6 +109,8 @@
 .news-list {
   margin: auto;
   width: 1200px;
+  background: #ffffff;
+  padding-top: 40px;
 }
 
 </style>
