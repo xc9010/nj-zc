@@ -1,5 +1,6 @@
 <template>
-  <div class="mainBox">
+  <router-view></router-view>
+  <!-- <div class="mainBox">
     <div class="mainContent">
       <el-tabs v-model="tabType" @tab-click="changeTab"  tab-position="left">
         <el-tab-pane label="职工风采">
@@ -38,7 +39,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
