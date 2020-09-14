@@ -121,6 +121,18 @@ export const constantRoutes = [
             name: '创新工作室',
             ind: '2-5-2',
             component: () => import('@/views/union/studio')
+          }, {
+            path: 'patent',
+            title: 'patent',
+            name: '专利展示',
+            ind: '2-5-3',
+            component: () => import('@/views/union/patent')
+          }, {
+            path: 'ketang',
+            title: 'ketang',
+            name: '专利展示',
+            ind: '2-5-3',
+            component: () => import('@/views/union/ketang')
           }
         ]
       },

@@ -1,0 +1,264 @@
+<template>
+  <div class="mainBox">
+    <div class="container">
+      <div class="ketang-list">
+        <ketang>
+        </ketang>
+        <ketang>
+        </ketang>
+        <ketang>
+        </ketang>
+        <ketang>
+        </ketang>
+      </div>
+      <rank></rank>
+    </div>
+    <div style="text-align: center;  padding: 10px">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
+    </div>
+  </div>
+  <!-- <div class="mainBox" style="background-color: white;">
+    <div class="mainContent">
+      <el-tabs v-model="tabType" @tab-click="handleTabClick" tab-position="left">
+        <el-tab-pane name="0" label="合理化建议">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>合理化建议</span>
+            </div>
+            <el-collapse v-model="active">
+              <el-collapse-item name="1" v-for="(item, index) in list" :key="index">
+                <template slot="title">
+                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                </template>
+                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane name="1" label="先进操作法">
+          <el-card class="box-card">
+            <div slot="header" class="box-title">
+              <span>先进操作法</span>
+            </div>
+            <el-collapse v-model="active">
+              <el-collapse-item name="1" v-for="(item, index) in operate" :key="index">
+                <template slot="title">
+                  <el-link @click="handleClick(item)" target="_blank">{{item.title}}</el-link>
+                </template>
+                <Card :info="item.info" :date="item.date" :author="item.author"></Card>
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane name="2" label="创新增效">
+          <CardPic :info="innovate"></CardPic>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
+  </div> -->
+</template>
+
+<script>
+  import { mapGetters } from 'vuex'
+  import ketang from '../../components/news/ketang'
+  import rank from '../../components/news/rank'
+  // import Card from '../../components/Card'
+  // import navLeft from '../../components/news/navLeft'
+  // import CardPic from '../../components/CardPic'
+  // import cardConcertNav from '../../components/news/cardConcertNav'
+  
+
+  export default {
+    name: 'Live',
+    components: { ketang, rank },
+    data() {
+      return {
+        navItems: [
+          {
+            name: '合理化建议',
+            active: true
+          },
+          {
+            name: '先进操作法',
+            active: false
+          },
+          {
+            name: '创新增效',
+            active: false
+          }
+        ],
+        active: ['1', '2', '3', '4'],
+        tabType: '0',
+        list: [
+          {
+            title: '工作的系统化、流程化、无纸化',
+            author: '武美玉',
+            date: '2019-09-02',
+            info: '建立合理化建议收集、反馈系统，对合理化建议实行电子表单化管理，发挥信息系统的自动跟踪分析功能。将用于合理化建议奖励的部分资金划拨至基层单位，由基层单位负责与本单位相关的合理化建议的评审及奖励工作，使合理化建议得到及时有效实施，提升建议评审、奖励、实施....',
+            content:'<p> &emsp;&emsp;建立合理化建议收集、反馈系统，对合理化建议实行电子表单化管理，发挥信息系统的自动跟踪分析功能。</p>' +
+            '<p> &emsp;&emsp;将用于合理化建议奖励的部分资金划拨至基层单位，由基层单位负责与本单位相关的合理化建议的评审及奖励工作，使合理化建议得到及时有效实施，提升建议评审、奖励、实施的效率。</p>' +
+            '<p> &emsp;&emsp;将员工提交的跨业务、跨专业的合理化建议集中组织评审。并将合理化建议工作作为三支人才评定的重要依据纳入人才队伍建设，开展"每月一星"、合理化建议冠亚季军等奖励活动，引导员工持续改善与提高。</p>'
+          },
+          {
+            title: '实行周提交、周评审、月反馈的工作流程',
+            author: '郎闯',
+            date: '2019-08-22',
+            info: '总结分析合理化建议工作推进过程中存在的问题，制定改进措施，提高工作效率，层层提交、层层评审，自下而上地建立了"基层单位-专业评审组-分公司级"三级推进机制。各单位进一步完善合理化建议活动实施方案，根据实际情况，同步建立了评审及奖励机制，积极查找工....',
+            content:'<p>&emsp;&emsp;总结分析合理化建议工作推进过程中存在的问题，制定改进措施，提高工作效率，层层提交、层层评审，自下而上地建立了"基层单位-专业评审组-分公司级"三级推进机制。各单位进一步完善合理化建议活动实施方案，根据实际情况，同步建立了评审及奖励机制，积极查找工作中的改善点。</p>' +
+            '<p>&emsp;&emsp;将合理化建议工作与"五好一准确"优秀班组创建，主任工程师、两个带头人、技师津贴有机结合。技术人员还深入班组为员工修改、完善合理化建议，并帮助实施采纳的建议。</p>'
+          },
+          {
+            title: '加大合理化建议奖励力度',
+            author: '孙强',
+            date: '2019-07-10',
+            info: '将收集到的合理化建议分设参与奖、采纳奖、项目奖、节创价值奖等4个奖项，统一奖励。对于已实施的合理化建议在一年内因改善而降低成本或增加收入的，该公司按年节约或新创价值的2%提奖金，最高奖励达5万元。将可行性、经济性和安全性检查效果明显的建议，由评审部门下发《合理化建议实施工作联系单》及详细实施计划，....',
+            content:'<p>&emsp;&emsp;将收集到的合理化建议分设参与奖、采纳奖、项目奖、节创价值奖等4个奖项，统一奖励。对于已实施的合理化建议在一年内因改善而降低成本或增加收入的，该公司按年节约或新创价值的2%提奖金，最高奖励达5万元。</p>' +
+            '<p>&emsp;&emsp;将可行性、经济性和安全性检查效果明显的建议，由评审部门下发《合理化建议实施工作联系单》及详细实施计划，督促责任单位按照时间节点尽快实施，并跟踪阶段性效果;对于不能明确预测实施效果的建议，出具试验或试行方案，在小范围内对实施效果加以验证后再确定具体实施方案。</p>' +
+            '<p>&emsp;&emsp;在技术质量类合理化建议评审工作中加入"确认建议"流程。评审前，技术专责人先与合理化建议提交单位沟通，落实建议的真实性、准确性及必要性，作为评审参考，再提出采纳或不采纳的意见、理由。</p>'
+          },
+          {
+            title: '建立公司级、分厂（单位）级、班组（科室）级三级管理模式',
+            author: '陈中飞',
+            date: '2019-07-05',
+            info: '将合理化建议工作纳入"五好一准确"优秀班组创建工作中，实行自己提、自己改、改自己，提高班组的民-主管理能力。将年度合理化建议目标分解到各单位，制定下发合理化建议工作管理办法、推进方案、实施办法，开展精益生产、精细化管理和合理化建议劳动竞赛，细化合理化建议的收集、汇....',
+            content:'<p>&emsp;&emsp;将合理化建议工作纳入"五好一准确"优秀班组创建工作中，实行自己提、自己改、改自己，提高班组的民-主管理能力。</p>' +
+            '<p>&emsp;&emsp;将年度合理化建议目标分解到各单位，制定下发合理化建议工作管理办法、推进方案、实施办法，开展精益生产、精细化管理和合理化建议劳动竞赛，细化合理化建议的收集、汇总、评审、实施、奖励、公示、存档程序。</p>'
+          }
+        ],
+        operate: [
+          {
+            title: '棉包长丝、氨纶丝细纱接头法',
+            author: '张晓燕',
+            date: '2019-11-02',
+            info: '棉包长丝、氨纶丝细纱生产是棉纺厂在2004年接产的新品种，按照传统的接头工艺方法根本不能实现长丝、氨纶丝细纱的接头，张晓燕等技术骨干针对生产中的瓶颈问题，经反复试验和研究，摸索总结出了新的接头工艺方法....',
+            content:'<p> &emsp;&emsp;棉包长丝、氨纶丝细纱生产是棉纺厂在2004年接产的新品种，按照传统的接头工艺方法根本不能实现长丝、氨纶丝细纱的接头，张晓燕等技术骨干针对生产中的瓶颈问题，经反复试验和研究，摸索总结出了新的接头工艺方法。</p>' +
+            '<p> &emsp;&emsp;此方法杜绝无丝纱和纱回弹异常流入后部，造成布面弹异常和纬节，提高布面质量。现已在天纺公司全部棉纺织厂中推广。</p>'
+          },
+          {
+            title: '“四字”平地法',
+            author: '赵希望',
+            date: '2019-10-14',
+            info: '赵希望同志长期从事平地机操作，不断总结研究各种型号平地机性能、工作原理和操作要领，还注意学习挖掘周围老师傅们的实践经验，从而总结出了平地机“全、细、轻、稳”四字操作法，体现了把握工作现场全局，精确作业环节，又好又稳又快的特点....',
+            content:'<p> &emsp;&emsp;赵希望同志长期从事平地机操作，不断总结研究各种型号平地机性能、工作原理和操作要领，还注意学习挖掘周围老师傅们的实践经验，从而总结出了平地机“全、细、轻、稳”四字操作法，体现了把握工作现场全局，精确作业环节，又好又稳又快的特点。</p>' +
+            '<p> &emsp;&emsp;由于四字操作法易于掌握，实用性强，整平质量高，因此在公路系统中被广泛推广，在津涞、津静、津港各公路和京沈、津蓟高速等十几项大型公路工程中，以此操作法为规范的平地作业效率和路面基础平整度得到了业主和监理的一致好评，被誉为“免验工序”，赢得了良好的经济效益和社会效益。</p>'
+          },
+          {
+            title: '“三勤”洗钾法',
+            author: '刘秀红',
+            date: '2019-10-13',
+            info: '刘秀红在洗钾岗位工作了7年。她热爱岗位，认真钻研洗钾岗位操作技能，不断摸索总结最佳的操作程序，发明了“三勤”洗钾法。该操作法以眼勤、手勤、腿勤为工作着力点，科学定位了“三勤”排序和操作内容，保证了洗钾的....',
+            content:'<p> &emsp;&emsp;刘秀红在洗钾岗位工作了7年。她热爱岗位，认真钻研洗钾岗位操作技能，不断摸索总结最佳的操作程序，发明了“三勤”洗钾法。</p>' +
+            '<p> &emsp;&emsp;该操作法以眼勤、手勤、腿勤为工作着力点，科学定位了“三勤”排序和操作内容，保证了洗钾的高质量，具有很好的推广价值。</p>' +
+            '<p> &emsp;&emsp;发明“三勤”洗钾法后产品质量长期保持优质稳定，含纯始终控制在90-91.5%之内，使钾的损失率降低到最低值，他所在的班组产品质量始终位居各班之首，为企业创效154万余元。</p>'
+          },
+          {
+            title: '新型装、平煤操作法',
+            author: '葛振生',
+            date: '2019-09-12',
+            info: '此操作法主要是装煤工看到3个装煤口装满煤后，暂时停止装煤，通知推焦车司机开始平煤，待看到3号装煤口平通后，将平煤杆拉出停在1号装煤口处，然后再从3号、2号装煤口依次各装一股煤，再通知推焦车司机开始平煤，此....',
+            content:'<p> &emsp;&emsp;此操作法主要是装煤工看到3个装煤口装满煤后，暂时停止装煤，通知推焦车司机开始平煤，待看到3号装煤口平通后，将平煤杆拉出停在1号装煤口处，然后再从3号、2号装煤口依次各装一股煤，再通知推焦车司机开始平煤，此时平煤先多平短杆，再平长杆。</p>' +
+            '<p> &emsp;&emsp;此操作法解决了困扰焦炉生产30多年的炭化室焦侧装不满煤，装煤缺角的难题，提高了焦碳和化产品的产量，创造了可观的经济效益。</p>'
+          }
+        ],
+        innovate: [
+          {
+            title: '测量高炉炉料撞击点的装置',
+            imgs: require('@/assets/images/cardPic/1.jpg'),
+            author: '发明人：侯健',
+            date: '2014.7.30',
+            classify: '类型：新技术',
+            content: '<p> &emsp;&emsp;一种测量高炉炉料撞击点的装置，属于高炉布料检测设备技术领域，用于测量高炉布料时炉料撞击点。</p>' +
+            '<p> &emsp;&emsp;其技术方案是：炉料收集槽为U型槽，炉料收集槽垂直放置，U型槽的开口朝向炉膛方向，炉料收集槽槽体内有多个横向隔板，隔板从槽口向槽底向下倾斜，密封盖板覆盖在炉料收集槽的开口处，密封盖板的上端与盖板牵引装置相连接，盖板牵引装置的后部固定在炉外固定支架上，炉料收集槽的上端与盖板牵引装置的前端相连接。</p>' +
+            '<p> &emsp;&emsp;本实用新型可以准确测量出炉料最大角度的落点，解决目前靠理论计算、目测估计导致布料准确性下降的问题。本实用新型的结构简单、使用方便、效果良好、适应性强，适用于同一高炉检修，或者在怀疑溜槽跑偏、磨损等对布料不准时进行纠偏。</p>'
+          },
+          {
+            title: '炉除尘风机的风道加固装置',
+            imgs: require('@/assets/images/cardPic/2.jpg'),
+            author: '发明人：王琦',
+            date: '2014.8.20',
+            classify: '类型：新技术',
+            content: '<p> &emsp;&emsp;一种高炉除尘风机的风道加固装置，属于高炉除尘设备维修技术领域，用于对高炉除尘风机的进口风道和出口风道进行加固。</p>' +
+            '<p> &emsp;&emsp;其技术方案是：它包括空心轴和挡板，空心轴为圆筒体，沿水平方向垂直穿过风道的两侧壁，空心轴的轴线与风道的纵轴垂直，且与风道的上顶面平行，空心轴的两端连接挡板，挡板与风道两侧壁的外壁焊接连接。</p>' +
+            '<p> &emsp;&emsp;本实用新型在风道上增加了空心轴，空心轴通过挡板与风道连接牢固，空心轴对风道壁起到了支撑作用，提高了风道的强度，大大降低了其振动幅度，保证了除尘风机的安全可靠运行。本实用新型结构简单、效果明显，有效消除了除尘风机进口风道和出口风道的大幅度振动，消除了振动噪音，延长了风道的使用寿命。</p>'
+          },
+          {
+            title: '磁力固定异型长杆点火枪',
+            imgs: require('@/assets/images/cardPic/3.jpg'),
+            author: '发明人：宗亮',
+            date: '2015.10.21',
+            classify: '类型：新技术',
+            content: '<p> &emsp;&emsp;本实用新型提出的一种磁力固定的异形长杆点火枪，在进行高炉煤气放散塔点火枪故障处理时,不需要用电气焊拆除原来的坏枪,由于本枪体进行了变形,有110度的弯,可以方便的插入焦炉煤气点火口中,并且安装上两个磁力固定的底座,就可以接线使用了,由于本枪体的杆长1600MM,使接头和连接线路有效的避开了可能的火焰燃烧区域,防止了线路和接头的损坏.降低了故障率,使工人每休风就要上塔修复,变成每年上去进行常规检查一次,有效的降低了工人的工作强度和危险程度.</p>'
+          },
+          {
+            title: '改进的密封碳环结构',
+            imgs: require('@/assets/images/cardPic/4.jpg'),
+            author: '发明人：史良',
+            date: '2016.1.6',
+            classify: '类型：新技术',
+            content: '<p> &emsp;&emsp;本实用新型解决的技术问题是提供一种改进的密封碳环，该碳环通过在内径径向开设凹槽，实现对磨损粉末和煤气杂质的收集，使碳环与透平转子之间的间隙始终保持在合理范围之内，从而降低碳环磨损量，保证密封效果。</p>' +
+            '<p> &emsp;&emsp;并且结合了浮环式密封与迷宫密封两方面优点，通过多个凹槽产生的密封气压力腔，与多个碳环密封面所产生的极薄的气膜，共同构成了无形的迷宫密封，通过这样的原理，使得密封更加合理与完善，并保持了碳环稳定性，减少摩擦导致的碳环过早损坏，避免了漏气与动静摩擦，使得碳环在较长时间内保证其完整的功能性，为机组稳定运行提供了有力的支撑。</p>'
+          }
+        ]
+      }
+    },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
+    },
+    computed: {
+      ...mapGetters([
+        'name'
+      ])
+    },
+    methods: {
+      handleClick(item) {
+        this.$router.push({
+          name: '详情',
+          params: {
+            article: item
+          }
+        })
+      },
+      handleTabClick(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/create/${index}`} || './')
+      },
+      goto(url) {
+        console.log(url)
+        this.$router.push(url || './')
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.container {
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+.ketang-list {
+  padding-top: 25px;
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+
+  .ketang-wrapper {
+    margin-right: 90px;
+    margin-bottom: 90px;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+</style>
