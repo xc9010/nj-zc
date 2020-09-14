@@ -1,0 +1,11 @@
+.el-carousel__button{
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+.el-carousel__indicators--outside button{
+
+}
+.el-carousel__indicator.is-active button{
+  background-color: #409EFF;
+}
