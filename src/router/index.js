@@ -54,6 +54,7 @@ export const constantRoutes = [
         title: 'news',
         name: '工会要闻',
         ind: '1-1',
+        pid: 1,
         component: () => import('@/views/news')
       },
       {
@@ -68,6 +69,7 @@ export const constantRoutes = [
         title: 'policy',
         name: '政策解读',
         ind: '1-2',
+        pid: 1,
         component: () => import('@/views/policy'),
       },
       {
@@ -75,6 +77,7 @@ export const constantRoutes = [
         title: 'email',
         name: '主席信箱',
         ind: '1-3',
+        pid: 1,
         component: () => import('@/views/email'),
       },
 
@@ -85,6 +88,7 @@ export const constantRoutes = [
         name: '我要入会',
         title: 'member',
         ind: '2-1',
+        pid: 2,
         component: () => import('@/views/member'),
       },
       {
@@ -92,6 +96,7 @@ export const constantRoutes = [
         title: 'create',
         name: '职工创新',
         ind: '2-2',
+        pid: 2,
         redirect: '/create/advise',
         component: () => import('@/views/create'),
         children: [
@@ -122,6 +127,7 @@ export const constantRoutes = [
         title: 'love',
         name: '红娘牵线',
         ind: '2-3',
+        pid: 2,
         component: () => import('@/views/love'),
       },
       {
@@ -129,6 +135,7 @@ export const constantRoutes = [
         title: 'service',
         name: '普惠服务',
         ind: '2-4',
+        pid: 2,
         redirect: '/service/around',
         component: () => import('@/views/service'),
         children: [
@@ -173,6 +180,7 @@ export const constantRoutes = [
         title: 'union',
         name: '工会风采',
         ind: '2-5',
+        pid: 2,
         redirect: '/union/workers',
         component: () => import('@/views/union'),
         children: [
@@ -209,13 +217,14 @@ export const constantRoutes = [
         title: 'patentShow',
         name: '专利展示',
         ind: '3-1',
+        pid: 3,
         redirect: '/patentShow/patent',
         component: () => import('@/views/patentShow'),
         children: [
           {
             path: 'patent',
             title: 'patent',
-            name: '专利展示',
+            name: '',
             ind: '3-1-1',
             component: () => import('@/views/patentShow/patent')
           }
@@ -226,13 +235,14 @@ export const constantRoutes = [
         title: 'class',
         name: '工匠讲堂',
         ind: '3-2',
+        pid: 3,
         redirect: '/class/ketang',
         component: () => import('@/views/class'),
         children: [
           {
             path: 'ketang',
             title: 'ketang',
-            name: '工匠讲堂',
+            name: '',
             ind: '3-2-1',
             component: () => import('@/views/class/ketang')
           }
@@ -243,6 +253,7 @@ export const constantRoutes = [
         title: 'live',
         name: '创新直播',
         ind: '3-3',
+        pid: 3,
         component: () => import('@/views/live'),
       },
       {
@@ -250,13 +261,14 @@ export const constantRoutes = [
         title: 'worksMeeting',
         name: '职代会',
         ind: '3-4',
+        pid: 3,
         redirect: '/worksMeeting/worksMeeting',
         component: () => import('@/views/worksMeeting'),
         children: [
           {
             path: 'worksMeeting',
             title: 'worksMeeting',
-            name: '工匠讲堂',
+            name: '',
             ind: '3-4-1',
             component: () => import('@/views/worksMeeting/worksMeeting')
           }
@@ -267,6 +279,7 @@ export const constantRoutes = [
         title: 'bigEvents',
         name: '大事记',
         ind: '3-5',
+        pid: 3,
         component: () => import('@/views/bigEvents'),
       },
       // 练兵比武
@@ -275,6 +288,7 @@ export const constantRoutes = [
         title: 'kungfu',
         name: '闯关练习',
         ind: '4-1',
+        pid: 4,
         redirect: '/kungfu/list',
         component: () => import('@/views/kungfu'),
         children: [
@@ -301,6 +315,7 @@ export const constantRoutes = [
         title: 'idea',
         name: '理想信念',
         ind: '4-2',
+        pid: 4,
         component: () => import('@/views/idea'),
       },
       {
@@ -308,6 +323,7 @@ export const constantRoutes = [
         title: 'exam',
         name: '在线考试',
         ind: '4-3',
+        pid: 4,
         redirect: '/exam/list',
         component: () => import('@/views/liveExam'),
         children: [
@@ -336,10 +352,11 @@ export const constantRoutes = [
 
       },
       {
-        path: 'getQues/:index?',
+        path: 'getQues',
         title: 'getQues',
         name: '试题征集',
         ind: '4-4',
+        pid: 4,
         component: () => import('@/views/getQues'),
       },
       {
@@ -347,6 +364,7 @@ export const constantRoutes = [
         title: 'experts',
         name: '专家问诊',
         ind: '4-5',
+        pid: 4,
         component: () => import('@/views/experts'),
       },
       {
@@ -354,6 +372,7 @@ export const constantRoutes = [
         title: 'sports',
         name: '运动专场',
         ind: '5',
+        pid: 5,
         component: () => import('@/views/sports'),
       },
       {

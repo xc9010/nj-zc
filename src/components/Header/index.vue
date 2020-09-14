@@ -39,7 +39,7 @@
       <template slot="title">练兵比武</template>
       <el-menu-item route="/kungfu" index="4-1">闯关练习</el-menu-item>
       <el-menu-item route="/idea" index="4-2">理想信念</el-menu-item>
-      <el-menu-item route="/liveExam" index="4-3">在线考试</el-menu-item>
+      <el-menu-item route="/exam" index="4-3">在线考试</el-menu-item>
       <el-menu-item route="/getQues" index="4-4">试题征集</el-menu-item>
       <el-menu-item route="/experts" index="4-5">专家问诊</el-menu-item>
     </el-submenu>
