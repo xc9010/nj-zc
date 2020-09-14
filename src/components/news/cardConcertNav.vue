@@ -52,6 +52,14 @@ export default {
   &:hover {
     .date {
       color: #e33f4e;
+      .day {
+        background: #b91320;
+      }
+    }
+    .news-content {
+      .news-info {
+        color: #666;
+      }
     }
   }
   .date {
