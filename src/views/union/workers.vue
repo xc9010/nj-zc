@@ -176,7 +176,7 @@
         }else if(item.code === 'studio'){
           this.$router.push('/union/studio')
         }else {
-          this.$router.push('/union/studio')
+          this.$router.push('/union/craftsman')
         }
       }
     }

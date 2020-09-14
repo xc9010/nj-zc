@@ -3,7 +3,7 @@
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
       <div class="model-wrapper">
-        <div class="model-person" v-for="(item, index) in model" :key="index" :data="item">
+        <div class="model-person" v-for="(item, index) in craftsman" :key="index" :data="item">
           <div class="head-img">
             <img :src="item.imgs">
           </div>
@@ -37,12 +37,12 @@
           {
             name: '劳模先进',
             code:'model',
-            active: true
+            active: false
           },
           {
             name: '工匠评优',
             code:'craftsman',
-            active: false
+            active: true
           },
           {
             name: '创新工作室',
@@ -52,79 +52,34 @@
         ],
         active: ['1', '2', '3', '4'],
         tabType: '0',
-        model:[
+        craftsman:[
           {
-            imgs:require('@/assets/images/cardPicVertical/1.png'),
-            name:'孙平',
-            introduce:'南钢第二炼铁厂'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/2.png'),
-            name:'殷剑',
-            introduce:'南钢第三炼钢厂'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/3.jpg'),
-            name:'李德波',
-            introduce:'南钢第三炼钢厂职工创新工作室领头人'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/4.png'),
-            name:'周桂成',
-            introduce:'南钢第一炼钢厂'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/5.png'),
-            name:'方玉珍',
-            introduce:'南钢电厂'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/6.png'),
-            name:'刘莉',
-            introduce:'南钢科技质量部'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/7.png'),
-            name:'金虎',
-            introduce:'南钢炼铁事业部闻'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/8.png'),
-            name:'周意来',
-            introduce:'南钢燃料供应厂'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/9.jpg'),
-            name:'王月彪',
-            introduce:'省五一奖章南钢科技质量部'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/10.jpg'),
-            name:'王思聪',
-            introduce:'省五一奖章南钢宽厚板厂'
-          },
-          {
-            imgs:require('@/assets/images/cardPicVertical/11.jpg'),
+            imgs:require('@/assets/images/cardPicVertical/15.jpg'),
             name:'葛树东',
-            introduce:'省五一奖章南钢铁运中心'
+            introduce:'“机车工匠”'
           },
           {
-            imgs:require('@/assets/images/cardPicVertical/12.jpg'),
-            name:'刘呈军',
-            introduce:'市五一奖章南钢第二炼钢厂'
+            imgs:require('@/assets/images/cardPicVertical/16.png'),
+            name:'葛树东',
+            introduce:'“南钢工匠”'
           },
           {
-            imgs:require('@/assets/images/cardPicVertical/13.jpg'),
-            name:'刘丽华',
-            introduce:'市五一奖章南钢研究院军工部'
+            imgs:require('@/assets/images/cardPicVertical/17.jpg'),
+            name:'殷剑',
+            introduce:'南钢工匠'
           },
           {
-            imgs:require('@/assets/images/cardPicVertical/14.png'),
-            name:'唐运章',
-            introduce:'市五一奖章南钢中厚板卷厂'
+            imgs:require('@/assets/images/cardPicVertical/18.png'),
+            name:'王月彪',
+            introduce:'“南钢工匠”'
+          },
+          {
+            imgs:require('@/assets/images/cardPicVertical/19.jpg'),
+            name:'张红军',
+            introduce:'全国机冶行业工匠”'
           }
         ],
-        code:'model'
+        code:'craftsman'
       }
     },
     mounted() {

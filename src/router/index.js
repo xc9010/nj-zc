@@ -81,11 +81,34 @@ export const constantRoutes = [
         component: () => import('@/views/member'),
       },
       {
-        path: 'create/:index?',
+        path: 'create',
         title: 'create',
         name: '职工创新',
         ind: '2-2',
+        redirect: '/create/advise',
         component: () => import('@/views/create'),
+        children: [
+          {
+            path: 'advise',
+            title: 'advise',
+            name: '合理化建议',
+            ind: '2-2-1',
+            component: () => import('@/views/create/advise')
+          },{
+            path: 'operate',
+            title: 'operate',
+            name: '先进操作法',
+            ind: '2-2-2',
+            component: () => import('@/views/create/operate')
+          }
+          // , {
+          //   path: 'innovate',
+          //   title: 'innovate',
+          //   name: '创新增效',
+          //   ind: '2-2-3',
+          //   component: () => import('@/views/create/innovate')
+          // }
+        ]
       },
       {
         path: 'love',
@@ -95,11 +118,46 @@ export const constantRoutes = [
         component: () => import('@/views/love'),
       },
       {
-        path: 'service/:index?',
+        path: 'service',
         title: 'service',
         name: '普惠服务',
         ind: '2-4',
+        redirect: '/service/around',
         component: () => import('@/views/service'),
+        children: [
+          {
+            path: 'around',
+            title: 'around',
+            name: '工会在身边',
+            ind: '2-4-1',
+            component: () => import('@/views/service/around')
+          },{
+            path: 'woman',
+            title: 'woman',
+            name: '女工关怀',
+            ind: '2-4-2',
+            component: () => import('@/views/service/woman')
+          }
+          // , {
+          //   path: 'birthday',
+          //   title: 'birthday',
+          //   name: '职工生日会',
+          //   ind: '2-4-3',
+          //   component: () => import('@/views/service/birthday')
+          // }, {
+          //   path: 'help',
+          //   title: 'help',
+          //   name: '困难帮扶',
+          //   ind: '2-4-4',
+          //   component: () => import('@/views/service/help')
+          // }, {
+          //   path: 'study',
+          //   title: 'study',
+          //   name: '助学贷款',
+          //   ind: '2-4-5',
+          //   component: () => import('@/views/service/study')
+          // }
+        ]
       },
       {
         path: 'union',
@@ -112,7 +170,7 @@ export const constantRoutes = [
           {
             path: 'workers',
             title: 'workers',
-            name: '劳模风采',
+            name: '职工风采',
             ind: '2-5-3',
             component: () => import('@/views/union/workers')
           },{
@@ -121,6 +179,12 @@ export const constantRoutes = [
             name: '劳模风采',
             ind: '2-5-1',
             component: () => import('@/views/union/model')
+          },{
+            path: 'craftsman',
+            title: 'craftsman',
+            name: '劳模风采',
+            ind: '2-5-1',
+            component: () => import('@/views/union/craftsman')
           }, {
             path: 'studio',
             title: 'studio',

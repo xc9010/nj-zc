@@ -1,5 +1,17 @@
 <template>
-  <router-view></router-view>
+  <div class="news-nav">
+    <nav-left :items="navItems" @callback="callback"/>
+    <div class="nav-content">
+        <card-concert-nav v-for="(item, index) in advise" :key="index" :data="item"/>
+        <div style="text-align: center;  padding: 10px">
+          <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="1000">
+          </el-pagination>
+        </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -175,7 +187,13 @@
       },
       callback(item) {
         this.listOption = this[`${item.code}`];
-        this.code=item.code;
+        if(item.code === 'advise'){
+          this.$router.push('/create/advise')
+        }else if (item.code === 'operate'){
+          this.$router.push('/create/operate')
+        }else {
+          this.$router.push('/create/innovate')
+        }
       }
     }
   }
