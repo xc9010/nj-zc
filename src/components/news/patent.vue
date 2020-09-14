@@ -3,10 +3,12 @@
     <div class="ketang-img-wrapper">
       <div class="patetn-img">
         <img :src="require('@/assets/images/patetn.png')" />
+        <!--<img :src="data.imgs" />-->
       </div>
     </div>
     <p class="ketang-title">
-      夹芯轻质隔墙板
+      <!--夹芯轻质隔墙板-->
+      {{data.title}}
     </p>
   </div>
 </template>
