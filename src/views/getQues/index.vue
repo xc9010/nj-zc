@@ -1,12 +1,18 @@
 <template>
-  <div>
-    <div>
-      <div>
+    <div class="email-wrapper">
+  <div class="mainBox">
+      <div class="form-wrapper">
+    <div class="question-btn-wrapper">
+      <div class="question-btn-select active">
         单选题
       </div>
+      <div class="question-btn-select">
+        多选题
+      </div>
+      <div class="question-btn-select">
+        判断题
+      </div>
     </div>
-    <div class="email-wrapper">
-      <div class="form-wrapper">
         <div class="form-column">
           <div class="form-half-wrapper">
             <p class="remark form-item-simgle">
@@ -102,6 +108,24 @@
     margin-top: 30px;
     span{
       color: #ffa200;
+    }
+  }
+
+  .question-btn-wrapper {
+    display: flex;
+    .question-btn-select {
+      width: 160px;
+      height: 55px;
+      line-height: 55px;
+      text-align: center;
+      margin-right: 5px;
+      background: #cfcecd;
+      color: #ffffff;
+      border-top-left-radius: 10px;
+      border-top-right-radius:10px;
+      &.active {
+        background: #ffa200;
+      }
     }
   }
   .email-wrapper {
