@@ -106,10 +106,16 @@ export const constantRoutes = [
         title: 'union',
         name: '工会风采',
         ind: '2-5',
-        redirect: '/union/model',
+        redirect: '/union/workers',
         component: () => import('@/views/union'),
         children: [
           {
+            path: 'workers',
+            title: 'workers',
+            name: '劳模风采',
+            ind: '2-5-3',
+            component: () => import('@/views/union/workers')
+          },{
             path: 'model',
             title: 'model',
             name: '劳模风采',
