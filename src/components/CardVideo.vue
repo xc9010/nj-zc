@@ -39,6 +39,9 @@
 <style lang="scss" scoped>
   .cardPicVertical{
     flex: 0.23;
+    .cardPicTips{
+      font-size: 14px;
+    }
     .cardPicWrap{
       display: flex;
       flex-wrap: wrap;

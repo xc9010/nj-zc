@@ -5,8 +5,8 @@
     <div>二维码</div>
   </div>
   <div class="flex footerBottom">
-    <div>版权所有</div>
-    <div>技术支持</div>
+    <div>版权所有:南京南钢钢铁联合有限公司版权所有</div>
+    <div>技术支持:南京铭启信息技术有限公司</div>
   </div>
 </div>
 </template>

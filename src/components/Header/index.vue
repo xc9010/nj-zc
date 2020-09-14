@@ -96,6 +96,7 @@
       width: 390px;
       margin: 0 auto;
       // float: left;
+      line-height: 150px;
       flex-shrink: 0;
       img {
         width: 100%;
@@ -106,6 +107,7 @@
       // float: left;
       width: 690px;
       font-size: 16px;
+      padding: 20px 0;
       .el-menu {
         .el-menu-item {
           padding: none;
