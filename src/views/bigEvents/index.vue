@@ -2,23 +2,11 @@
   <div class="mainBox">
     <div class="time-axis">
       <div class="axis"></div>
-      <!-- <div class="time-event left">
+      <div :class="['time-event', index % 2 === 0 ? 'right' : 'left']" v-for="(item, index) in activities" :key="index">
         <div class="circle img-wrapper">
           <img :src="require('@/assets/images/icon/circle.png')" />
         </div>
-        <card-time></card-time>
-      </div>
-      <div class="time-event right">
-        <div class="circle img-wrapper">
-          <img :src="require('@/assets/images/icon/circle.png')" />
-        </div>
-        <card-time></card-time>
-      </div> -->
-      <div :class="['time-event', index % 2 === 0 ? 'right' : 'left']" v-for="(item, index) in list" :key="index">
-        <div class="circle img-wrapper">
-          <img :src="require('@/assets/images/icon/circle.png')" />
-        </div>
-        <card-time :direction="index % 2 === 0 ? 'left' : 'right'"></card-time>
+        <card-time :data="item" :direction="index % 2 === 0 ? 'left' : 'right'" ></card-time>
       </div>
     </div>
   </div>
@@ -61,7 +49,7 @@
           title: '黄一新：积极转变 顺应“数智化”时代发展浪潮',
           imgs: 'http://www.njsteel.com.cn/Upload/images/1(25).jpg',
           author: '匿名',
-          date: '2020-08-27',
+          date: '2020年08月27日',
           classify: '2020-08-27',
           content: '<img alt="" src="http://www.njsteel.com.cn/Upload/images/1(25).jpg" style="width: 640px; height: 425px;" /><br />\n' +
           '<p>8月26日，南钢股份入选&ldquo;新华社民族品牌工程&rdquo;签约仪式在京举行。南钢股份董事长黄一新就如何应对&ldquo;逐步形成以国内大循环为主体、国内国际双循环相互促进的新发展格局&rdquo;这一转变、如何看待传统产业借力资本市场加速转型发展等问题接受了专访。</p>\n' +
@@ -88,7 +76,7 @@
           title: '南钢股份入选新华社民族品牌工程',
           imgs: 'http://www.njsteel.com.cn/Upload/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200827081009.jpg',
           author: '匿名',
-          date: '2020-08-27',
+          date: '2020年08月27日',
           classify: '2020-08-27',
           content: '<img alt="" src="/Upload/images/%e5%be%ae%e4%bf%a1%e5%9b%be%e7%89%87_20200827081009.jpg" style="width: 640px; height: 426px;" />' +
           '<p>8月26日，南京钢铁股份有限公司（以下简称&ldquo;南钢股份&rdquo;）入选新华社民族品牌工程签约仪式在京举行，新华社下属各服务机构将与南钢股份展开全面合作，共同打造高端制造业品牌，助力南钢股份品牌建设和高质量发展。</p>\n' +
@@ -110,7 +98,7 @@
           title: '党建领航把方向 凝心聚力攀高峰',
           imgs: 'http://www.njsteel.com.cn/Upload/Images/1d51043f-e3fe-42b9-8bb1-062eaa2f3d8a.png',
           author: '匿名',
-          date: '2020-05-09',
+          date: '2020年05月09日',
           classify: '2020-05-09',
           content: '<p>党建网讯（邵启明） 4月30日，中国共产党南京钢铁联合有限公司第三次代表大会顺利召开。南钢董事长黄一新当选新一届党委书记。</p>\n' +
           '<p>黄一新在大会上作题为《党建领航把方向 凝心聚力攀高峰》的党委工作报告。报告总结了企业过去五年的发展成就，经营绩效取得新飞跃，经营生态实现新进化，改革创新跨上新高度，新兴产业开辟新格局，党建工作发挥新作为。报告提出五个&ldquo;必须&rdquo;，必须始终坚持党的领导，汇聚发展合力，为公司发展提供坚强的政治保障；必须始终坚持以人为本，激发全员活力，为公司发展提供有力支撑；必须始终坚持创新驱动，增强发展动力，以创新思维破解发展难题；必须坚持强化作风建设，提升组织能力，以担当作为提振精神；必须始终坚持管理变革，挖掘内部潜力，以效能提升推动公司高质量发展。</p>\n' +
@@ -126,7 +114,7 @@
           title: '南钢打造全球化高科技产业集团',
           imgs: 'http://www.njsteel.com.cn/Upload/images/1(25).jpg',
           author: '匿名',
-          date: '2020-05-09',
+          date: '2020年05月09日',
           classify: '2020-05-09',
           content: '<p>本报讯（融媒体记者 王健 通讯员 邵启明）作为全市制造业标杆企业，继实现数代工作者梦寐以求的&ldquo;双千&rdquo;梦想后，南钢又确定了新的五年发展目标：以指数级增长速度成长为全球化高科技产业集团。这是记者近日从南钢获得的消息。</p>\n' +
           '<p>据介绍，近期南钢召开第三次党代会，总结过去五年发展成就，确定今后五年发展目标。</p>\n' +

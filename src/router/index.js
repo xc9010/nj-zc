@@ -108,13 +108,13 @@ export const constantRoutes = [
             ind: '2-2-2',
             component: () => import('@/views/create/operate')
           }
-          // , {
-          //   path: 'innovate',
-          //   title: 'innovate',
-          //   name: '创新增效',
-          //   ind: '2-2-3',
-          //   component: () => import('@/views/create/innovate')
-          // }
+          ,{
+            path: 'innovate',
+            title: 'innovate',
+            name: '创新增效',
+            ind: '2-2-3',
+            component: () => import('@/views/create/innovate')
+          }
         ]
       },
       {
@@ -145,25 +145,27 @@ export const constantRoutes = [
             ind: '2-4-2',
             component: () => import('@/views/service/woman')
           }
-          // , {
-          //   path: 'birthday',
-          //   title: 'birthday',
-          //   name: '职工生日会',
-          //   ind: '2-4-3',
-          //   component: () => import('@/views/service/birthday')
-          // }, {
-          //   path: 'help',
-          //   title: 'help',
-          //   name: '困难帮扶',
-          //   ind: '2-4-4',
-          //   component: () => import('@/views/service/help')
-          // }, {
-          //   path: 'study',
-          //   title: 'study',
-          //   name: '助学贷款',
-          //   ind: '2-4-5',
-          //   component: () => import('@/views/service/study')
-          // }
+          , {
+            path: 'birthday',
+            title: 'birthday',
+            name: '职工生日会',
+            ind: '2-4-3',
+            component: () => import('@/views/service/birthday')
+          }
+          , {
+            path: 'help',
+            title: 'help',
+            name: '困难帮扶',
+            ind: '2-4-4',
+            component: () => import('@/views/service/help')
+          }
+          , {
+            path: 'study',
+            title: 'study',
+            name: '助学贷款',
+            ind: '2-4-5',
+            component: () => import('@/views/service/study')
+          }
         ]
       },
       {
@@ -334,7 +336,7 @@ export const constantRoutes = [
 
       },
       {
-        path: 'getQues',
+        path: 'getQues/:index?',
         title: 'getQues',
         name: '试题征集',
         ind: '4-4',
@@ -347,8 +349,6 @@ export const constantRoutes = [
         ind: '4-5',
         component: () => import('@/views/experts'),
       },
-
-
       {
         path: 'sports/:index?',
         title: 'sports',

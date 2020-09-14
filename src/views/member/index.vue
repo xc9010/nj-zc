@@ -89,13 +89,13 @@
           </div>
         </div>
       </div>
-      <div class="btn-wrapper">
-        <div class="btn submit">
-          提交
-        </div>
-        <div class="btn reset">
-          重置
-        </div>
+    </div>
+    <div class="btn-wrapper">
+      <div class="btn submit">
+        提交
+      </div>
+      <div class="btn reset">
+        重置
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@
       margin-top: 30px;
     }
     .form-wrapper {
-      height: 1400px;
+      height: 1450px;
       margin-top: 45px;
       margin-left: 42px;
       .form-column{
@@ -218,23 +218,25 @@
         }
       }
     }
-    .btn-wrapper {
-      display: flex;
-      justify-content: center;
-      .btn {
-        width: 125px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        color: #ffffff;
-        border-radius: 5px;
-        &.submit {
-          background: #d31b2a;
-          margin-right: 30px;
-        }
-        &.reset {
-          background: #b3b3b3;
-        }
+  }
+  .btn-wrapper {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    .btn {
+      width: 125px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 5px;
+      &.submit {
+        background: #d31b2a;
+        margin-right: 30px;
+      }
+      &.reset {
+        background: #b3b3b3;
       }
     }
   }
