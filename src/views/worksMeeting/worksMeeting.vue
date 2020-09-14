@@ -1,6 +1,8 @@
 <template>
 <div class="list-wrapper">
-  <card-zdh v-for="(item, index) in studio" :key="index" :data="item" :reverse="(index+1)%2==0"></card-zdh>
+  <div v-for="(item, index) in studio" :key="index" @click="handleClick(item)">
+    <card-zdh :data="item" :reverse="(index+1)%2==0"></card-zdh>
+  </div>
 </div>
 </template>
 

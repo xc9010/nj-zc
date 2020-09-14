@@ -2,7 +2,9 @@
   <div class="news-nav">
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
-      <card-concert-nav v-for="(item, index) in listOption" :key="index" :data="item"/>
+      <div @click="handleClick(item)" v-for="(item, index) in listOption" :key="index">
+        <card-concert-nav :data="item"/>
+      </div>
       <div style="text-align: center;  padding: 10px">
         <el-pagination
           background

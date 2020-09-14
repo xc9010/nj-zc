@@ -58,13 +58,6 @@ export const constantRoutes = [
         component: () => import('@/views/news')
       },
       {
-        path: 'news/info',
-        title: 'newsInfo',
-        name: '详情',
-        ind: '1-1-1',
-        component: () => import('@/views/news/info')
-      },
-      {
         path: 'policy',
         title: 'policy',
         name: '政策解读',
@@ -375,10 +368,17 @@ export const constantRoutes = [
         pid: 5,
         component: () => import('@/views/sports'),
       },
+      // {
+      //   name: '详情',
+      //   path: 'details',
+      //   component: () => import('@/views/Details'),
+      // },
       {
+        path: 'info/:index?',
+        title: 'newsInfo1',
         name: '详情',
-        path: 'details',
-        component: () => import('@/views/Details'),
+        // ind: '1-1-1',
+        component: () => import('@/views/info')
       },
       {
         name: '职代会详情',
