@@ -3,7 +3,7 @@
     <nav-left :items="navItems" @callback="callback"/>
     <div class="nav-content">
       <div class="studio-wrapper">
-        <div class="studio-info" v-for="(item, index) in studio" :key="index" :data="item">
+        <div class="studio-info" v-for="(item, index) in studio" :key="index" :data="item" @click="handleClick(item)">
           <div class="head-img">
             <img :src="item.imgs">
           </div>

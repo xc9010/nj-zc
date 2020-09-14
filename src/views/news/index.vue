@@ -1,8 +1,10 @@
 <template>
   <div class="mainBox">
     <div class="news-list">
-      <news-card v-for="(item, index) in list" :key="index" :data="item">
-      </news-card>
+      <div  v-for="(item, index) in list" :key="index" @click="handleClick(item)">
+        <news-card :data="item">
+        </news-card>
+      </div>
     </div>
     <div style="text-align: center;  padding: 10px">
       <el-pagination
