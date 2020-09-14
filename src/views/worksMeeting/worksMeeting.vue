@@ -1,5 +1,7 @@
 <template>
-  <router-view></router-view>
+<div class="list-wrapper">
+  <card-zdh v-for="(item, index) in studio" :key="index" :data="item" :reverse="(index+1)%2==0"></card-zdh>
+</div>
 </template>
 
 <script>

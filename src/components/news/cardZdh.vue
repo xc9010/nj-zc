@@ -3,17 +3,17 @@
     <div class="zdh-left">
       <div class="studio-info">
         <div class="studio-desc">
-          <p class="name">创新工作室</p>
+          <p class="name">{{data.title}}</p>
           <p class="icon-desc">
             <img class="icon" :src="require('@/assets/images/list.png')">
             <span class="desc">
-              吴建群
+              {{data.date}}
             </span>
           </p>
           <p class="icon-desc leader">
             <img class="icon" :src="require('@/assets/images/man.png')">
             <span class="desc">
-              吴建群
+              {{data.author}}
             </span>
           </p>
         </div>
@@ -30,7 +30,6 @@
       <div class="img-wrapper">
         <img :src="require('@/assets/images/demo/zdh.png')" />
       </div>
-      <!-- <img :src="require('@/assets/images/icon/rank.png')" /> -->
     </div>
   </div>
 </template>
@@ -89,7 +88,7 @@ export default {
         }
       }
       .studio-desc {
-        width: 235px;
+        width: 275px;
         padding: 0 20px;
         .name {
           margin: 0;
