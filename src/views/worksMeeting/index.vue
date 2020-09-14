@@ -1,37 +1,19 @@
 <template>
-  <div class="mainBox">
-    <div class="mainContent">
-      <div class="news">
-        <el-card class="box-card">
-          <div slot="header" class="box-title">
-            <span>职代会</span>
-          </div>
-          <div class="cardPic">
-            <div class="flex cardPicWrap">
-              <div v-for="item in studio" class="f1 cardPicItem" style="flex: 0.4">
-                <el-card :body-style="{ width: '100%', padding: '10px', display: 'flex' }">
-                  <img :src="item.imgs" class="image">
-                  <div style="padding: 0 10px;">
-                    <div class="cardPicTitle">{{item.title}}</div>
-                    <div class="cardPicTips" style="color: red">{{item.classify}}</div>
-                    <div class="cardPicTips">{{item.author}}</div>
-                    <el-button style="margin: 10px 0"><el-link @click="handleClick(item)" target="_blank">查看详情</el-link></el-button>
-                  </div>
-                </el-card>
-              </div>
-            </div>
-          </div>
-        </el-card>
-      </div>
-    </div>
-  </div>
+<div class="list-wrapper">
+  <card-zdh></card-zdh>
+  <card-zdh :reverse="true"></card-zdh>
+  <card-zdh></card-zdh>
+  <card-zdh :reverse="true"></card-zdh>
+</div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+  import cardZdh from '../../components/news/cardZdh'
 
   export default {
     name: 'Live',
+    components: { cardZdh },
     computed: {
       ...mapGetters([
         'name'
@@ -205,30 +187,14 @@
 </script>
 
 <style lang="scss" scoped>
-  .cardPic{
-    .cardPicWrap{
-      flex-wrap: wrap;
-    }
-    .cardPicItem{
-      margin: 0 5px 5px 0;
-      border-radius: 10px;
-      .el-card{
-        width: 345px;
-      }
-      .image{
-        width: 120px;
-        height: 120px;
-      }
-      .cardPicTitle{
-        font-size: 18px;
-        font-weight: bold;
-        padding: 8px 0;
-      }
-      .cardPicTips{
-        font-size: 12px;
-      }
-    }
+.list-wrapper {
+  margin: auto;
+  width: 1200px;
+  margin-top: 45px;
 
+  .zdh-wrapper {
+    margin-bottom: 40px;
   }
+}
 
 </style>

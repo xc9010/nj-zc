@@ -1,11 +1,11 @@
 <template>
-  <div class="ketang-wrapper">
-    <div class="ketang-img-wrapper">
-      <div class="patetn-img">
+  <div class="patent-wrapper">
+    <div class="patent-img-wrapper">
+      <div class="patent-img">
         <img :src="require('@/assets/images/patetn.png')" />
       </div>
     </div>
-    <p class="ketang-title">
+    <p class="patent-title">
       夹芯轻质隔墙板
     </p>
   </div>
@@ -28,18 +28,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ketang-wrapper {
+.patent-wrapper {
   width: 280px;
   height: 285px;
   display: block;
   background: #eeeeee;
   // margin-left: 50px;
-.ketang-img-wrapper {
+.patent-img-wrapper {
   height: 230px;
   display: flex;
   justify-content: center;
   align-items: center;
-  .ketang-img {
+  .patent-img {
     width: 240px;
     height: 165px;
     display: flex;
@@ -51,7 +51,7 @@ export default {
     }
   }
 }
-  .ketang-title {
+  .patent-title {
     display: block;
     margin: 0;
     height: 55px;

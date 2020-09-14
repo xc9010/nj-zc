@@ -138,7 +138,7 @@
   background: #ffffff;
 
   .ketang-wrapper {
-    margin-right: 90px;
+    margin-right: 40px;
     margin-bottom: 90px;
     &:nth-child(3n) {
       margin-right: 0;
