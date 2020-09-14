@@ -7,7 +7,8 @@
       </div>
     </div>
     <p class="patent-title">
-      夹芯轻质隔墙板
+      <!--夹芯轻质隔墙板-->
+      {{data.title}}
     </p>
   </div>
 </template>

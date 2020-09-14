@@ -248,7 +248,17 @@ export const constantRoutes = [
         title: 'worksMeeting',
         name: '职代会',
         ind: '3-4',
+        redirect: '/worksMeeting/worksMeeting',
         component: () => import('@/views/worksMeeting'),
+        children: [
+          {
+            path: 'worksMeeting',
+            title: 'worksMeeting',
+            name: '工匠讲堂',
+            ind: '3-4-1',
+            component: () => import('@/views/worksMeeting/worksMeeting')
+          }
+        ]
       },
       {
         path: 'bigEvents',
