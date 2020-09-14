@@ -6,7 +6,7 @@
           <img :src="require('@/assets/images/icon/avatar.png')" />
         </div>
         <p class="name">
-          徐峥
+          {{data.name}}
         </p>
       </div>
       <p class="date">
@@ -15,10 +15,10 @@
     </div>
     <div class="qs-content">
       <div class="question">
-        术后快满一个月了，恢复很好，吞咽正常，已开始治胃病。感谢凌医生，医术精湛。住院期间团队照顾无微不至。现在对医生这个职业，满怀敬意。
+        {{data.question}}
       </div>
       <div class="answer">
-        回复：祝所有医护人员身体健康，生活幸福！
+        回复：{{data.answer}}
       </div>
     </div>
   </div>
