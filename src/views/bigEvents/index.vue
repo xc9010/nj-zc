@@ -1,55 +1,37 @@
 <template>
   <div class="mainBox">
-    <div class="news">
-      <el-card class="box-card">
-        <div slot="header" class="box-title">
-          <span>大事纪</span>
+    <div class="time-axis">
+      <div class="axis"></div>
+      <!-- <div class="time-event left">
+        <div class="circle img-wrapper">
+          <img :src="require('@/assets/images/icon/circle.png')" />
         </div>
-        <div>
-          <el-timeline>
-            <el-timeline-item
-              :placement="item.position"
-              v-for="(item, index) in activities"
-              :key="index"
-              :icon="item.icon"
-              :type="item.type"
-              :color="item.color"
-              :size="item.size"
-              :timestamp="item.timestamp"
-            >
-
-              <div class="cardPic">
-                <div class="flex cardPicWrap">
-                  <div class="f1 cardPicItem" style="flex: 0.3">
-                    <el-card :body-style="{ width: '100%', padding: '10px', display: 'flex' }">
-                      <img :src="item.imgs" class="image">
-                      <div style="padding: 0 10px;">
-                        <div class="cardPicTitle">{{item.title}}</div>
-                        <div class="cardPicTips" style="color: red">{{item.classify}}</div>
-                        <div class="cardPicTips">{{item.author}}</div>
-                        <el-button style="margin: 10px 0"><el-link @click="handleClick(item)" target="_blank">查看详情</el-link></el-button>
-                      </div>
-                    </el-card>
-                  </div>
-                </div>
-              </div>
-            </el-timeline-item>
-          </el-timeline>
-
+        <card-time></card-time>
+      </div>
+      <div class="time-event right">
+        <div class="circle img-wrapper">
+          <img :src="require('@/assets/images/icon/circle.png')" />
         </div>
-      </el-card>
+        <card-time></card-time>
+      </div> -->
+      <div :class="['time-event', index % 2 === 0 ? 'right' : 'left']" v-for="(item, index) in list" :key="index">
+        <div class="circle img-wrapper">
+          <img :src="require('@/assets/images/icon/circle.png')" />
+        </div>
+        <card-time :direction="index % 2 === 0 ? 'left' : 'right'"></card-time>
+      </div>
     </div>
-
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   import CardPic from '../../components/CardPic'
+  import cardTime from '../../components/news/cardTime'
 
   export default {
     name: 'Live',
-    components: { CardPic },
+    components: { CardPic, cardTime },
     computed: {
       ...mapGetters([
         'name'
@@ -67,6 +49,7 @@
     },
     data() {
       return {
+        list: [1, 2, 3, 4, 1, 2, 3, 4, 4, 1, 2, 3, 4],
         activities: [
           {
 //          content: '支持使用图标',
@@ -162,29 +145,64 @@
 </script>
 
 <style lang="scss" scoped>
-  .cardPic{
-    .cardPicWrap{
-      flex-wrap: wrap;
-    }
-    .cardPicItem{
-      margin: 0 10px 10px 0;
-      border-radius: 10px;
-      .el-card{
-        width: 345px;
-        height: 100%;
-      }
-      .image{
-        width: 120px;
-        height: 120px;
-      }
-      .cardPicTitle{
-        font-size: 18px;
-        font-weight: bold;
-        padding: 8px 0;
-      }
-      .cardPicTips{
-        font-size: 12px;
-      }
+
+.img-wrapper {
+  // width: 15px;
+  // height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.time-axis {
+  width: 1200px;
+  position: relative;
+  .axis {
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    border: 1px dashed #b5b5b5;
+    // position: relative;
+    &::before {
+      content: '';
+      border: 1px solid #b5b5b5;
+      width: 23px;
+      top: -1px;
+      position: absolute;
     }
   }
+  .time-event {
+    position: relative;
+    width: 470px;
+
+    &.right {
+      left: 50%;
+      margin-left: 63px;
+      .circle {
+        left: -69px;
+      }
+    }
+    &.left {
+      left: calc(50% - 470px);
+      margin-left: -63px;
+      .circle {
+        right: -71px;
+      }
+    }
+    .circle {
+      &.img-wrapper {
+        width: 14px;
+        height: 14px;
+      }
+      position: absolute;
+      top: 30px;
+    }
+  }
+}
 </style>
