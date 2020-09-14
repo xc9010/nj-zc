@@ -162,20 +162,22 @@
 .time-axis {
   width: 1200px;
   position: relative;
+  padding-top: 70px;
   .axis {
-    width: 1px;
+    width: 25px;
     height: 100%;
     position: absolute;
     left: 50%;
-    border: 1px dashed #b5b5b5;
-    // position: relative;
-    &::before {
-      content: '';
-      border: 1px solid #b5b5b5;
-      width: 23px;
-      top: -1px;
-      position: absolute;
-    }
+    overflow: visible;
+    background-image: url('../../assets/images/icon/time-axis.png');
+    background-repeat: repeat-y;
+    // &::before {
+    //   content: '';
+    //   border: 1px solid #b5b5b5;
+    //   width: 23px;
+    //   top: -1px;
+    //   position: absolute;
+    // }
   }
   .time-event {
     position: relative;
