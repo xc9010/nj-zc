@@ -3,6 +3,7 @@
     <div class="patent-img-wrapper">
       <div class="patent-img">
         <img :src="require('@/assets/images/patetn.png')" />
+        <!--<img :src="data.imgs" />-->
       </div>
     </div>
     <p class="patent-title">

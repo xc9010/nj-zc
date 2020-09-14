@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox">
     <div class="patent-list">
-      <patent>
+      <patent v-for="(item, index) in list" :key="index" :data="item">
       </patent>
     </div>
     <div style="text-align: center;  padding: 10px">
@@ -17,10 +17,6 @@
 <script>
   import { mapGetters } from 'vuex'
   import patent from '../../components/news/patent'
-  // import Card from '../../components/Card'
-  // import navLeft from '../../components/news/navLeft'
-  // import CardPic from '../../components/CardPic'
-  // import cardConcertNav from '../../components/news/cardConcertNav'
 
 
   export default {
@@ -94,14 +90,8 @@
         })
       },
       handleTabClick(targetName) {
-        // console.log(targetName.index)
         const index = targetName.index;
-        // console.log(this.$router)
         if(index) this.$router.replace({path: `/create/${index}`} || './')
-      },
-      goto(url) {
-        console.log(url)
-        this.$router.push(url || './')
       }
     }
   }
