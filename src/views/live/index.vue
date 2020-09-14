@@ -115,6 +115,9 @@
     max-width: 100%;
   }
 }
+.video-wrapper {
+  padding-top: 40px;
+}
 .sidebyside {
   width: 1200px;
   display: flex;

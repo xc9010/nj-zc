@@ -72,3 +72,24 @@ export function training(data) {
   return post('/paper/paper/training', data)
 }
 
+/**
+ * 获取闯关题库
+ */
+export function getQuBank(data) {
+  return request({
+    url: '/exam/api/qu/repo/paging',
+    method: 'post',
+    data: data
+  })
+}
+
+/**
+ * 获取闯关的题目
+ */
+export function getExercise(data) {
+  return request({
+    url: '/exam/api/exercises/exercises/exercises',
+    method: 'get',
+    params: data
+  })
+}

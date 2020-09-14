@@ -26,8 +26,9 @@ const formInstance = axios.create({
 instance.interceptors.request.use(
   config => {
     if (store.getters.token) {
-      config.headers['token'] = '7S98tV1jBL9uKVnG0uoA5Sxw575sSGDg'
+      config.headers['token'] = '30VGxu9tWgZqFoUVq6CkpE3bqssRwpQy'
     }
+    config.headers['token'] = '30VGxu9tWgZqFoUVq6CkpE3bqssRwpQy'
     return config
   },
   error => {
