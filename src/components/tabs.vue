@@ -25,19 +25,20 @@
 <style lang="scss" scoped>
   .footer{
     font-size: 12px;
-    .footerBottom{
-      line-height: 66px;
-      background-color: #40505d;
-      color: #fff;
-      font-weight: bold;
-      justify-content: space-around;
-    }
     .footerTop{
       line-height: 200px;
-      background-color: #fafafa;
+      background-color: #efefef;
       color: #000;
       justify-content: space-between;
       padding: 0 190px;
+    }
+    .footerBottom{
+      height: 65px;
+      line-height: 65px;
+      background-color: #49505d;
+      color: #fff;
+      font-weight: bold;
+      justify-content: space-around;
     }
   }
 
