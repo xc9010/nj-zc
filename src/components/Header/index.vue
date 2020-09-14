@@ -91,10 +91,13 @@
     height: 120px;
     line-height: 120px;
     display: flex;
+    justify-content: space-between;
     margin: auto;
     .headerLogo {
       width: 390px;
-      margin: 0 auto;
+      margin-top: -5px;
+      // margin: 0 auto;
+      // margin-right: 60px;
       // float: left;
       line-height: 150px;
       flex-shrink: 0;
