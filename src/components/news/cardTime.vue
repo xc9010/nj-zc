@@ -1,15 +1,14 @@
 <template>
   <div class="card-time">
     <div :class="['tick', direction]"></div>
-    <!-- <div class="tick left"></div> -->
     <div class="date">
-      2020年6月
+      {{data.date}}
     </div>
     <div class="title">
-      南钢集团入选新华社民族品牌工程
+      {{data.title}}
     </div>
     <div class="show img-wrapper">
-      <img :src="require('@/assets/images/demo/time.png')" />
+      <img :src="data.imgs" />
     </div>
   </div>
 </template>
@@ -43,6 +42,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   img {
     display: block;
     max-height: 100%;
@@ -91,6 +91,7 @@ export default {
   .show {
     margin-top: 25px;
     width: 410px;
+    height: 215px;
   }
 }
 

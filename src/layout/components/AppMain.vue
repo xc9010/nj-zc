@@ -1,7 +1,7 @@
 <template>
   <section class="app-main">
     <div style="position: relative">
-      <img style="display: block" :src="require('@/assets/images/header-bg/1.png')">
+      <img style="display: block" :src="require('@/assets/images/header-bg/2.jpg')">
       <div class="bread">
         <breadcrumbinfo class="breadcrumb-container" />
         <breadcrumb class="breadcrumb-container" />
