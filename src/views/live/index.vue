@@ -13,7 +13,7 @@
     公司座落于大企业积聚、经济发达的南京江北化工园区和高新开发区，西由南京长江大桥、长江三桥、纬七路长江隧道，东由南京长江二桥、长江四桥与南京都市圈相通，紧临宁通、宁洛、宁连、宁淮、宁合等多条高速公路，南临长江黄金水道，拥有包括2个万吨级在内的数个自备货运码头，厂区内设铁路专用线与京沪铁路相连，交通运输十分便捷。
           </div>
         </div>
-        <rank-video></rank-video>
+        <rank-video :data="lecture"></rank-video>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
   import { mapGetters } from 'vuex'
   import DetailVideo from '../../components/DetailVideo'
   import ContentHeader from '../../components/ContentHeader'
-  
+
   import cardVideo from '../../components/news/cardVideo'
   import rankVideo from '../../components/news/rankVideo'
   import TipList from '../../components/TipList'
@@ -35,6 +35,68 @@
       ...mapGetters([
         'name'
       ])
+    },
+    data(){
+      return{
+        lecture: [
+          {
+            title: '常见传感器实车测量方法',
+//            imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
+            author: '大力汽修学院',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: '计算机二级Office办公软件精讲',
+//            imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
+            author: '贺斌',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: 'hypermill五轴编程',
+//            imgs: 'https://img.qeo.cn/s10089905A00227365.png',
+            author: '张振兴',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: '线切割软件caxa精讲系列课之一',
+//            imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
+            author: '兴达教育',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: '工程造价工具软件实战课程',
+//            imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
+            author: '未来教育',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: '汽车车身电路检修',
+//            imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
+            author: '大力汽修学院',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: '巧克力生产线教学',
+//            imgs: 'https://img.qeo.cn/s201314103732986A00241422.png',
+            author: '荣久学院',
+            date: '2020-08-20',
+            content: ''
+          },
+          {
+            title: '记忆宫殿入门到高阶技巧',
+//            imgs: 'https://img.qeo.cn/s10088005B00196975.jpg',
+            author: '千峰记忆团队',
+            date: '2020-08-20',
+            content: ''
+          }
+        ]
+      }
     }
   }
 </script>
