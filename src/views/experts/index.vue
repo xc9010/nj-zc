@@ -1,5 +1,5 @@
 <template>
-  <div class="mainBox card-exports">
+  <div class="mainBox export-wrapper">
     <card-expert>
     </card-expert>
     <div style="height: 300px; margin-bottom: 20px; margin-top: 40px;">
@@ -63,6 +63,9 @@
 </script>
 
 <style lang="scss" scoped>
+.export-wrapper {
+  padding-top: 40px;
+}
 .img-wrapper {
   // width: 15px;
   // height: 15px;
