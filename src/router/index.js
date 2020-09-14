@@ -54,7 +54,14 @@ export const constantRoutes = [
         title: 'news',
         name: '工会要闻',
         ind: '1-1',
-        component: () => import('@/views/news'),
+        component: () => import('@/views/news')
+      },
+      {
+        path: 'news/info',
+        title: 'newsInfo',
+        name: '详情',
+        ind: '1-1-1',
+        component: () => import('@/views/news/info')
       },
       {
         path: 'policy',
