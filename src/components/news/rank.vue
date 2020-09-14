@@ -13,7 +13,7 @@
     </div>
     <div class="rank-row body" v-for="(item, index) in data" :key="index" :data="item">
       <div class="header-name">
-        <div class="rank-index active">
+        <div :class="index < 3 ? 'rank-index active': 'rank-index' ">
           {{index+1}}
         </div>
         <span>{{item.title}}</span>
@@ -95,9 +95,9 @@ export default {
         align-items: center;
         .rank-index {
           &.active {
-            flex-shrink:0;
             background: #ffa200;
           }
+          flex-shrink:0;
           background: #aeaeae;
           color: #ffffff;
           width: 20px;
