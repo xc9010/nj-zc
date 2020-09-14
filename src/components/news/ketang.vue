@@ -2,14 +2,14 @@
   <div class="ketang-wrapper">
     <!-- <div class="ketang-img-wrapper"> -->
       <div class="ketang-img">
-        <img :src="require('@/assets/images/ketang.png')" />
+        <img :src="data.imgs" />
       </div>
     <!-- </div> -->
     <p class="ketang-title">
-      数控车床编程培训
+      {{data.title}}
     </p>
     <p class="ketang-sub-title">
-      南钢教育培训
+      {{data.author}}
     </p>
   </div>
 </template>

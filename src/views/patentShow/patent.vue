@@ -1,37 +1,35 @@
 <template>
-  <router-view></router-view>
-  <!--<div class="mainBox">-->
-    <!--<div class="news-list">-->
-      <!--<news-card v-for="(item, index) in list" :key="index" :data="item">-->
-      <!--</news-card>-->
-    <!--</div>-->
-    <!--<div style="text-align: center;  padding: 10px">-->
-      <!--<el-pagination-->
-        <!--background-->
-        <!--layout="prev, pager, next"-->
-        <!--:total="1000">-->
-      <!--</el-pagination>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="mainBox">
+    <div class="patent-list">
+      <patent>
+      </patent>
+    </div>
+    <div style="text-align: center;  padding: 10px">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
+    </div>
+  </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import Card from '../../components/Card'
-  import newsCard from '../../components/news/card'
+  import patent from '../../components/news/patent'
+  // import Card from '../../components/Card'
+  // import navLeft from '../../components/news/navLeft'
+  // import CardPic from '../../components/CardPic'
+  // import cardConcertNav from '../../components/news/cardConcertNav'
+
 
   export default {
-    components: { Card,newsCard },
-    name: 'PatentShow',
-    computed: {
-      ...mapGetters([
-        'name'
-      ])
-    },
+    name: 'Live',
+    components: { patent },
     data() {
       return {
-        levelList: null,
-        active: ['1','2','3','4'],
+        active: ['1', '2', '3', '4'],
+        tabType: '0',
         list: [
           {
             title: '曲线轨道钢筋混凝土整体道口板专用轨撑',
@@ -77,6 +75,15 @@
         ]
       }
     },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
+    },
+    computed: {
+      ...mapGetters([
+        'name'
+      ])
+    },
     methods: {
       handleClick(item) {
         this.$router.push({
@@ -85,14 +92,70 @@
             article: item
           }
         })
+      },
+      handleTabClick(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/create/${index}`} || './')
+      },
+      goto(url) {
+        console.log(url)
+        this.$router.push(url || './')
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .news-list {
-    margin: auto;
-    width: 1200px;
+.patent-list {
+  padding-top: 55px;
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+
+  .patent-wrapper {
+    margin-right: 26px;
+    margin-bottom: 45px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
   }
+}
+// .patent-wrapper {
+//   width: 280px;
+//   height: 285px;
+//   display: block;
+//   background: #eeeeee;
+//   // margin-left: 50px;
+// .patent-img-wrapper {
+//   height: 230px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   .patent-img {
+//     width: 240px;
+//     height: 165px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     img {
+//       max-height: 100%;
+//       max-width: 100%;
+//     }
+//   }
+// }
+//   .patent-title {
+//     display: block;
+//     margin: 0;
+//     height: 55px;
+//     line-height: 55px;
+//     font-size: 16px;
+//     color: #ffffff;
+//     text-align: center;
+//     background: #aaaaaa;
+//   }
+// }
 </style>

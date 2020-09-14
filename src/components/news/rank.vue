@@ -11,92 +11,15 @@
         更多>
       </div>
     </div>
-    <div class="rank-row body">
+    <div class="rank-row body" v-for="(item, index) in data" :key="index" :data="item">
       <div class="header-name">
         <div class="rank-index active">
-          1
+          {{index+1}}
         </div>
-        <span>数控车床</span>
+        <span>{{item.title}}</span>
       </div>
       <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index active">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index active">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index active">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index active">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
-      </div>
-    </div>
-    <div class="rank-row body">
-      <div class="header-name">
-        <div class="rank-index">
-          1
-        </div>
-        <span>数控车床</span>
-      </div>
-      <div class="more">
-        南钢教育培训
+        {{item.author}}
       </div>
     </div>
   </div>
@@ -107,7 +30,7 @@
 export default {
    props: {
      data: {
-       type: Object
+       type: Array
      }
    },
    data() {
@@ -158,6 +81,11 @@ export default {
     .more {
       font-size: 16px;
       color: #9e9e9e;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
     }
     &.body {
       height: 40px;
@@ -167,6 +95,7 @@ export default {
         align-items: center;
         .rank-index {
           &.active {
+            flex-shrink:0;
             background: #ffa200;
           }
           background: #aeaeae;
@@ -180,6 +109,13 @@ export default {
         }
         color: #3c3c3c;
         font-size: 15px;
+        span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
       }
     }
   }

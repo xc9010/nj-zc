@@ -182,7 +182,7 @@ export const constantRoutes = [
           },{
             path: 'craftsman',
             title: 'craftsman',
-            name: '劳模风采',
+            name: '工匠评优',
             ind: '2-5-1',
             component: () => import('@/views/union/craftsman')
           }, {
@@ -191,18 +191,6 @@ export const constantRoutes = [
             name: '创新工作室',
             ind: '2-5-2',
             component: () => import('@/views/union/studio')
-          }, {
-            path: 'patent',
-            title: 'patent',
-            name: '专利展示',
-            ind: '2-5-3',
-            component: () => import('@/views/union/patent')
-          }, {
-            path: 'ketang',
-            title: 'ketang',
-            name: '专利展示',
-            ind: '2-5-3',
-            component: () => import('@/views/union/ketang')
           }
         ]
       },
@@ -212,14 +200,34 @@ export const constantRoutes = [
         title: 'patentShow',
         name: '专利展示',
         ind: '3-1',
+        redirect: '/patentShow/patent',
         component: () => import('@/views/patentShow'),
+        children: [
+          {
+            path: 'patent',
+            title: 'patent',
+            name: '专利展示',
+            ind: '3-1-1',
+            component: () => import('@/views/patentShow/patent')
+          }
+        ]
       },
       {
         path: 'class',
         title: 'class',
         name: '工匠讲堂',
         ind: '3-2',
+        redirect: '/class/ketang',
         component: () => import('@/views/class'),
+        children: [
+          {
+            path: 'ketang',
+            title: 'ketang',
+            name: '工匠讲堂',
+            ind: '3-2-1',
+            component: () => import('@/views/class/ketang')
+          }
+        ]
       },
       {
         path: 'live',

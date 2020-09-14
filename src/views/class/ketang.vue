@@ -1,52 +1,31 @@
-<template>
-  <router-view></router-view>
-  <!--<div class="mainBox">-->
-    <!--<div class="">-->
-      <!--<div class="class">-->
-        <!--<el-card class="box-card">-->
-          <!--<div>-->
-            <!--<el-row :gutter="20">-->
-              <!--<el-col :span="16">-->
-                <!--<ContentHeader :refresh="true" title="工匠讲堂"></ContentHeader>-->
-                <!--<div class="flex cardItem">-->
-                  <!--<CardVideo :info="lecture[0]"></CardVideo>-->
-                  <!--<CardVideo :info="lecture[1]"></CardVideo>-->
-                  <!--<CardVideo :info="lecture[2]"></CardVideo>-->
-                  <!--<CardVideo :info="lecture[3]"></CardVideo>-->
-                <!--</div>-->
-                <!--<div class="flex cardItem">-->
-                  <!--<CardVideo :info="lecture[3]"></CardVideo>-->
-                  <!--<CardVideo :info="lecture[4]"></CardVideo>-->
-                  <!--<CardVideo :info="lecture[5]"></CardVideo>-->
-                  <!--<CardVideo :info="lecture[6]"></CardVideo>-->
-                <!--</div>-->
-              <!--</el-col>-->
-              <!--<el-col :span="8">-->
-                <!--<ContentHeader :refresh="false" title="排行榜"></ContentHeader>-->
-                <!--<TipList></TipList>-->
-              <!--</el-col>-->
-            <!--</el-row>-->
-          <!--</div>-->
-        <!--</el-card>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+  <template>
+  <div class="mainBox">
+    <div class="container">
+      <div class="ketang-list">
+        <ketang v-for="(item, index) in lecture" :key="index" :data="item">
+        </ketang>
+      </div>
+      <rank :data="lecture"></rank>
+    </div>
+    <div style="text-align: center;  padding: 10px">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
+    </div>
+  </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import CardVideo from '../../components/CardVideo'
-  import ContentHeader from '../../components/ContentHeader'
-  import TipList from '../../components/TipList'
+  import ketang from '../../components/news/ketang'
+  import rank from '../../components/news/rank'
+
 
   export default {
-    name: 'PatentShow',
-    components: { CardVideo, ContentHeader, TipList },
-    computed: {
-      ...mapGetters([
-        'name'
-      ])
-    },
+    name: 'Live',
+    components: { ketang, rank },
     data() {
       return {
         active: ['1', '2', '3', '4'],
@@ -110,16 +89,61 @@
           }
         ]
       }
+    },
+    mounted() {
+      let index = this.$router.currentRoute.params && this.$router.currentRoute.params.index
+      this.tabType = index || '0'
+    },
+    computed: {
+      ...mapGetters([
+        'name'
+      ])
+    },
+    methods: {
+      handleClick(item) {
+        this.$router.push({
+          name: '详情',
+          params: {
+            article: item
+          }
+        })
+      },
+      handleTabClick(targetName) {
+        // console.log(targetName.index)
+        const index = targetName.index;
+        // console.log(this.$router)
+        if(index) this.$router.replace({path: `/create/${index}`} || './')
+      },
+      goto(url) {
+        console.log(url)
+        this.$router.push(url || './')
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .class {
-    .cardItem {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
+.container {
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+.ketang-list {
+  padding-top: 25px;
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+
+  .ketang-wrapper {
+    margin-right: 90px;
+    margin-bottom: 90px;
+    &:nth-child(3n) {
+      margin-right: 0;
     }
   }
+}
+
 </style>
