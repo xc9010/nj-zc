@@ -115,14 +115,14 @@ export const constantRoutes = [
           }
         ]
       },
-      {
-        path: 'love',
-        title: 'love',
-        name: '红娘牵线',
-        ind: '2-3',
-        pid: 2,
-        component: () => import('@/views/love'),
-      },
+      // {
+      //   path: 'love',
+      //   title: 'love',
+      //   name: '红娘牵线',
+      //   ind: '2-3',
+      //   pid: 2,
+      //   component: () => import('@/views/love'),
+      // },
       {
         path: 'service',
         title: 'service',
@@ -273,7 +273,7 @@ export const constantRoutes = [
         name: '大事记',
         ind: '3-5',
         pid: 3,
-        component: () => import('@/views/bigEvents'),
+        component: () => import('@/views/bigEvents')
       },
       // 练兵比武
       {
@@ -285,32 +285,37 @@ export const constantRoutes = [
         redirect: '/kungfu/list',
         component: () => import('@/views/kungfu'),
         children: [
-
           {
             path: 'list',
             component: () => import('@/views/kungfu/list'),
-            name: '题库',
+            name: '题库'
           },
           {
-            path: 'startExam/:id',
-            component: () => import('@/views/kungfu/startExam'),
-            name: '开始闯关',
+            path: 'chaungguan',
+            component: () => import('@/views/kungfu/chuangguan'),
+            title: '闯关',
+            name: 'chuangguan'
           },
+          // {
+          //   path: 'startExam/:id',
+          //   component: () => import('@/views/kungfu/startExam'),
+          //   name: '开始闯关',
+          // },
           {
             path: 'result/:id',
             component: () => import('@/views/kungfu/result'),
-            name: '闯关结果',
-          },
+            name: '闯关结果'
+          }
         ]
       },
-      {
-        path: 'idea',
-        title: 'idea',
-        name: '理想信念',
-        ind: '4-2',
-        pid: 4,
-        component: () => import('@/views/idea'),
-      },
+      // {
+      //   path: 'idea',
+      //   title: 'idea',
+      //   name: '理想信念',
+      //   ind: '4-2',
+      //   pid: 4,
+      //   component: () => import('@/views/idea'),
+      // },
       {
         path: 'exam',
         title: 'exam',
@@ -342,7 +347,6 @@ export const constantRoutes = [
             name: '考试结果',
           },
         ]
-
       },
       {
         path: 'getQues',

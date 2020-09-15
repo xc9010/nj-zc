@@ -4,6 +4,59 @@
       <img width="100%" height="400px" :src="require('@/assets/images/homebg.jpg')" alt="pic">
     </div>
     <div class="mainBox">
+      <div class="contetn-line-1">
+        <div class="contetn-line-1-left">
+          <home-card-title :title="'工会新闻'">
+          </home-card-title>
+          <card-news>
+          </card-news>
+          <card-with-date :data="o1"></card-with-date>
+          <card-with-date :data="o1"></card-with-date>
+        </div>
+        <div class="contetn-line-1-right">
+          <home-card-title :title="'创新直播'">
+          </home-card-title>
+          <img :src="require('@/assets/images/demo//home/new_1.png')" />
+          <card-news-mini></card-news-mini>
+          <card-news-mini></card-news-mini>
+        </div>
+      </div>
+      <div class="contetn-line-2">
+        <div class="news-block">
+          <home-card-title-more :title="'职工创新'" @handleClick="handleClick"></home-card-title-more>
+          <card-news-mini-reverse>
+          </card-news-mini-reverse>
+          <div class="info" v-for="count in 8" :key="count">
+            战高温、保生产、送清凉——第一炼铁战高温、保生产、送清凉——第一炼铁
+          </div>
+        </div>
+        <div class="news-block">
+          <home-card-title-more :title="'职工创新'" @handleClick="handleClick"></home-card-title-more>
+          <div class="info" v-for="count in 10" :key="count">
+            战高温、保生产、送清凉——第一炼铁战高温、保生产、送清凉——第一炼铁
+          </div>
+        </div>
+        <div class="news-block">
+          <home-card-title-more :title="'职工创新'" @handleClick="handleClick"></home-card-title-more><div class="info" v-for="count in 10" :key="count">
+            战高温、保生产、送清凉——第一炼铁战高温、保生产、送清凉——第一炼铁
+          </div>
+        </div>
+        <!-- <div class="">
+        </div> -->
+      </div>
+      <card-craftsman></card-craftsman>
+      <div class="contetn-line-3">
+        <home-card-title :title="'工会新闻'">
+        </home-card-title>
+        <div class="practise-wrapper">
+          <div class="practise-item" v-for="(item, index) in practises" :key="index">
+            <img class="icon" :src="item.img" />
+            <p class="title">{{item.title}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="mainBox">
       <div class="content-item">
         <div class="con-left">
           <ContentHeader :refresh="false" title="新闻动态" more="查看全部" :border="false"></ContentHeader>
@@ -124,235 +177,299 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-  import Breadcrumb from '@/components/Breadcrumb'
-  import ContentHeader from '@/components/ContentHeader'
-  import CardVideo from '@/components/CardVideo'
-  import TipList from '@/components/TipList'
-  export default {
-    components: {
-      Breadcrumb,
-      ContentHeader,
-      CardVideo,
-      TipList,
+import Breadcrumb from '@/components/Breadcrumb'
+import ContentHeader from '@/components/ContentHeader'
+import CardVideo from '@/components/CardVideo'
+import TipList from '@/components/TipList'
+import cardNews from '@/components/news/home/cardNews'
+import cardWithDate from '@/components/news/home/cardWithDate'
+import cardNewsMini from '@/components/news/home/cardNewsMini'
+import homeCardTitle from '@/components/news/home/homeCardTitle'
+import homeCardTitleMore from '@/components/news/home/homeCardTitleMore'
+import cardCraftsman from '@/components/news/home/cardCraftsman'
+import cardNewsMiniReverse from '@/components/news/home/cardNewsMiniReverse'
 
-    },
-    data() {
-      return {
-        lecture: [
+
+export default {
+  components: {
+    Breadcrumb,
+    ContentHeader,
+    CardVideo,
+    TipList,
+    cardNews,
+      cardWithDate, cardNewsMini, homeCardTitle, homeCardTitleMore, cardCraftsman, cardNewsMiniReverse
+  },
+  data() {
+    return {
+      o1: {
+          date: '2019-09-02',
+          title: '工作的系统化、流程化、无纸化',
+          info: '建立合理化建议收集、反馈系统，对合理化建议实行电子表单化管理，发挥信息系统的自动跟踪分析功能。将用于合理化建议奖励的部分资金划拨至基层单位，由基层单位负责与本单位相关的合理化建议的评审及..'
+        },
+        practises: [
           {
-            title: '数控车床编程培训',
-            imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/钳工.png'),
+            title: '钳工'
+          }, 
           {
-            title: '电工培训,焊工培训',
-            imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/安全.png'),
+            title: '安全'
+          }, 
           {
-            title: '登高证，高压电工证',
-            imgs: 'https://img.qeo.cn/s10089905A00227365.png',
-            author: '上海则成安全技术有限公司',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/炼钢工.png'),
+            title: '炼钢工'
+          }, 
           {
-            title: '叉车考叉车驾驶培训',
-            imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/女职工.png'),
+            title: '女职权益'
+          }, 
           {
-            title: '塔吊司机培训',
-            imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/焊工.png'),
+            title: '焊工'
+          }, 
           {
-            title: '起重机司',
-            imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/维修电工.png'),
+            title: '维修电工'
+          }, 
           {
-            title: '安监局的电工证和国家电网的电工考试',
-            imgs: 'https://img.qeo.cn/s201314103732986A00241422.png',
-            author: '上海则成安全技术有限公司',
-            date: '2020-08-20',
-            content: ''
-          },
+            img: require('@/assets/images/demo/home/钳工.png'),
+            title: '钳工'
+          }, 
           {
-            title: '上海低压电工证电焊证登高作业架子工特种操作',
-            imgs: 'https://img.qeo.cn/s10088005B00196975.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          }
+            img: require('@/assets/images/demo/home/维修电工.png'),
+            title: '维修电工'
+          }, 
+          {
+            img: require('@/assets/images/demo/home/冷轧工.png'),
+            title: '冷轧工'
+          }, 
+          {
+            img: require('@/assets/images/demo/home/炼钢工.png'),
+            title: '炼钢工'
+          }, 
+          {
+            img: require('@/assets/images/demo/home/高炉炼铁.png'),
+            title: '高炉炼铁'
+          }, 
         ],
-        news: [
-          {
-            title: '数控车床编程培训',
-            imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '电工培训,焊工培训',
-            imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '登高证，高压电工证',
-            imgs: 'https://img.qeo.cn/s10089905A00227365.png',
-            author: '上海则成安全技术有限公司',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '叉车考叉车驾驶培训',
-            imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '塔吊司机培训',
-            imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '起重机司',
-            imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-        ],
-        office: [
-          {
-            title: '起重机司',
-            imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '安监局的电工证和国家',
-            imgs: 'https://img.qeo.cn/s201314103732986A00241422.png',
-            author: '上海则成安全技术有限公司',
-            date: '2020-08-20',
-            content: '安监局的电工证和国家电网的电工考试安监局的电的电工考试'
-          },
-          {
-            title: '上海低压电工证电',
-            imgs: 'https://img.qeo.cn/s10088005B00196975.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          }
-        ],
-        jcfc:[
-          {
-            title: '登高证，高压电工证',
-            imgs: 'https://img.qeo.cn/s10089905A00227365.png',
-            author: '上海则成安全技术有限公司',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '叉车考叉车驾驶培训',
-            imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '塔吊司机培训',
-            imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '起重机司',
-            imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          }
-        ],
-        buttonList: ['第六届','第五届','第四届'],
-        phbf:[
-          {
-            title: '数控车床编程培训',
-            imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '电工培训,焊工培训',
-            imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
-            author: '上德教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '登高证，高压电工证',
-            imgs: 'https://img.qeo.cn/s10089905A00227365.png',
-            author: '上海则成安全技术有限公司',
-            date: '2020-08-20',
-            content: '上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司'
-          },
-          {
-            title: '叉车考叉车驾驶培训',
-            imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          },
-          {
-            title: '塔吊司机培训',
-            imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
-            author: '南钢教育培训',
-            date: '2020-08-20',
-            content: ''
-          }
-        ],
-        isActive: 0,
-        imgCon:{
+      lecture: [
+        {
           title: '数控车床编程培训',
           imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
           author: '南钢教育培训',
           date: '2020-08-20',
           content: ''
+        },
+        {
+          title: '电工培训,焊工培训',
+          imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '登高证，高压电工证',
+          imgs: 'https://img.qeo.cn/s10089905A00227365.png',
+          author: '上海则成安全技术有限公司',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '叉车考叉车驾驶培训',
+          imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '塔吊司机培训',
+          imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '起重机司',
+          imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '安监局的电工证和国家电网的电工考试',
+          imgs: 'https://img.qeo.cn/s201314103732986A00241422.png',
+          author: '上海则成安全技术有限公司',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '上海低压电工证电焊证登高作业架子工特种操作',
+          imgs: 'https://img.qeo.cn/s10088005B00196975.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
         }
+      ],
+      news: [
+        {
+          title: '数控车床编程培训',
+          imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '电工培训,焊工培训',
+          imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '登高证，高压电工证',
+          imgs: 'https://img.qeo.cn/s10089905A00227365.png',
+          author: '上海则成安全技术有限公司',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '叉车考叉车驾驶培训',
+          imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '塔吊司机培训',
+          imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '起重机司',
+          imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+      ],
+      office: [
+        {
+          title: '起重机司',
+          imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '安监局的电工证和国家',
+          imgs: 'https://img.qeo.cn/s201314103732986A00241422.png',
+          author: '上海则成安全技术有限公司',
+          date: '2020-08-20',
+          content: '安监局的电工证和国家电网的电工考试安监局的电的电工考试'
+        },
+        {
+          title: '上海低压电工证电',
+          imgs: 'https://img.qeo.cn/s10088005B00196975.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        }
+      ],
+      jcfc:[
+        {
+          title: '登高证，高压电工证',
+          imgs: 'https://img.qeo.cn/s10089905A00227365.png',
+          author: '上海则成安全技术有限公司',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '叉车考叉车驾驶培训',
+          imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '塔吊司机培训',
+          imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '起重机司',
+          imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        }
+      ],
+      buttonList: ['第六届','第五届','第四届'],
+      phbf:[
+        {
+          title: '数控车床编程培训',
+          imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '电工培训,焊工培训',
+          imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
+          author: '上德教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '登高证，高压电工证',
+          imgs: 'https://img.qeo.cn/s10089905A00227365.png',
+          author: '上海则成安全技术有限公司',
+          date: '2020-08-20',
+          content: '上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司上海则成安全技术有限公司'
+        },
+        {
+          title: '叉车考叉车驾驶培训',
+          imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        },
+        {
+          title: '塔吊司机培训',
+          imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
+          author: '南钢教育培训',
+          date: '2020-08-20',
+          content: ''
+        }
+      ],
+      isActive: 0,
+      imgCon:{
+        title: '数控车床编程培训',
+        imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
+        author: '南钢教育培训',
+        date: '2020-08-20',
+        content: ''
       }
+    }
+  },
+  methods: {
+    passData(item,i) {
+      this.imgCon = item
+      this.isActive = i
     },
-    methods: {
-      passData(item,i) {
-        this.imgCon = item
-        this.isActive = i
-      }
-    },
-  }
+    handleClick() {
+      console.log('1212')
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -634,4 +751,79 @@
     }
   }
 
+.home-card-title-wrapper {
+  margin-bottom: 25px;
+}
+.contetn-line-1 {
+  width: 1200px;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  .contetn-line-1-left {
+    .home-news-card {
+      margin-top: 30px;
+    }
+  }
+  .contetn-line-1-right {
+    .card-home-mini {
+      margin-top: 30px;
+    }
+  }
+}
+.contetn-line-2 {
+  width: 1200px;
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  .news-block {
+    width: 365px;
+    .home-card-title-more {
+      margin-bottom: 20px;
+    }
+    .info {
+      line-height: 40px;
+      font-size: 18px;
+      color: #444444;
+      padding-left: 20px;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      &:before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #666666;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: calc(50% - 3px);
+      }
+    }
+  }
+}
+.card-craftsman {
+  margin-top: 70px;
+}
+.contetn-line-3 {
+  margin-top: 70px;
+  .practise-wrapper {
+    display: flex;
+    justify-content: space-around;
+    .practise-item {
+      text-align: center;
+      .icon {
+        display: block;
+        width: 96px;
+        height: 96px;
+      }
+      .title {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+  }
+}
 </style>
