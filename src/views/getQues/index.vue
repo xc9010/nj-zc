@@ -132,7 +132,7 @@
     width: 1200px;
     background: #f9f9f9;
     padding-top: 1px;
-    margin: 100px auto 70px auto;
+    margin: 30px auto 70px auto;
     .welcome {
       font-size: 24px;
       color: #d31b2a;
@@ -141,7 +141,7 @@
     }
 
     .form-wrapper {
-      height:700px;
+      height:750px;
       margin-left: 42px;
       .form-column{
         display: flex;
