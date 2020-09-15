@@ -32,58 +32,58 @@
         tabType: '0',
         lecture: [
           {
-            title: '数控车床编程培训',
-            imgs: 'https://img.qeo.cn/s201738205058560811A00210135.jpg',
-            author: '南钢教育培训',
+            title: '线切割软件caxa精讲系列课之一',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLBKt3HSH4c4SeY4URiciaMfnwmaiahtBNbqDAQgyzIRtw1GbZKsfCwCn8mezh95711nco/356',
+            author: '兴达教育',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '电工培训,焊工培训',
-            imgs: 'https://img.qeo.cn/s2017120157169256795A00131067.jpg',
-            author: '上德教育培训',
+            title: '德国职业教育法系列公益讲座',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLAD6MZdGeYr8gsI0ibIl2FKiagGvGnTNhiaFtJSXnPjxvhhNtcmhLHgjtHYfBanjJPzN0/356',
+            author: '北京全道智源教育科技院',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '登高证，高压电工证',
-            imgs: 'https://img.qeo.cn/s10089905A00227365.png',
-            author: '上海则成安全技术有限公司',
+            title: '工程造价工具软件实战课程',
+            imgs: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDBXZtDROFa3C5cWyeDe6BiaNDRaicpqnVWxsWaOPhYw0X0eTlWWoE89ovnwHurXn0CE/356',
+            author: '深圳市斯维尔科技股份有限公司',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '叉车考叉车驾驶培训',
-            imgs: 'https://img.qeo.cn/s2018326108557715199A00242476.jpg',
-            author: '南钢教育培训',
+            title: '常见传感器原理与测量方法',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLDdH7IWvK3RoGGUGARvKEENF4eXlrciag6gd6KaQCib1Ah3ZbhBibt0rw6A62gUOKkp8Q/356',
+            author: '节大力汽修学院',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '塔吊司机培训',
-            imgs: 'https://img.qeo.cn/s201632517438360005A00159671.jpg',
-            author: '南钢教育培训',
+            title: '汽车车身电路检修',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLBppNic6bENmibyI4eevbIxUIor0r46q7jweKs0Y5LOvaoy7fad2gDWlSq0T1dmznsjg/356',
+            author: '大力汽修学院',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '起重机司',
-            imgs: 'https://img.qeo.cn/s2016811728599373524A00098557.jpg',
-            author: '上德教育培训',
+            title: '自动化工控PLC入门介绍职业规划与展望',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLCJXU983tdDhNXM3RW9u1BL1dDCFeibveYBmIUrJw1QP44jZod2fdfxx1OlnWyc0oYY/356',
+            author: '陈老师',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '安监局的电工证和国家电网的电工考试',
-            imgs: 'https://img.qeo.cn/s201314103732986A00241422.png',
-            author: '上海则成安全技术有限公司',
+            title: '船公司指定人员和公司保安员培训',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLCLNCicDJQLtuuBwF7SZ2vl3iaqa6B3CibCDCl35ChIdcYRhzGlsWCahBkMiaO9IAmouaM/356',
+            author: '中国船级社',
             date: '2020-08-20',
             content: ''
           },
           {
-            title: '上海低压电工证电焊证登高作业架子工特种操作',
-            imgs: 'https://img.qeo.cn/s10088005B00196975.jpg',
-            author: '南钢教育培训',
+            title: '臻艺汇宝珠宝鉴定培训FGA/GIC',
+            imgs: 'http://10.idqqimg.com/qqcourse_logo_ng/ajNVdqHZLLBCCyEOb0ImibqIuXIIldlHGrnkHtaRgYwSEj3XI9JvcibmhbHY4XemblG6lBiaKqE7P0/356',
+            author: '臻艺汇宝珠宝教育',
             date: '2020-08-20',
             content: ''
           }
