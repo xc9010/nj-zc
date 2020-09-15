@@ -64,6 +64,7 @@
     justify-content: space-between;
 
     .headerLeft {
+      width:100px;
       &:before{
         content: "";
         width: 0px;
