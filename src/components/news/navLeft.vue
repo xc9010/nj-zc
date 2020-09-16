@@ -1,6 +1,6 @@
 <template>
   <div class="nav-container">
-    <div v-for="(item, index) in items" :key="index" :class="['nav-item', item.active ? 'active': '' ]" @click="handleClick(item)">
+    <div v-for="(item, index) in items" :key="index" :class="['nav-item', activeIndex === index ? 'active': '' ]" @click="handleClick(item, index)">
       <div class="active"></div>
       <p>
         {{item.name}}
@@ -13,6 +13,10 @@
 
 export default {
   props: {
+    activeIndex: {
+      type: Number,
+      defult: 0
+    },
     items: {
       type: Array,
       default: function() {
@@ -20,13 +24,17 @@ export default {
       }
     }
   },
+  created() {
+    console.log('左侧组件created', this.items, this.activeIndex)
+  },
   methods: {
-    handleClick(item) {
-      this.items.forEach(m => {
-        m.active = false
-      })
-      item.active = true
-      this.$emit('callback', item)
+    handleClick(item, index) {
+      // this.items.forEach(m => {
+      //   m.active = false
+      // })
+      // item.active = true
+      console.log('左边组件', item , index)
+      this.$emit('callback', item, index)
     }
   }
   // data() {

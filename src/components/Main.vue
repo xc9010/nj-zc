@@ -91,7 +91,7 @@
       </div>
       <card-craftsman></card-craftsman>
       <div class="contetn-line-3">
-        <home-card-title :title="'工会新闻'">
+        <home-card-title :title="'闯关练兵'">
         </home-card-title>
         <div class="practise-wrapper">
           <div class="practise-item" v-for="(item, index) in practises" :key="index">

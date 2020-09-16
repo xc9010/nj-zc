@@ -117,20 +117,20 @@ export const constantRoutes = [
                 title: '合理化建议',
                 name: 'advise',
                 ind: '2-2-1',
-                component: () => import('@/views/create/advise')
+                component: () => import('@/views/worker/create/advise')
               }, {
                 path: 'operate',
                 title: '先进操作法',
                 name: 'operate',
                 ind: '2-2-2',
-                component: () => import('@/views/create/operate')
+                component: () => import('@/views/worker/create/operate')
               }
               , {
                 path: 'innovate',
                 title: '创新增效',
                 name: 'innovate',
                 ind: '2-2-3',
-                component: () => import('@/views/create/innovate')
+                component: () => import('@/views/worker/create/innovate')
               }
             ]
           },

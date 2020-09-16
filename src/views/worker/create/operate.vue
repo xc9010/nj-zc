@@ -1,6 +1,7 @@
 <template>
   <div class="news-nav">
-    <nav-left :items="navItems" @callback="callback"/>
+    <!-- <nav-left :items="navItems" @callback="callback"/> -->
+    <nav-left :items="menuCreate" :activeIndex="activeIndex" @callback="callback"/>
     <div class="nav-content">
         <div  v-for="(item, index) in operate" :key="index" @click="handleClick(item)">
           <card-concert-nav :key="index" :data="item"/>
@@ -29,6 +30,7 @@
     components: { Card, CardPic, navLeft, cardConcertNav },
     data() {
       return {
+        activeIndex: 1,
         navItems: [
           {
             name: '合理化建议',
@@ -171,7 +173,8 @@
     },
     computed: {
       ...mapGetters([
-        'name'
+        'name',
+        'menuCreate'
       ])
     },
     methods: {
@@ -187,15 +190,19 @@
         const index = targetName.index;
         if(index) this.$router.replace({path: `/create/${index}`} || './')
       },
-      callback(item) {
-        this.listOption = this[`${item.code}`];
-        if(item.code === 'advise'){
-          this.$router.push('/create/advise')
-        }else if (item.code === 'operate'){
-          this.$router.push('/create/operate')
-        }else {
-          this.$router.push('/create/innovate')
-        }
+      // callback(item) {
+      //   this.listOption = this[`${item.code}`];
+      //   if(item.code === 'advise'){
+      //     this.$router.push('/create/advise')
+      //   }else if (item.code === 'operate'){
+      //     this.$router.push('/create/operate')
+      //   }else {
+      //     this.$router.push('/create/innovate')
+      //   }
+      // },
+      callback(item, index) {
+        console.log(item)
+        this.$router.push(item.path, index)
       }
     }
   }
