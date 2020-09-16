@@ -1,8 +1,8 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator=">">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
-        <span>{{ item.name }}</span>
+      <el-breadcrumb-item v-for="(item, index) in levelList" :key="index">
+        <span>{{ item }}</span>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -14,18 +14,27 @@ import pathToRegexp from 'path-to-regexp'
 export default {
   data() {
     return {
-      levelList: null
+      currentRoute: {},
+      routes: [],
+      levelList: []
     }
   },
   watch: {
     $route() {
+      this.getCurrentRoutes()
       this.getBreadcrumb()
     }
   },
   created() {
+    this.getCurrentRoutes()
     this.getBreadcrumb()
   },
   methods: {
+    // 获取当前路由
+    getCurrentRoutes() {
+      this.currentRoute = this.$router.currentRoute
+      this.routes = this.$router.options.routes && this.$router.options.routes[2] && this.$router.options.routes[2].children
+    },
     getBreadcrumb() {
       // console.log(this.$route)
       // only show routes with meta.title
@@ -35,11 +44,27 @@ export default {
       if (!this.isDashboard(first)) {
         matched = [{ path: '/', name: '首页', meta: { title: '首页' }}].concat(matched)
       }
-      // console.log(matched)
 
-      this.levelList = matched.filter(item => item.meta)
-      // console.log(this.levelList)
+      const matchedList = this.currentRoute.matched
+      console.log('333333333333', this.currentRoute, this.routes, matchedList)
+// console.log('右侧当行参考22222224444444444', this.$route.matched, this.routes)
+      let list = this.routes
+      const res = []
+      for (let i = 1; i < matchedList.length; i++) {
+        const node = list.find(m => m.name === matchedList[i].name)
+        if (node) {
+          res.push(node.title)
+        }
+        console.log('找多node', node)
+        if (node.children) {
+          list = node.children
+        }
+      }
+      console.log('找多node', res)
+      this.levelList = res
 
+      // this.levelList = matched.filter(item => item.meta)
+      // console.log('右侧当行参考2222222', this.$route, this.levelList, matched.filter(item => item.meta), this.levelList.map(m => m.meta.name))
     },
     isDashboard(route) {
       const name = route && route.name

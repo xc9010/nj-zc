@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import EmptyLayout from '@/components/Layout/empty'
 
 Vue.use(Router)
 
@@ -50,155 +51,190 @@ export const constantRoutes = [
     redirect: '/',
     children: [
       {
-        path: 'news',
-        title: 'news',
-        name: '工会要闻',
+        path: 'notice',
+        title: '通知公告',
+        name: 'notice',
         ind: '1-1',
         pid: 1,
-        component: () => import('@/views/news')
-      },
-      {
-        path: 'policy',
-        title: 'policy',
-        name: '政策解读',
-        ind: '1-2',
-        pid: 1,
-        component: () => import('@/views/policy'),
-      },
-      {
-        path: 'email',
-        title: 'email',
-        name: '主席信箱',
-        ind: '1-3',
-        pid: 1,
-        component: () => import('@/views/email'),
-      },
-
-      //职工之家
-
-      {
-        path: 'member',
-        name: '我要入会',
-        title: 'member',
-        ind: '2-1',
-        pid: 2,
-        component: () => import('@/views/member'),
-      },
-      {
-        path: 'create',
-        title: 'create',
-        name: '职工创新',
-        ind: '2-2',
-        pid: 2,
-        redirect: '/create/advise',
-        component: () => import('@/views/create'),
+        component: EmptyLayout,
+        redirect: '/notice/new',
         children: [
           {
-            path: 'advise',
-            title: 'advise',
-            name: '合理化建议',
-            ind: '2-2-1',
-            component: () => import('@/views/create/advise')
-          },{
-            path: 'operate',
-            title: 'operate',
-            name: '先进操作法',
-            ind: '2-2-2',
-            component: () => import('@/views/create/operate')
-          }
-          ,{
-            path: 'innovate',
-            title: 'innovate',
-            name: '创新增效',
-            ind: '2-2-3',
-            component: () => import('@/views/create/innovate')
+            path: 'news',
+            title: '工会要闻',
+            name: 'news',
+            ind: '1-1',
+            pid: 1,
+            component: () => import('@/views/news')
+          },
+          {
+            path: 'policy',
+            title: '政策解读',
+            name: 'policy',
+            ind: '1-2',
+            pid: 1,
+            component: () => import('@/views/policy')
+          },
+          {
+            path: 'email',
+            title: '主席信箱',
+            name: 'email',
+            ind: '1-3',
+            pid: 1,
+            component: () => import('@/views/email')
           }
         ]
       },
-      // {
-      //   path: 'love',
-      //   title: 'love',
-      //   name: '红娘牵线',
-      //   ind: '2-3',
-      //   pid: 2,
-      //   component: () => import('@/views/love'),
-      // },
+      // 职工之家
       {
-        path: 'service',
-        title: 'service',
-        name: '普惠服务',
-        ind: '2-4',
+        path: 'worker',
+        name: 'worker',
+        title: '职工之家',
+        // ind: '2-1',
         pid: 2,
-        redirect: '/service/around',
-        component: () => import('@/views/service'),
+        redirect: '/worker/member',
+        component: EmptyLayout,
         children: [
           {
-            path: 'around',
-            title: 'around',
-            name: '工会在身边',
-            ind: '2-4-1',
-            component: () => import('@/views/service/around')
-          },{
-            path: 'woman',
-            title: 'woman',
-            name: '女工关怀',
-            ind: '2-4-2',
-            component: () => import('@/views/service/woman')
-          }
-          , {
-            path: 'birthday',
-            title: 'birthday',
-            name: '职工生日会',
-            ind: '2-4-3',
-            component: () => import('@/views/service/birthday')
-          }
-          , {
-            path: 'help',
-            title: 'help',
-            name: '困难帮扶',
-            ind: '2-4-4',
-            component: () => import('@/views/service/help')
-          }
-          , {
-            path: 'study',
-            title: 'study',
-            name: '助学贷款',
-            ind: '2-4-5',
-            component: () => import('@/views/service/study')
+            path: 'member',
+            name: 'member',
+            title: '我要入会',
+            ind: '2-1',
+            pid: 2,
+            component: () => import('@/views/worker/member')
+          },
+          {
+            path: 'create',
+            title: '职工创新',
+            name: 'create',
+            ind: '2-2',
+            pid: 2,
+            redirect: '/worker/create/advise',
+            component: () => import('@/views/worker/create'),
+            children: [
+              {
+                path: 'advise',
+                title: '合理化建议',
+                name: 'advise',
+                ind: '2-2-1',
+                component: () => import('@/views/create/advise')
+              }, {
+                path: 'operate',
+                title: '先进操作法',
+                name: 'operate',
+                ind: '2-2-2',
+                component: () => import('@/views/create/operate')
+              }
+              , {
+                path: 'innovate',
+                title: '创新增效',
+                name: 'innovate',
+                ind: '2-2-3',
+                component: () => import('@/views/create/innovate')
+              }
+            ]
+          },
+          // {
+          //   path: 'love',
+          //   title: 'love',
+          //   name: '红娘牵线',
+          //   ind: '2-3',
+          //   pid: 2,
+          //   component: () => import('@/views/love'),
+          // },
+          {
+            path: 'service',
+            title: '普惠服务',
+            name: 'service',
+            ind: '2-4',
+            pid: 2,
+            redirect: '/worker/service/around',
+            component: () => import('@/views/service'),
+            children: [
+              {
+                path: 'around',
+                title: '工会在身边',
+                name: 'around',
+                ind: '2-4-1',
+                component: () => import('@/views/service/around')
+              },{
+                path: 'woman',
+                title: 'woman',
+                name: '女工关怀',
+                ind: '2-4-2',
+                component: () => import('@/views/service/woman')
+              }
+              , {
+                path: 'birthday',
+                title: 'birthday',
+                name: '职工生日会',
+                ind: '2-4-3',
+                component: () => import('@/views/service/birthday')
+              }
+              , {
+                path: 'help',
+                title: 'help',
+                name: '困难帮扶',
+                ind: '2-4-4',
+                component: () => import('@/views/service/help')
+              }
+              , {
+                path: 'study',
+                title: 'study',
+                name: '助学贷款',
+                ind: '2-4-5',
+                component: () => import('@/views/service/study')
+              }
+            ]
+          },
+          {
+            path: 'sports',
+            title: '运动专场',
+            name: 'sports',
+            ind: '2-5',
+            pid: 2,
+            component: () => import('@/views/sports')
           }
         ]
       },
+      // 工会风采
       {
         path: 'union',
-        title: 'union',
-        name: '工会风采',
+        title: '工会风采',
+        name: 'union',
         ind: '2-5',
-        pid: 2,
+        pid: 5,
         redirect: '/union/workers',
         component: () => import('@/views/union'),
         children: [
           {
             path: 'workers',
-            title: 'workers',
-            name: '职工风采',
+            title: '基层风采',
+            name: 'workers',
+            pid: 5,
             ind: '2-5-3',
             component: () => import('@/views/union/workers')
-          },{
+          },
+          {
             path: 'model',
-            title: 'model',
-            name: '劳模风采',
+            title: '劳模风采',
+            name: 'model',
+            pid: 5,
             ind: '2-5-1',
             component: () => import('@/views/union/model')
-          },{
+          },
+          {
             path: 'craftsman',
-            title: 'craftsman',
-            name: '工匠评优',
+            title: '工匠评优',
+            name: 'craftsman',
+            pid: 5,
             ind: '2-5-1',
             component: () => import('@/views/union/craftsman')
           }, {
             path: 'studio',
-            title: 'studio',
-            name: '创新工作室',
+            title: '创新工作室',
+            name: 'studio',
+            pid: 5,
             ind: '2-5-2',
             component: () => import('@/views/union/studio')
           }
@@ -206,122 +242,137 @@ export const constantRoutes = [
       },
       // 知识社区
       {
-        path: 'patentShow',
-        title: 'patentShow',
-        name: '专利展示',
+        path: 'knowledge',
+        title: '知识社区',
+        name: 'knowledge',
         ind: '3-1',
         pid: 3,
-        redirect: '/patentShow/patent',
-        component: () => import('@/views/patentShow'),
+        redirect: '/knowledge/patent',
+        component: EmptyLayout,
         children: [
           {
-            path: 'patent',
-            title: 'patent',
-            name: '',
-            ind: '3-1-1',
+            path: 'patentShow',
+            title: '专利展示',
+            name: 'patentShow',
+            ind: '3-1',
+            pid: 3,
+            // redirect: '/knowledge/patentShow/patent',
             component: () => import('@/views/patentShow/patent')
-          }
-        ]
-      },
-      {
-        path: 'class',
-        title: 'class',
-        name: '工匠讲堂',
-        ind: '3-2',
-        pid: 3,
-        redirect: '/class/ketang',
-        component: () => import('@/views/class'),
-        children: [
+            // children: [
+            //   {
+            //     path: 'patent',
+            //     title: 'patent',
+            //     name: '',
+            //     ind: '3-1-1',
+            //     component: () => import('@/views/patentShow/patent')
+            //   }
+            // ]
+          },
           {
             path: 'ketang',
-            title: 'ketang',
-            name: '',
-            ind: '3-2-1',
+            title: '工匠讲堂',
+            name: 'ketang',
+            ind: '3-2',
+            pid: 3,
             component: () => import('@/views/class/ketang')
-          }
-        ]
-      },
-      {
-        path: 'live',
-        title: 'live',
-        name: '创新直播',
-        ind: '3-3',
-        pid: 3,
-        component: () => import('@/views/live'),
-      },
-      {
-        path: 'worksMeeting',
-        title: 'worksMeeting',
-        name: '职代会',
-        ind: '3-4',
-        pid: 3,
-        redirect: '/worksMeeting/worksMeeting',
-        component: () => import('@/views/worksMeeting'),
-        children: [
+          },
+          {
+            path: 'live',
+            title: '创新直播',
+            name: 'live',
+            ind: '3-3',
+            pid: 3,
+            component: () => import('@/views/live')
+          },
           {
             path: 'worksMeeting',
-            title: 'worksMeeting',
-            name: '',
-            ind: '3-4-1',
+            title: '职代会',
+            name: 'worksMeeting',
+            ind: '3-4',
+            pid: 3,
             component: () => import('@/views/worksMeeting/worksMeeting')
+          },
+          {
+            path: 'bigEvents',
+            title: '大事记',
+            name: 'bigEvents',
+            ind: '3-5',
+            pid: 3,
+            component: () => import('@/views/bigEvents')
           }
         ]
-      },
-      {
-        path: 'bigEvents',
-        title: 'bigEvents',
-        name: '大事记',
-        ind: '3-5',
-        pid: 3,
-        component: () => import('@/views/bigEvents')
       },
       // 练兵比武
       {
         path: 'kungfu',
-        title: 'kungfu',
-        name: '闯关练习',
+        title: '比武练兵',
+        name: 'kungfu',
         ind: '4-1',
         pid: 4,
         redirect: '/kungfu/list',
-        component: () => import('@/views/kungfu'),
+        component: EmptyLayout, // () => import('@/views/kungfu'),
         children: [
           {
             path: 'list',
+            pid: 4,
             component: () => import('@/views/kungfu/list'),
-            name: '题库'
+            name: '闯关题库',
+            title: '闯关题库'
           },
           {
             path: 'chaungguan',
             component: () => import('@/views/kungfu/chuangguan'),
             title: '闯关',
-            name: 'chuangguan'
+            name: 'chuangguan',
+            meta: {
+              showInBreadcrumb: false
+            }
           },
           // {
-          //   path: 'startExam/:id',
-          //   component: () => import('@/views/kungfu/startExam'),
-          //   name: '开始闯关',
+          //   path: 'idea',
+          //   title: 'idea',
+          //   name: '理想信念',
+          //   ind: '4-2',
+          //   pid: 4,
+          //   component: () => import('@/views/idea'),
           // },
           {
             path: 'result/:id',
             component: () => import('@/views/kungfu/result'),
-            name: '闯关结果'
+            name: '闯关结果',
+            meta: {
+              showInBreadcrumb: false
+            }
+          },
+          {
+            path: 'getQues',
+            title: '试题征集',
+            name: 'getQues',
+            ind: '4-4',
+            pid: 4,
+            component: () => import('@/views/getQues'),
+          },
+          {
+            path: 'experts',
+            title: '专家问诊',
+            name: 'experts',
+            ind: '4-5',
+            pid: 4,
+            component: () => import('@/views/experts'),
           }
+          // {
+          //   path: 'startExam/:id',
+          //   component: () => import('@/views/kungfu/startExam'),
+          //   name: '开始闯关',
+          // }
         ]
       },
-      // {
-      //   path: 'idea',
-      //   title: 'idea',
-      //   name: '理想信念',
-      //   ind: '4-2',
-      //   pid: 4,
-      //   component: () => import('@/views/idea'),
-      // },
       {
         path: 'exam',
         title: 'exam',
         name: '在线考试',
         ind: '4-3',
-        pid: 4,
+        // pid: 4,
         redirect: '/exam/list',
         component: () => import('@/views/liveExam'),
         children: [
@@ -348,30 +399,6 @@ export const constantRoutes = [
           },
         ]
       },
-      {
-        path: 'getQues',
-        title: 'getQues',
-        name: '试题征集',
-        ind: '4-4',
-        pid: 4,
-        component: () => import('@/views/getQues'),
-      },
-      {
-        path: 'experts',
-        title: 'experts',
-        name: '专家问诊',
-        ind: '4-5',
-        pid: 4,
-        component: () => import('@/views/experts'),
-      },
-      {
-        path: 'sports/:index?',
-        title: 'sports',
-        name: '运动专场',
-        ind: '5',
-        pid: 5,
-        component: () => import('@/views/sports'),
-      },
       // {
       //   name: '详情',
       //   path: 'details',
@@ -387,7 +414,7 @@ export const constantRoutes = [
       {
         name: '职代会详情',
         path: 'workDetails',
-        component: () => import('@/views/workDetails'),
+        component: () => import('@/views/workDetails')
       },
     ]
   },

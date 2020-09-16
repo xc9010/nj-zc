@@ -15,35 +15,44 @@
     <el-menu-item route="/" index="0">首页</el-menu-item>
     <el-submenu index="1">
       <template slot="title">通知公告</template>
-      <el-menu-item route="/news" index="1-1">工会要闻</el-menu-item>
-      <el-menu-item route="/policy" index="1-2">政策解读</el-menu-item>
-      <el-menu-item route="/email" index="1-3">主席信箱</el-menu-item>
+      <el-menu-item route="/notice/news" index="1-1">工会要闻</el-menu-item>
+      <el-menu-item route="/notice/policy" index="1-2">政策解读</el-menu-item>
+      <el-menu-item route="/notice/email" index="1-3">主席信箱</el-menu-item>
     </el-submenu>
     <el-submenu index="2">
       <template slot="title">职工之家</template>
-      <el-menu-item route="/member" index="2-1">我要入会</el-menu-item>
-      <el-menu-item route="/create" index="2-2">职工创新</el-menu-item>
+      <el-menu-item route="/worker/member" index="2-1">我要入会</el-menu-item>
+      <el-menu-item route="/worker/create" index="2-2">职工创新</el-menu-item>
       <!-- <el-menu-item route="/love" index="2-3">红娘牵线</el-menu-item> -->
-      <el-menu-item route="/service" index="2-4">普惠服务</el-menu-item>
-      <el-menu-item route="/union" index="2-5">工会风采</el-menu-item>
+      <el-menu-item route="/worker/service" index="2-4">普惠服务</el-menu-item>
+      <!-- <el-menu-item route="/union" index="2-5">工会风采</el-menu-item> -->
+      <el-menu-item route="/worker/sports" index="2-6">运动专场</el-menu-item>
     </el-submenu>
     <el-submenu index="3">
       <template slot="title">知识社区</template>
-      <el-menu-item route="/patentShow" index="3-1">专利展示</el-menu-item>
-      <el-menu-item route="/class" index="3-2">工匠讲堂</el-menu-item>
-      <el-menu-item route="/live" index="3-3">创新直播</el-menu-item>
-      <el-menu-item route="/worksMeeting" index="3-4">职代会</el-menu-item>
-      <el-menu-item route="/bigEvents" index="3-5">大事纪</el-menu-item>
+      <el-menu-item route="/knowledge/patentShow" index="3-1">专利展示</el-menu-item>
+      <el-menu-item route="/knowledge/class" index="3-2">工匠讲堂</el-menu-item>
+      <el-menu-item route="/knowledge/live" index="3-3">创新直播</el-menu-item>
+      <el-menu-item route="/knowledge/worksMeeting" index="3-4">职代会</el-menu-item>
+      <el-menu-item route="/knowledge/bigEvents" index="3-5">大事纪</el-menu-item>
     </el-submenu>
     <el-submenu index="4">
       <template slot="title">练兵比武</template>
-      <el-menu-item route="/kungfu" index="4-1">闯关练习</el-menu-item>
+      <el-menu-item route="/kungfu/list" index="4-1">闯关练习</el-menu-item>
       <!-- <el-menu-item route="/idea" index="4-2">理想信念</el-menu-item> -->
       <!-- <el-menu-item route="/exam" index="4-3">在线考试</el-menu-item> -->
-      <el-menu-item route="/getQues" index="4-4">试题征集</el-menu-item>
-      <el-menu-item route="/experts" index="4-5">专家问诊</el-menu-item>
+      <el-menu-item route="/kungfu/getQues" index="4-4">试题征集</el-menu-item>
+      <el-menu-item route="/kungfu/experts" index="4-5">专家问诊</el-menu-item>
     </el-submenu>
-    <el-menu-item route="/sports" index="5">运动专场</el-menu-item>
+    <el-submenu index="5">
+      <template slot="title">工会风采</template>
+      <!-- <el-menu-item route="/union" index="2-5">工会风采</el-menu-item> -->
+      <el-menu-item route="/union/workers" index="5-1">职工风采</el-menu-item>
+      <el-menu-item route="/union/model" index="5-2">劳模先进</el-menu-item>
+      <el-menu-item route="/union/craftsman" index="5-3">工匠评优</el-menu-item>
+      <el-menu-item route="/union/studio" index="5-4">创新工作室</el-menu-item>
+    </el-submenu>
+    <!-- <el-menu-item route="/sports" index="5">运动专场</el-menu-item> -->
   </el-menu>
     <!-- <el-col :span="8">
 
