@@ -36,6 +36,8 @@
     },
     data(){
       return{
+        editorOption: {},
+        content: '',
         data: [
           {
             name: '吴伟',

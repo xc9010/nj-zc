@@ -1,9 +1,9 @@
 <template>
   <div class="news-nav">
-    <nav-left :items="navItems" @callback="callback"/>
+    <nav-left :items="menuCreate" :activeIndex="activeIndex" @callback="callback"/>
     <div class="nav-content">
-        <div  v-for="(item, index) in operate" :key="index" @click="handleClick(item)">
-          <card-concert-nav :key="index" :data="item"/>
+        <div  v-for="(item, index) in advise" :key="index" @click="handleClick(item)">
+        <card-concert-nav :data="item"/>
         </div>
         <div style="text-align: center;  padding: 10px">
           <el-pagination
@@ -18,10 +18,10 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Card from '../../components/Card'
-  import navLeft from '../../components/news/navLeft'
-  import CardPic from '../../components/CardPic'
-  import cardConcertNav from '../../components/news/cardConcertNav'
+  import Card from '../../../components/Card'
+  import navLeft from '../../../components/news/navLeft'
+  import CardPic from '../../../components/CardPic'
+  import cardConcertNav from '../../../components/news/cardConcertNav'
 
 
   export default {
@@ -29,23 +29,7 @@
     components: { Card, CardPic, navLeft, cardConcertNav },
     data() {
       return {
-        navItems: [
-          {
-            name: '合理化建议',
-            code:'advise',
-            active: false
-          },
-          {
-            name: '先进操作法',
-            code:'operate',
-            active: true
-          },
-          {
-            name: '创新增效',
-            code:'innovate',
-            active: false
-          }
-        ],
+        activeIndex: 0,
         active: ['1', '2', '3', '4'],
         tabType: '0',
         advise: [
@@ -171,7 +155,8 @@
     },
     computed: {
       ...mapGetters([
-        'name'
+        'name',
+        'menuCreate'
       ])
     },
     methods: {
@@ -187,15 +172,9 @@
         const index = targetName.index;
         if(index) this.$router.replace({path: `/create/${index}`} || './')
       },
-      callback(item) {
-        this.listOption = this[`${item.code}`];
-        if(item.code === 'advise'){
-          this.$router.push('/create/advise')
-        }else if (item.code === 'operate'){
-          this.$router.push('/create/operate')
-        }else {
-          this.$router.push('/create/innovate')
-        }
+      callback(item, index) {
+        console.log(item)
+        this.$router.push(item.path, index)
       }
     }
   }

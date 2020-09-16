@@ -4,10 +4,10 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Card from '../../components/Card'
-  import navLeft from '../../components/news/navLeft'
-  import CardPic from '../../components/CardPic'
-  import cardConcertNav from '../../components/news/cardConcertNav'
+  import Card from '../../../components/Card'
+  import navLeft from '../../../components/news/navLeft'
+  import CardPic from '../../../components/CardPic'
+  import cardConcertNav from '../../../components/news/cardConcertNav'
 
 
   export default {

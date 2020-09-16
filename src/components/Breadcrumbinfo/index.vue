@@ -3,7 +3,10 @@
       <!--<div class="bread-crumb-info-item active">-->
         <!--工会要闻-->
       <!--</div>-->
-      <div v-for="i in tabs" :key="i.path" :class="['bread-crumb-info-item', {'active': act === i.path}]" @click="routerChange(i)">{{i.name}}</div>
+      <div v-for="(item, index) in tabs" :key="index" @click="routerChange(item)"
+      :class="['bread-crumb-info-item', {'active': activeRouteName === item.name}]">
+        {{item.title}}
+      </div>
     </div>
 </template>
 
@@ -14,45 +17,47 @@ export default {
     return {
       levelList: null,
       routes: [],
-      act: '',
+      // act: '',
       currentRoute: {},
-      tabs: []
+      tabs: [],
+      activeRouteName: ''
     }
   },
   watch: {
     $route(tab) {
       this.getCurrentRoutes()
       this.getCurrentTabs()
-      this.checkItem(this.currentRoute)
+      // this.checkItem(this.currentRoute)
     }
   },
   created() {
     this.getCurrentRoutes()
-    this.checkItem(this.currentRoute)
+    // this.checkItem(this.currentRoute)
   },
   methods: {
     routerChange(item) {
+      console.log(item)
       const { redirect, path, name } = item
-      this.checkItem(item)
+      // this.checkItem(item)
       if (redirect) {
         this.$router.push(redirect)
         return
       }
       this.$router.push({
-        name: name
+        name: item.name
       })
     },
-    checkItem(item) {
-      console.log(item)
-      let cur = item.path.replace('/', '').split('/')[0]
+    // checkItem(item) {
+    //   let cur = item.path.replace('/', '').split('/')[0]
+    //   console.log('面包屑 checkItem', item, cur)
 
-      this.act = cur
-      console.log(cur)
-    },
+    //   this.act = cur
+    //   console.log(cur)
+    // },
     // 获取当前路由
     getCurrentRoutes() {
       this.currentRoute = this.$router.currentRoute
-      this.routes = this.$router.options.routes && this.$router.options.routes[2] && this.$router.options.routes[2].children;
+      this.routes = this.$router.options.routes && this.$router.options.routes[2] && this.$router.options.routes[2].children
       this.getCurrentTabs()
     },
     // 获取当前标签切
@@ -60,13 +65,18 @@ export default {
       // console.log(this.routes)
       // console.log(this.currentRoute)
       // let cur = this.currentRoute.path.replace('/', '')
-      let cur = this.currentRoute.path.replace('/', '').split('/')[0]
-      let pid = this.routes.find(v => v.path === cur) && this.routes.find(v => v.path === cur).pid
-      let currentTabs = []
-      if (pid && pid !== 5) {
-        currentTabs = this.routes.filter(v => v.pid === pid)
+      // let cur = this.currentRoute.path.replace('/', '').split('/')[0]
+
+      // matched 值参考：["", "worker", "member"]
+      const node = this.routes.find(v => v.name === this.currentRoute.matched[1].name)
+      if (node && node.children) {
+        this.tabs = node.children.filter(m => !m.meta || (m.meta && m.meta.showInBreadcrumb))
       }
-      this.tabs = currentTabs
+      if (this.currentRoute.matched.length > 2) {
+        this.activeRouteName = this.currentRoute.matched[2].name
+      }
+      // console.log('左侧当行参考1111111', this.currentRoute, this.routes, node)
+      // console.log('左侧当行参考2222222', this.tabs, this.activeRouteName)
     },
 
     handleLink(item) {

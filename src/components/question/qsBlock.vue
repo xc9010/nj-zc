@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="type-body">
-      <div class="type-item" v-for="(item, i) in list" :key="i">
+      <div class="type-item" v-for="(item, i) in list" :key="i" @click="handleClick(item)">
           <div class="type-icon img-wrapper">
             <!-- <img class="img-wrapper" :src="require('@/assets/images/icon/question/03.png')" /> -->
             <img class="img-wrapper" :src="item.icon">
@@ -33,44 +33,47 @@
 
 <script>
 
-  export default {
-    props: {
-      bgColor: {
-        type: String,
-        default: '#e45935'
-      },
-      typeImg: {
-        type: Object,
-        default: function() {
-          return require('@/assets/images/icon/trophy.png')
-        }
-      },
-      title: {
-        type: String,
-        default: '题库'
-      },
-      list: {
-        type: Array,
-        default: function() {
-          return []
-        }
+export default {
+  props: {
+    bgColor: {
+      type: String,
+      default: '#e45935'
+    },
+    typeImg: {
+      type: String,
+      default: function() {
+        return require('@/assets/images/icon/trophy.png')
       }
     },
-    data() {
+    title: {
+      type: String,
+      default: '题库'
+    },
+    list: {
+      type: Array,
+      default: function() {
+        return []
+      }
+    }
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    classObject: function () {
       return {
+        active: this.isActive && !this.error,
+        'text-danger': this.error && this.error.type === 'fatal'
       }
-    },
-    computed: {
-      classObject: function () {
-        return {
-          active: this.isActive && !this.error,
-          'text-danger': this.error && this.error.type === 'fatal'
-        }
-      }
-    },
-    methods: {
+    }
+  },
+  methods: {
+    handleClick(item) {
+      this.$emit('handleClick', item)
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

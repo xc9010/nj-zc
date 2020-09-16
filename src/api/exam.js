@@ -1,4 +1,12 @@
 import { post } from '@/utils/request'
+import { get } from '@/utils/request'
+
+export function login(data) {
+  return post('/sys/user/login', {
+    'username': 'student',
+    'password': 123456
+  })
+}
 
 /**
  * 题库详情
@@ -75,21 +83,28 @@ export function training(data) {
 /**
  * 获取闯关题库
  */
-export function getQuBank(data) {
-  return request({
-    url: '/exam/api/qu/repo/paging',
-    method: 'post',
-    data: data
+export function getQuBank() {
+  return post('/qu/repo/paging', {
+    'current': 1,
+    'size': 50,
+    'params': { 'title': '' },
+    't': 1599801763827
   })
+  // return request({
+  //   url: '/exam/api/qu/repo/paging',
+  //   method: 'post',
+  //   data: data
+  // })
 }
 
 /**
  * 获取闯关的题目
  */
 export function getExercise(data) {
-  return request({
-    url: '/exam/api/exercises/exercises/exercises',
-    method: 'get',
-    params: data
-  })
+  return get('/exercises/exercises/exercises', data)
+  // return request({
+  //   url: '/exam/api/exercises/exercises/exercises',
+  //   method: 'get',
+  //   params: data
+  // })
 }

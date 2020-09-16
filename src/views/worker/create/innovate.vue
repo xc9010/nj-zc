@@ -1,6 +1,7 @@
 <template>
   <div class="news-nav">
-    <nav-left :items="navItems" @callback="callback"/>
+    <!-- <nav-left :items="navItems" @callback="callback"/> -->
+    <nav-left :items="menuCreate" :activeIndex="activeIndex" @callback="callback"/>
     <div class="nav-content">
       <div class="studio-wrapper">
         <div class="studio-info" v-for="(item, index) in innovate" :key="index" :data="item"  @click="handleClick(item)">
@@ -30,10 +31,10 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Card from '../../components/Card'
-  import navLeft from '../../components/news/navLeft'
-  import CardPic from '../../components/CardPic'
-  import cardConcertNav from '../../components/news/cardConcertNav'
+  import Card from '../../../components/Card'
+  import navLeft from '../../../components/news/navLeft'
+  import CardPic from '../../../components/CardPic'
+  import cardConcertNav from '../../../components/news/cardConcertNav'
 
 
   export default {
@@ -41,6 +42,7 @@
     components: { Card, CardPic, navLeft, cardConcertNav },
     data() {
       return {
+        activeIndex: 2,
         active: ['1', '2', '3', '4'],
         tabType: '0',
         navItems: [
@@ -108,7 +110,8 @@
     },
     computed: {
       ...mapGetters([
-        'name'
+        'name',
+        'menuCreate'
       ])
     },
     methods: {
@@ -124,15 +127,19 @@
         const index = targetName.index;
         if(index) this.$router.replace({path: `/create/${index}`} || './')
       },
-      callback(item) {
-        this.listOption = this[`${item.code}`];
-        if(item.code === 'advise'){
-          this.$router.push('/create/advise')
-        }else if (item.code === 'operate'){
-          this.$router.push('/create/operate')
-        }else {
-          this.$router.push('/create/innovate')
-        }
+      // callback(item) {
+      //   this.listOption = this[`${item.code}`];
+      //   if(item.code === 'advise'){
+      //     this.$router.push('/create/advise')
+      //   }else if (item.code === 'operate'){
+      //     this.$router.push('/create/operate')
+      //   }else {
+      //     this.$router.push('/create/innovate')
+      //   }
+      // },
+      callback(item, index) {
+        console.log(item)
+        this.$router.push(item.path, index)
       }
     }
   }

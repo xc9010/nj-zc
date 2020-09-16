@@ -28,7 +28,10 @@ instance.interceptors.request.use(
     if (store.getters.token) {
       config.headers['token'] = '30VGxu9tWgZqFoUVq6CkpE3bqssRwpQy'
     }
-    config.headers['token'] = '30VGxu9tWgZqFoUVq6CkpE3bqssRwpQy'
+    const token = localStorage.getItem('token')
+    if (token) {
+      config.headers['token'] = token
+    }
     return config
   },
   error => {
