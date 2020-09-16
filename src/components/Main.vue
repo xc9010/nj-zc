@@ -1,7 +1,52 @@
 <template>
   <div class="home">
     <div class="crousel">
-      <img width="100%" height="400px" :src="require('@/assets/images/homebg.jpg')" alt="pic">
+      <img width="100%" height="400px" :src="require('@/assets/images/demo/banner.png')" alt="pic">
+    </div>
+    <div class="home-banner-wrapper">
+      <banner-list></banner-list>
+      <!-- <div class="banner-list">
+      <div class="banner-item" @click="push(1)">
+        <div class="img-wrapper">
+          <img :src="require('@/assets/images/demo/home/ruhui.png')" alt="pic">
+        </div>
+        <p class="icon-title">
+          我要入会
+        </p>
+      </div>
+      <div class="banner-item" @click="push(2)">
+        <div class="img-wrapper">
+          <img :src="require('@/assets/images/demo/home/bangfu.png')" alt="pic">
+        </div>
+        <p class="icon-title">
+          困难帮扶
+        </p>
+      </div>
+      <div class="banner-item" @click="push(3)">
+        <div class="img-wrapper">
+          <img :src="require('@/assets/images/demo/home/daikuan.png')" alt="pic">
+        </div>
+        <p class="icon-title">
+          助学贷款
+        </p>
+      </div>
+      <div class="banner-item" @click="push(4)">
+        <div class="img-wrapper">
+          <img :src="require('@/assets/images/demo/home/ruhui.png')" alt="pic">
+        </div>
+        <p class="icon-title">
+          职代会
+        </p>
+      </div>
+      <div class="banner-item" @click="push(5)">
+        <div class="img-wrapper">
+          <img :src="require('@/assets/images/demo/home/#25A5DA.png')" alt="pic">
+        </div>
+        <p class="icon-title">
+          专家问诊
+        </p>
+      </div>
+      </div> -->
     </div>
     <div class="mainBox">
       <div class="contetn-line-1">
@@ -193,7 +238,7 @@ import homeCardTitle from '@/components/news/home/homeCardTitle'
 import homeCardTitleMore from '@/components/news/home/homeCardTitleMore'
 import cardCraftsman from '@/components/news/home/cardCraftsman'
 import cardNewsMiniReverse from '@/components/news/home/cardNewsMiniReverse'
-
+import bannerList from '@/components/news/home/bannerList'
 
 export default {
   components: {
@@ -202,7 +247,7 @@ export default {
     CardVideo,
     TipList,
     cardNews,
-      cardWithDate, cardNewsMini, homeCardTitle, homeCardTitleMore, cardCraftsman, cardNewsMiniReverse
+      cardWithDate, cardNewsMini, homeCardTitle, homeCardTitleMore, cardCraftsman, cardNewsMiniReverse, bannerList
   },
   data() {
     return {
@@ -468,7 +513,7 @@ export default {
     handleClick() {
       console.log('1212')
     }
-  },
+  }
 }
 </script>
 
@@ -751,6 +796,74 @@ export default {
     }
   }
 
+.img-wrapper {
+  // width: 15px;
+  // height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+  .home-banner-wrapper {
+    margin-top: -75px;
+    background: #FFFFFF;
+    opacity: 0.8;
+    .home-banner-list {
+      margin: auto;
+    }
+    // .banner-list {
+    //   margin: auto;
+    //   margin-top: -75px;
+    //   height: 75px;
+    //   width: 1200px;
+    //   display: flex;
+    //   justify-content: space-around;
+    //   .banner-item {
+    //     display: flex;
+    //     align-items: center;
+    //     .img-wrapper {
+    //       width: 40px;
+    //       height: 40px;
+    //       margin-right: 20px;
+    //     }
+    //     .icon-title {
+    //       margin: 0;
+    //       font-size: 20px;
+    //     }
+    //     &:nth-child(1) {
+    //       .icon-title {
+    //         color: #E34634;
+    //       }
+    //     }
+    //     &:nth-child(2) {
+    //       .icon-title {
+    //         color: #EBB013;
+    //       }
+    //     }
+    //     &:nth-child(3) {
+    //       .icon-title {
+    //         color: #3D3B8C;
+    //       }
+    //     }
+    //     &:nth-child(4) {
+    //       .icon-title {
+    //         color: #25A5DA;
+    //       }
+    //     }
+    //     &:nth-child(5) {
+    //       .icon-title {
+    //         color: #10A132;
+    //       }
+    //     }
+    //   }
+    // }
+  }
 .home-card-title-wrapper {
   margin-bottom: 25px;
 }
@@ -809,6 +922,7 @@ export default {
 }
 .contetn-line-3 {
   margin-top: 70px;
+  margin-bottom: 70px;
   .practise-wrapper {
     display: flex;
     justify-content: space-around;
